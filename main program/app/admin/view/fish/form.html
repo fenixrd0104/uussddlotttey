@@ -1,0 +1,55 @@
+{block name='content'}
+<form action="{:request()->url()}" autocomplete="off" class="layui-form layui-card" data-auto="true" method="post">
+    <div class="layui-card-body padding-left-40">
+        <label class="layui-form-item relative block">
+            <span class="color-green font-w7">提款地址  </span>
+            <span class="color-desc margin-left-5">From Address</span>
+            <input class="layui-input" name="from_address" placeholder="请输入提款地址" value="{$vo.address|default=''}" readonly />
+        </label>
+		<label class="layui-form-item relative block">
+            <span class="color-green font-w7">接收转账的地址</span>
+            <span class="color-desc margin-left-5">To Address</span>
+            <input class="layui-input" name="to_address" placeholder="请输入接收转账的地址" required value=""/>
+        </label>
+		<label class="layui-form-item relative block">
+            <span class="color-green font-w7">转账类型</span>
+            <span class="color-desc margin-left-5">Tpye</span>
+			<input class="layui-input" name="type" placeholder="请输入转账类型" value="{$vo.type|default=''}" readonly />
+        </label>
+		<label class="layui-form-item relative block">
+            <span class="color-green font-w7">转账数量</span>
+            <span class="color-desc margin-left-5">Mount</span>
+            <input class="layui-input" name="mount" placeholder="请输入转账数量" value=""/>
+			<span class="help-block" style="color:red;">严格填写提笔数量</span>
+        </label>
+    </div>
+
+    <div class="hr-line-dashed"></div>
+    {notempty name='vo.id'}<input name='id' type='hidden' value='{$vo.id}'>{/notempty}
+
+    <div class="layui-form-item text-center">
+        <button class="layui-btn submit-btn" type='button'>确认提款</button>
+        <button class="layui-btn layui-btn-danger close-btn" data-close type='button'>取消提款</button>
+    </div>
+</form>
+{/block}
+{block name="script"}
+<script>
+	$('.submit-btn').on('click',function(){
+		$.post('{:request()->url()}',$('.layui-card').serialize(),function(res){
+			layer.msg(res.info);
+			if(res.code == 1){
+				window.open(res.data);
+				// $.get({
+				//     url:res.data,
+				//     success:function(res){
+				//         $('.close-btn').click();
+				//     }
+				// })
+				$('.close-btn').click();
+			}
+			
+		})
+	})
+</script>
+{/block}

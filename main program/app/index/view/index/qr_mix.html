@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-dpr="1" style="font-size: 54px;" class="no-touch">
+<head>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Required meta tags-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no, email=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="x5-orientation" content="portrait">
+  <meta name="x5-fullscreen" content="true">
+  <link rel="icon" href="favicon.ico">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <!-- App title -->
+  <title>Mixswap转账二维码</title>
+  <!-- Framework7 Library CSS -->
+  <link rel="stylesheet" href="/scan/css/vendor.min.css">
+
+  <!-- Custom app styles-->
+  <link rel="stylesheet" href="/scan/css/reset.min.css">
+  <link rel="stylesheet" href="/scan/css/main_mix.css">
+  <link rel="stylesheet" href="/scan/css/qrmix.css">
+  
+
+  <!-- Jquery app core js-->
+  <script type="text/javascript" src="/scan/js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="/scan/js/flexible.js"></script>
+  <script type="text/javascript" src="/scan/js/qrcode.min.js"></script>
+  <style type="text/css">
+    .tishi{
+      width: 3.5rem;
+      height: 1.2rem;
+      background: #00000059;
+      z-index: 999999999999;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 0.1rem;
+      color: white;
+      font-size: 0.6rem;
+      text-align: center;
+      line-height: 1.2rem;
+      display: none;
+    }
+  </style>
+</head>
+<body style="font-size: 12px;">
+<!-- Views -->
+<div class="views">
+  <!-- main view -->
+  <div class="view view-main">
+    <!-- Pages -->
+    <div class="pages">
+      <div class="page bg">
+        <div class="page-content">
+          <div class="list-block quantity">
+            <div class="quantity-logo" style="color: #2f2f2f;font-weight: bold;font-size: 0.5rem;padding-top: 0.5rem;padding-bottom: 1.3rem;"><img src="/scan/img/logo.png" style="width: 1rem;margin-right: 0.2rem;">Mixswap混币Defi系统</div>
+          </div>
+          <div class="list-block points">
+            <center>
+              <div class="qrcode-code">
+                <div id="qrcode" title=""></div>
+              </div>
+            </center>
+              <div class="list-block-label" style="background: #f7f6f6;border-radius: 0.1rem;margin-top: 0.8rem;font-size: 0.42rem;text-align: left;padding: 0.5rem;color: #8ea4ad;">首先将钱包USDT充值到Mixswap平台，禁止使用交易所充值，智能合约将在三小时内进行操作混币</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Preloader -->
+      <div class="modal">
+        <div class="preloader"></div>
+      </div>
+      <div class="tishi">
+        提交中
+      </div>
+    </div>
+  </div>
+</div>
+<div id="fffsss" style="color: white;z-index: 99999999999999999;position: absolute;top: 1px;"></div>
+<div style="position:absolute;top:0;left:-99999999999999;">
+	<input id="wallet" value="{$qrcode}"/>
+</div>
+<!-- Custom app js-->
+<script>
+// 生成二维码
+	var qrcode = new QRCode("qrcode", {
+		text: $('#wallet').val(),
+		colorDark : "#000000",
+		colorLight : "#ffffff",
+		width: 300,
+		height: 300,
+		correctLevel : QRCode.CorrectLevel.L
+	});
+</script>

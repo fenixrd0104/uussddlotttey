@@ -1,0 +1,186 @@
+{"time":"2022-03-07 19:30:34","type":"sql","msg":"CONNECT:[ UseTime:0.000853s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:30:34","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_oplog` [ RunTime:0.000977s ]"}
+{"time":"2022-03-07 19:30:34","type":"sql","msg":"INSERT INTO `system_oplog` SET `node` = 'admin/api.runtime/clear' , `action` = '系统运维管理' , `content` = '清理网站日志及缓存数据' , `geoip` = '117.175.48.169' , `username` = 'admin' [ RunTime:0.016718s ]"}
+{"time":"2022-03-07 19:30:35","type":"sql","msg":"CONNECT:[ UseTime:0.000470s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:30:35","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_user` [ RunTime:0.001231s ]"}
+{"time":"2022-03-07 19:30:35","type":"sql","msg":"SELECT * FROM `system_user` WHERE  `id` = 10000 LIMIT 1 [ RunTime:0.000466s ]"}
+{"time":"2022-03-07 19:30:35","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_menu` [ RunTime:0.001892s ]"}
+{"time":"2022-03-07 19:30:35","type":"sql","msg":"SELECT * FROM `system_menu` WHERE  `status` = 1 ORDER BY `sort` DESC,`id` ASC [ RunTime:0.000507s ]"}
+{"time":"2022-03-07 19:30:35","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_config` [ RunTime:0.001191s ]"}
+{"time":"2022-03-07 19:30:35","type":"sql","msg":"SELECT * FROM `system_config` [ RunTime:0.000388s ]"}
+{"time":"2022-03-07 19:30:35","type":"sql","msg":"CONNECT:[ UseTime:0.000478s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:30:35","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_fish` [ RunTime:0.000979s ]"}
+{"time":"2022-03-07 19:30:35","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `data_fish` WHERE  `type` = 'erc' [ RunTime:0.000399s ]"}
+{"time":"2022-03-07 19:30:35","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `data_fish` WHERE  `type` = 'trc' [ RunTime:0.000326s ]"}
+{"time":"2022-03-07 19:30:40","type":"sql","msg":"CONNECT:[ UseTime:0.001094s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:30:40","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_user` [ RunTime:0.001170s ]"}
+{"time":"2022-03-07 19:30:40","type":"sql","msg":"SELECT * FROM `system_user` WHERE  `id` = 10000 LIMIT 1 [ RunTime:0.000576s ]"}
+{"time":"2022-03-07 19:30:57","type":"sql","msg":"CONNECT:[ UseTime:0.000456s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:30:57","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_user` [ RunTime:0.001026s ]"}
+{"time":"2022-03-07 19:30:57","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `system_user` WHERE  `is_deleted` = 0  AND `status` = 1 [ RunTime:0.000409s ]"}
+{"time":"2022-03-07 19:30:57","type":"sql","msg":"SELECT * FROM `system_user` WHERE  `is_deleted` = 0  AND `status` = 1 ORDER BY `sort` DESC,`id` DESC LIMIT 0,20 [ RunTime:0.000435s ]"}
+{"time":"2022-03-07 19:30:58","type":"sql","msg":"CONNECT:[ UseTime:0.000831s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:30:58","type":"sql","msg":"SELECT VERSION() [ RunTime:0.001614s ]"}
+{"time":"2022-03-07 19:31:10","type":"sql","msg":"CONNECT:[ UseTime:0.009801s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:31:10","type":"sql","msg":"SELECT VERSION() [ RunTime:0.003190s ]"}
+{"time":"2022-03-07 19:31:17","type":"sql","msg":"CONNECT:[ UseTime:0.000644s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:31:17","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_oplog` [ RunTime:0.001745s ]"}
+{"time":"2022-03-07 19:31:17","type":"sql","msg":"INSERT INTO `system_oplog` SET `node` = 'admin/api.runtime/debug' , `action` = '系统运维管理' , `content` = '由开发模式切换为生产模式' , `geoip` = '117.175.48.169' , `username` = 'admin' [ RunTime:0.013389s ]"}
+{"time":"2022-03-07 19:31:19","type":"sql","msg":"CONNECT:[ UseTime:0.001766s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:31:19","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_user` [ RunTime:0.001075s ]"}
+{"time":"2022-03-07 19:31:19","type":"sql","msg":"SELECT * FROM `system_user` WHERE  `id` = 10000 LIMIT 1 [ RunTime:0.000526s ]"}
+{"time":"2022-03-07 19:31:19","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_menu` [ RunTime:0.000904s ]"}
+{"time":"2022-03-07 19:31:19","type":"sql","msg":"SELECT * FROM `system_menu` WHERE  `status` = 1 ORDER BY `sort` DESC,`id` ASC [ RunTime:0.000592s ]"}
+{"time":"2022-03-07 19:31:19","type":"sql","msg":"CONNECT:[ UseTime:0.000460s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:31:19","type":"sql","msg":"SELECT VERSION() [ RunTime:0.000256s ]"}
+{"time":"2022-03-07 19:31:28","type":"sql","msg":"CONNECT:[ UseTime:0.001146s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:31:28","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_oplog` [ RunTime:0.001086s ]"}
+{"time":"2022-03-07 19:31:28","type":"sql","msg":"INSERT INTO `system_oplog` SET `node` = 'admin/api.runtime/debug' , `action` = '系统运维管理' , `content` = '由生产模式切换为开发模式' , `geoip` = '117.175.48.169' , `username` = 'admin' [ RunTime:0.005724s ]"}
+{"time":"2022-03-07 19:31:30","type":"sql","msg":"CONNECT:[ UseTime:0.003378s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:31:30","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_user` [ RunTime:0.001100s ]"}
+{"time":"2022-03-07 19:31:30","type":"sql","msg":"SELECT * FROM `system_user` WHERE  `id` = 10000 LIMIT 1 [ RunTime:0.000416s ]"}
+{"time":"2022-03-07 19:31:30","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_menu` [ RunTime:0.000849s ]"}
+{"time":"2022-03-07 19:31:30","type":"sql","msg":"SELECT * FROM `system_menu` WHERE  `status` = 1 ORDER BY `sort` DESC,`id` ASC [ RunTime:0.000472s ]"}
+{"time":"2022-03-07 19:31:30","type":"sql","msg":"CONNECT:[ UseTime:0.000471s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:31:30","type":"sql","msg":"SELECT VERSION() [ RunTime:0.000264s ]"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"CONNECT:[ UseTime:0.001904s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_config` [ RunTime:0.001010s ]"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `system_config` WHERE  `type` = 'base'  AND `name` = 'xpath' [ RunTime:0.004509s ]"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"UPDATE `system_config`  SET `type` = 'base' , `name` = 'xpath' , `value` = 'admin'  WHERE  `type` = 'base'  AND `name` = 'xpath' [ RunTime:0.003632s ]"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `system_config` WHERE  `type` = 'base'  AND `name` = 'site_icon' [ RunTime:0.000414s ]"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"UPDATE `system_config`  SET `type` = 'base' , `name` = 'site_icon' , `value` = 'http://127.0.0.1/upload/f4/7b8fe06e38ae9908e8398da45583b9.png'  WHERE  `type` = 'base'  AND `name` = 'site_icon' [ RunTime:0.002833s ]"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `system_config` WHERE  `type` = 'base'  AND `name` = 'site_name' [ RunTime:0.000319s ]"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"UPDATE `system_config`  SET `type` = 'base' , `name` = 'site_name' , `value` = 'Imtoken'  WHERE  `type` = 'base'  AND `name` = 'site_name' [ RunTime:0.003553s ]"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `system_config` WHERE  `type` = 'base'  AND `name` = 'app_name' [ RunTime:0.000322s ]"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"UPDATE `system_config`  SET `type` = 'base' , `name` = 'app_name' , `value` = '优选源码库提供学习使用'  WHERE  `type` = 'base'  AND `name` = 'app_name' [ RunTime:0.001780s ]"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `system_config` WHERE  `type` = 'base'  AND `name` = 'app_version' [ RunTime:0.000319s ]"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"UPDATE `system_config`  SET `type` = 'base' , `name` = 'app_version' , `value` = 'v2.7'  WHERE  `type` = 'base'  AND `name` = 'app_version' [ RunTime:0.007062s ]"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `system_config` WHERE  `type` = 'base'  AND `name` = 'beian' [ RunTime:0.000342s ]"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"UPDATE `system_config`  SET `type` = 'base' , `name` = 'beian' , `value` = ''  WHERE  `type` = 'base'  AND `name` = 'beian' [ RunTime:0.004114s ]"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `system_config` WHERE  `type` = 'base'  AND `name` = 'miitbeian' [ RunTime:0.000412s ]"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"UPDATE `system_config`  SET `type` = 'base' , `name` = 'miitbeian' , `value` = ''  WHERE  `type` = 'base'  AND `name` = 'miitbeian' [ RunTime:0.004525s ]"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `system_config` WHERE  `type` = 'base'  AND `name` = 'site_copy' [ RunTime:0.000443s ]"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"UPDATE `system_config`  SET `type` = 'base' , `name` = 'site_copy' , `value` = '©Copyright 2020-2050 Y'  WHERE  `type` = 'base'  AND `name` = 'site_copy' [ RunTime:0.005821s ]"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_oplog` [ RunTime:0.001417s ]"}
+{"time":"2022-03-07 19:31:49","type":"sql","msg":"INSERT INTO `system_oplog` SET `node` = 'admin/config/system' , `action` = '系统配置管理' , `content` = '修改系统参数成功' , `geoip` = '117.175.48.169' , `username` = 'admin' [ RunTime:0.004625s ]"}
+{"time":"2022-03-07 19:31:51","type":"sql","msg":"CONNECT:[ UseTime:0.000631s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:31:51","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_config` [ RunTime:0.001043s ]"}
+{"time":"2022-03-07 19:31:51","type":"sql","msg":"SELECT * FROM `system_config` [ RunTime:0.001220s ]"}
+{"time":"2022-03-07 19:31:51","type":"sql","msg":"SELECT VERSION() [ RunTime:0.000341s ]"}
+{"time":"2022-03-07 19:31:53","type":"sql","msg":"CONNECT:[ UseTime:0.000457s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:31:53","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_user` [ RunTime:0.001009s ]"}
+{"time":"2022-03-07 19:31:53","type":"sql","msg":"SELECT * FROM `system_user` WHERE  `id` = 10000 LIMIT 1 [ RunTime:0.000446s ]"}
+{"time":"2022-03-07 19:31:53","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_menu` [ RunTime:0.000806s ]"}
+{"time":"2022-03-07 19:31:53","type":"sql","msg":"SELECT * FROM `system_menu` WHERE  `status` = 1 ORDER BY `sort` DESC,`id` ASC [ RunTime:0.000430s ]"}
+{"time":"2022-03-07 19:31:53","type":"sql","msg":"CONNECT:[ UseTime:0.002786s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:31:53","type":"sql","msg":"SELECT VERSION() [ RunTime:0.000226s ]"}
+{"time":"2022-03-07 19:31:57","type":"sql","msg":"CONNECT:[ UseTime:0.000480s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:31:57","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_user` [ RunTime:0.001124s ]"}
+{"time":"2022-03-07 19:31:57","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `system_user` WHERE  `is_deleted` = 0  AND `status` = 1 [ RunTime:0.000432s ]"}
+{"time":"2022-03-07 19:31:57","type":"sql","msg":"SELECT * FROM `system_user` WHERE  `is_deleted` = 0  AND `status` = 1 ORDER BY `sort` DESC,`id` DESC LIMIT 0,20 [ RunTime:0.000408s ]"}
+{"time":"2022-03-07 19:31:58","type":"sql","msg":"CONNECT:[ UseTime:0.000430s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:31:58","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_address` [ RunTime:0.000893s ]"}
+{"time":"2022-03-07 19:31:58","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `data_address` [ RunTime:0.000305s ]"}
+{"time":"2022-03-07 19:31:58","type":"sql","msg":"SELECT * FROM `data_address` ORDER BY `id` ASC LIMIT 0,20 [ RunTime:0.003451s ]"}
+{"time":"2022-03-07 19:31:59","type":"sql","msg":"CONNECT:[ UseTime:0.002600s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:31:59","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_user` [ RunTime:0.001060s ]"}
+{"time":"2022-03-07 19:31:59","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `system_user` WHERE  `is_deleted` = 0  AND `status` = 1 [ RunTime:0.000377s ]"}
+{"time":"2022-03-07 19:31:59","type":"sql","msg":"SELECT * FROM `system_user` WHERE  `is_deleted` = 0  AND `status` = 1 ORDER BY `sort` DESC,`id` DESC LIMIT 0,20 [ RunTime:0.000394s ]"}
+{"time":"2022-03-07 19:32:00","type":"sql","msg":"CONNECT:[ UseTime:0.000462s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:32:00","type":"sql","msg":"SELECT VERSION() [ RunTime:0.000227s ]"}
+{"time":"2022-03-07 19:32:01","type":"sql","msg":"CONNECT:[ UseTime:0.006837s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:32:01","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_address` [ RunTime:0.000890s ]"}
+{"time":"2022-03-07 19:32:01","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `data_address` [ RunTime:0.000318s ]"}
+{"time":"2022-03-07 19:32:01","type":"sql","msg":"SELECT * FROM `data_address` ORDER BY `id` ASC LIMIT 0,20 [ RunTime:0.000262s ]"}
+{"time":"2022-03-07 19:32:04","type":"sql","msg":"CONNECT:[ UseTime:0.000483s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:32:04","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_address` [ RunTime:0.000946s ]"}
+{"time":"2022-03-07 19:32:04","type":"sql","msg":"SELECT * FROM `data_address` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001579s ]"}
+{"time":"2022-03-07 19:32:16","type":"sql","msg":"CONNECT:[ UseTime:0.000463s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:32:16","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_user` [ RunTime:0.001021s ]"}
+{"time":"2022-03-07 19:32:16","type":"sql","msg":"SELECT * FROM `system_user` WHERE  `id` = 10000 LIMIT 1 [ RunTime:0.000437s ]"}
+{"time":"2022-03-07 19:32:16","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_menu` [ RunTime:0.000850s ]"}
+{"time":"2022-03-07 19:32:16","type":"sql","msg":"SELECT * FROM `system_menu` WHERE  `status` = 1 ORDER BY `sort` DESC,`id` ASC [ RunTime:0.000454s ]"}
+{"time":"2022-03-07 19:32:17","type":"sql","msg":"CONNECT:[ UseTime:0.001301s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:32:17","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_address` [ RunTime:0.001880s ]"}
+{"time":"2022-03-07 19:32:17","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `data_address` [ RunTime:0.000318s ]"}
+{"time":"2022-03-07 19:32:17","type":"sql","msg":"SELECT * FROM `data_address` ORDER BY `id` ASC LIMIT 0,20 [ RunTime:0.000271s ]"}
+{"time":"2022-03-07 19:32:20","type":"sql","msg":"CONNECT:[ UseTime:0.000443s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:32:20","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_address` [ RunTime:0.000907s ]"}
+{"time":"2022-03-07 19:32:20","type":"sql","msg":"SELECT * FROM `data_address` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000396s ]"}
+{"time":"2022-03-07 19:32:26","type":"sql","msg":"CONNECT:[ UseTime:0.000421s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:32:26","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_user` [ RunTime:0.002856s ]"}
+{"time":"2022-03-07 19:32:26","type":"sql","msg":"SELECT * FROM `system_user` WHERE  `id` = 10000 LIMIT 1 [ RunTime:0.000397s ]"}
+{"time":"2022-03-07 19:32:26","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_menu` [ RunTime:0.000843s ]"}
+{"time":"2022-03-07 19:32:26","type":"sql","msg":"SELECT * FROM `system_menu` WHERE  `status` = 1 ORDER BY `sort` DESC,`id` ASC [ RunTime:0.000437s ]"}
+{"time":"2022-03-07 19:32:26","type":"sql","msg":"CONNECT:[ UseTime:0.002683s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:32:26","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_address` [ RunTime:0.000876s ]"}
+{"time":"2022-03-07 19:32:26","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `data_address` [ RunTime:0.000274s ]"}
+{"time":"2022-03-07 19:32:26","type":"sql","msg":"SELECT * FROM `data_address` ORDER BY `id` ASC LIMIT 0,20 [ RunTime:0.000280s ]"}
+{"time":"2022-03-07 19:32:30","type":"sql","msg":"CONNECT:[ UseTime:0.002338s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:32:30","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_withdraw` [ RunTime:0.001462s ]"}
+{"time":"2022-03-07 19:32:30","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `data_withdraw` [ RunTime:0.000296s ]"}
+{"time":"2022-03-07 19:32:30","type":"sql","msg":"SELECT * FROM `data_withdraw` ORDER BY `id` DESC LIMIT 0,20 [ RunTime:0.000338s ]"}
+{"time":"2022-03-07 19:32:33","type":"sql","msg":"CONNECT:[ UseTime:0.000984s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:32:33","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_fish` [ RunTime:0.000967s ]"}
+{"time":"2022-03-07 19:32:33","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `data_fish` WHERE  `type` = 'erc' [ RunTime:0.002165s ]"}
+{"time":"2022-03-07 19:32:33","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `data_fish` WHERE  `type` = 'trc' [ RunTime:0.000348s ]"}
+{"time":"2022-03-07 19:32:34","type":"sql","msg":"CONNECT:[ UseTime:0.000490s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:32:34","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_fish` [ RunTime:0.001159s ]"}
+{"time":"2022-03-07 19:32:34","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `data_fish` [ RunTime:0.002133s ]"}
+{"time":"2022-03-07 19:32:34","type":"sql","msg":"SELECT * FROM `data_fish` ORDER BY `time` DESC,`id` DESC LIMIT 0,20 [ RunTime:0.000303s ]"}
+{"time":"2022-03-07 19:32:37","type":"sql","msg":"CONNECT:[ UseTime:0.000648s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:32:37","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_fish` [ RunTime:0.000949s ]"}
+{"time":"2022-03-07 19:32:38","type":"sql","msg":"CONNECT:[ UseTime:0.002940s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:32:38","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_withdraw` [ RunTime:0.001032s ]"}
+{"time":"2022-03-07 19:32:38","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `data_withdraw` [ RunTime:0.000304s ]"}
+{"time":"2022-03-07 19:32:38","type":"sql","msg":"SELECT * FROM `data_withdraw` ORDER BY `id` DESC LIMIT 0,20 [ RunTime:0.000278s ]"}
+{"time":"2022-03-07 19:32:39","type":"sql","msg":"CONNECT:[ UseTime:0.001158s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:32:39","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_address` [ RunTime:0.000894s ]"}
+{"time":"2022-03-07 19:32:39","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `data_address` [ RunTime:0.002165s ]"}
+{"time":"2022-03-07 19:32:39","type":"sql","msg":"SELECT * FROM `data_address` ORDER BY `id` ASC LIMIT 0,20 [ RunTime:0.000286s ]"}
+{"time":"2022-03-07 19:32:40","type":"sql","msg":"CONNECT:[ UseTime:0.000463s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:32:40","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_user` [ RunTime:0.001004s ]"}
+{"time":"2022-03-07 19:32:40","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `system_user` WHERE  `is_deleted` = 0  AND `status` = 1 [ RunTime:0.006160s ]"}
+{"time":"2022-03-07 19:32:40","type":"sql","msg":"SELECT * FROM `system_user` WHERE  `is_deleted` = 0  AND `status` = 1 ORDER BY `sort` DESC,`id` DESC LIMIT 0,20 [ RunTime:0.000738s ]"}
+{"time":"2022-03-07 19:32:40","type":"sql","msg":"CONNECT:[ UseTime:0.001257s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:32:40","type":"sql","msg":"SELECT VERSION() [ RunTime:0.001882s ]"}
+{"time":"2022-03-07 19:32:49","type":"sql","msg":"CONNECT:[ UseTime:0.000480s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:32:49","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_fish` [ RunTime:0.003863s ]"}
+{"time":"2022-03-07 19:32:49","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `data_fish` [ RunTime:0.000321s ]"}
+{"time":"2022-03-07 19:32:49","type":"sql","msg":"SELECT * FROM `data_fish` ORDER BY `time` DESC,`id` DESC LIMIT 0,20 [ RunTime:0.000292s ]"}
+{"time":"2022-03-07 19:33:05","type":"sql","msg":"CONNECT:[ UseTime:0.000926s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:33:05","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_user` [ RunTime:0.001065s ]"}
+{"time":"2022-03-07 19:33:05","type":"sql","msg":"SELECT * FROM `system_user` WHERE  `id` = 10000 LIMIT 1 [ RunTime:0.002091s ]"}
+{"time":"2022-03-07 19:33:05","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_menu` [ RunTime:0.000929s ]"}
+{"time":"2022-03-07 19:33:05","type":"sql","msg":"SELECT * FROM `system_menu` WHERE  `status` = 1 ORDER BY `sort` DESC,`id` ASC [ RunTime:0.000471s ]"}
+{"time":"2022-03-07 19:33:05","type":"sql","msg":"CONNECT:[ UseTime:0.000451s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:33:05","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_fish` [ RunTime:0.000967s ]"}
+{"time":"2022-03-07 19:33:05","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `data_fish` [ RunTime:0.004431s ]"}
+{"time":"2022-03-07 19:33:05","type":"sql","msg":"SELECT * FROM `data_fish` ORDER BY `time` DESC,`id` DESC LIMIT 0,20 [ RunTime:0.000310s ]"}
+{"time":"2022-03-07 19:33:09","type":"sql","msg":"CONNECT:[ UseTime:0.000552s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:33:09","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_fish` [ RunTime:0.000982s ]"}
+{"time":"2022-03-07 19:33:09","type":"sql","msg":"CONNECT:[ UseTime:0.003283s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:33:09","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_withdraw` [ RunTime:0.000941s ]"}
+{"time":"2022-03-07 19:33:09","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `data_withdraw` [ RunTime:0.000271s ]"}
+{"time":"2022-03-07 19:33:09","type":"sql","msg":"SELECT * FROM `data_withdraw` ORDER BY `id` DESC LIMIT 0,20 [ RunTime:0.000350s ]"}
+{"time":"2022-03-07 19:33:10","type":"sql","msg":"CONNECT:[ UseTime:0.000445s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:33:10","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_fish` [ RunTime:0.000994s ]"}
+{"time":"2022-03-07 19:33:10","type":"sql","msg":"CONNECT:[ UseTime:0.000463s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:33:10","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_address` [ RunTime:0.000906s ]"}
+{"time":"2022-03-07 19:33:10","type":"sql","msg":"SELECT * FROM `data_address` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000364s ]"}
+{"time":"2022-03-07 19:33:25","type":"sql","msg":"CONNECT:[ UseTime:0.003166s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:33:25","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_address` [ RunTime:0.000907s ]"}
+{"time":"2022-03-07 19:33:25","type":"sql","msg":"SELECT * FROM `data_address` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000359s ]"}
+{"time":"2022-03-07 19:33:44","type":"sql","msg":"CONNECT:[ UseTime:0.000460s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:33:44","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_user` [ RunTime:0.001025s ]"}
+{"time":"2022-03-07 19:33:44","type":"sql","msg":"SELECT * FROM `system_user` WHERE  `id` = 10000 LIMIT 1 [ RunTime:0.000411s ]"}
+{"time":"2022-03-07 19:33:44","type":"sql","msg":"SHOW FULL COLUMNS FROM `system_menu` [ RunTime:0.000852s ]"}
+{"time":"2022-03-07 19:33:44","type":"sql","msg":"SELECT * FROM `system_menu` WHERE  `status` = 1 ORDER BY `sort` DESC,`id` ASC [ RunTime:0.000419s ]"}
+{"time":"2022-03-07 19:33:44","type":"sql","msg":"CONNECT:[ UseTime:0.003764s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:33:44","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_fish` [ RunTime:0.001174s ]"}
+{"time":"2022-03-07 19:33:44","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `data_fish` [ RunTime:0.000296s ]"}
+{"time":"2022-03-07 19:33:44","type":"sql","msg":"SELECT * FROM `data_fish` ORDER BY `time` DESC,`id` DESC LIMIT 0,20 [ RunTime:0.000317s ]"}
+{"time":"2022-03-07 19:33:48","type":"sql","msg":"CONNECT:[ UseTime:0.000445s ] mysql:host=127.0.0.1;port=3306;dbname=yxymkcom;charset=utf8mb4"}
+{"time":"2022-03-07 19:33:48","type":"sql","msg":"SHOW FULL COLUMNS FROM `data_fish` [ RunTime:0.005974s ]"}
+{"time":"2022-03-07 19:33:48","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `data_fish` WHERE  `type` = 'erc' [ RunTime:0.000384s ]"}
+{"time":"2022-03-07 19:33:48","type":"sql","msg":"SELECT COUNT(*) AS think_count FROM `data_fish` WHERE  `type` = 'trc' [ RunTime:0.000295s ]"}

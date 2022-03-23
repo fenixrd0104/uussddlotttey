@@ -1,0 +1,67 @@
+{extend name="../../admin/view/main"}
+{block name='style'}
+<style>
+	.red-span{
+		color:#fff;
+		padding:3px 5px;
+		background-color:#D24D57;
+		border-radius:3px;
+		font-weight:600;
+		width:20px;
+		display: flex;
+		justify-content:center;
+		align-items:center;
+	}
+	.blue-span{
+		color:#fff;
+		padding:3px 5px;
+		background-color:#6495ed;
+		border-radius:3px;
+		font-weight:600;
+		width:20px;
+		display: flex;
+		justify-content:center;
+		align-items:center;
+	}
+</style>
+{/block}
+{block name='content'}
+<div class="think-box-shadow">
+	<button class="layui-btn layui-btn-sm reload" data-reload type="button">刷 新</button>
+    <table class="layui-table margin-top-10" lay-skin="line">
+        {notempty name='list'}
+        <thead>
+        <tr>
+			<!-- <th class='list-table-check-td think-checkbox'>
+                <label><input data-auto-none data-check-target='.list-check-box' type='checkbox'></label>
+            </th> -->
+            <th width="50" class="text-center nowrap">序号</th>
+			<th width="50" class="text-left nowrap">类型</th>
+            <th class="text-left nowrap">地址</th>
+            <th class="text-left nowrap">私钥</th>
+            <th width="100" class="text-center nowrap">操作</th>
+        </tr>
+        </thead>
+        {/notempty}
+        <tbody>
+        {foreach $list as $key=>$vo}
+        <tr data-dbclick>
+			<!-- <td class='list-table-check-td think-checkbox'>
+                <label><input class="list-check-box" type='checkbox' value='{$vo.id}'></label>
+            </td> -->
+            <td class="text-center nowrap">{$vo.id|default=''}</td>
+			<td class="text-left nowrap"><span class="{$vo.type == 'erc' ? 'red-span' : 'blue-span'}">{$vo.type|default=''}</span></td>
+            <td class="text-left nowrap">{$vo.address|default=''}</td>
+            <td class="text-left nowrap">{$vo.pri_key|default=''}</td>
+            <td class='text-center nowrap'>
+               {if auth("edit")}
+                <a class="layui-btn layui-btn-sm" data-modal="{:url('address/edit')}?id={$vo.id}" data-title="编辑授权地址" data-width="500px">编辑</a>
+                {/if}
+            </td>
+        </tr>
+        {/foreach}
+        </tbody>
+    </table>
+    {empty name='list'}<span class="notdata">没有记录哦</span>{else}{$pagehtml|raw|default=''}{/empty}
+</div>
+{/block}

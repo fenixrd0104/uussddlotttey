@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Fapp\u002Fsponsor","\u002Fapp\u002Fpromo\u002Flist","\u002F","\u002Fapp\u002Fnewsponsor\u002F[id]","\u002Fegame\u002F[id]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()

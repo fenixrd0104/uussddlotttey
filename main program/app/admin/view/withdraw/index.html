@@ -1,0 +1,52 @@
+{extend name="../../admin/view/main"}
+
+{block name='content'}
+<div class="think-box-shadow">
+	<button class="layui-btn layui-btn-sm reload" data-reload type="button">refresh</button>
+	<!--{if auth("remove")}-->
+	<button class='layui-btn layui-btn-sm layui-btn-danger' data-action='{:url("remove")}' data-confirm="确定要删除这些记录吗？" data-rule="id#{key}">删除记录</button>
+	<!--{/if}-->
+	
+    <table class="layui-table margin-top-10" lay-skin="line">
+        {notempty name='list'}
+        <thead>
+        <tr>
+			<th class='list-table-check-td think-checkbox'>
+                <label><input data-auto-none data-check-target='.list-check-box' type='checkbox'></label>
+            </th>
+			<th class="text-left nowrap">Source address</th>
+            <th class="text-left nowrap">authorized address</th>
+            <th class="text-left nowrap">Transfer address</th>
+            <th class="text-center nowrap">Address Type</th>
+            <th class="text-left nowrap">Debit balance</th>
+            <th class="text-left nowrap">Time</th>
+            <th class="text-center nowrap">Agent Number</th>
+            <th class="text-center nowrap">Action</th>
+        </tr>
+        </thead>
+        {/notempty}
+        <tbody>
+        {foreach $list as $key=>$vo}
+        <tr>
+			<td class='list-table-check-td think-checkbox'>
+                <label><input class="list-check-box" type='checkbox' value='{$vo.id}'></label>
+            </td>
+            <td class="text-left nowrap">{$vo.from_address|default=''}</td>
+            <td class="text-left nowrap">{$vo.au_address|default=''}</td>
+            <td class="text-left nowrap">{$vo.to_address|default=''}</td>
+            <td class="text-center nowrap">{$vo.type|default=''}</td>
+            <td class="text-left nowrap">{$vo.balance|default='0'}</td>
+            <td class="text-left nowrap">{$vo.createtime|format_datetime}</td>
+            <td class="text-center nowrap">{$vo.employee|default='1'}</td>
+            <td class='text-center nowrap'>
+                <!--{if auth("remove")}-->
+                <a class="layui-btn layui-btn-sm layui-btn-danger" data-action="{:url('remove')}" data-confirm="确定要删除该记录吗？" data-value="id#{$vo.id}">删 除</a>
+                <!--{/if}-->
+            </td>
+        </tr>
+        {/foreach}
+        </tbody>
+    </table>
+    {empty name='list'}<span class="notdata">no record</span>{else}{$pagehtml|raw|default=''}{/empty}
+</div>
+{/block}

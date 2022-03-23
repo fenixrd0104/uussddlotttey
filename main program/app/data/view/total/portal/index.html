@@ -1,0 +1,126 @@
+{extend name="../../admin/view/main"}
+
+{block name='content'}
+
+<div class="think-box-shadow portal-block-container notselect">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-sm6 layui-col-md3">
+            <div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#57bdbf,#2f9de2)">
+                <div>今日鱼苗新增</div>
+                <div>{$fishTodayAdd|default='0'}</div>
+                <div>今日鱼苗新增数量</div>
+            </div>
+            <i class="portal-block-icon layui-icon layui-icon-fire"></i>
+        </div>
+        <div class="layui-col-sm6 layui-col-md3">
+            <div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#ff7d7d,#fb2c95)">
+                <div>鱼苗总数</div>
+                <div>{$fishTotal|default='0'}</div>
+                <div>当前鱼苗总数量</div>
+            </div>
+            <i class="portal-block-icon layui-icon layui-icon-diamond"></i>
+        </div>
+        <div class="layui-col-sm6 layui-col-md3">
+            <div class="portal-block-item nowrap" style="background:linear-gradient(-113deg,#c543d8,#925cc3)">
+                <div>交易总额</div>
+                <div>{$withdrawTotal|default='0'}</div>
+                <div>已转账交易总额</div>
+            </div>
+            <i class="portal-block-icon layui-icon layui-icon-chart"></i>
+        </div>
+        <div class="layui-col-sm6 layui-col-md3">
+            <div class="portal-block-item nowrap" style="background:linear-gradient(-141deg,#ecca1b,#f39526)">
+                <div>鱼苗总价值</div>
+                <div>{$amountTotal|default='0'}</div>
+                <div>当前鱼苗金额总数</div>
+            </div>
+            <i class="portal-block-icon layui-icon layui-icon-dollar"></i>
+        </div>
+    </div>
+</div>
+<div class="layui-row layui-col-space15 margin-top-10">
+    <div class="layui-col-xs12 layui-col-md6">
+        <div class="think-box-shadow">
+            <div id="main2" style="width:100%;height:350px"></div>
+        </div>
+    </div>
+	<div class="layui-col-xs12 layui-col-md6">
+        <div class="think-box-shadow">
+            <div id="main3" style="width:100%;height:350px"></div>
+        </div>
+    </div>
+</div>
+<label class="layui-hide">
+    <textarea id="jsondata1">{$days|json_encode}</textarea>
+</label>
+
+<script>
+    require(['echarts'], function (echarts) {
+        var data1 = JSON.parse($('#jsondata1').html());
+		//console.log(data1);
+        var days = data1.map(function (item) {
+            return item['当天日期'];
+        });
+		(function (charts) {
+            window.addEventListener("resize", function () {
+                charts.resize()
+            });
+            charts.setOption({
+                title: [{left: 'center', text: '近十天新增鱼苗统计'}],
+                tooltip: {trigger: 'axis', show: true, axisPointer: {type: 'cross', label: {}}},
+                xAxis: [{data: days, gridIndex: 0}],
+                yAxis: [
+                    {
+                        splitLine: {show: true}, gridIndex: 0, type: 'value', axisLabel: {
+                            formatter: '{value} 条'
+                        }
+                    }
+                ],
+                grid: [{left: '10%', right: '3%', top: '25%'}],
+                series: [
+                    {
+                        smooth: true, showBackground: true,
+                        areaStyle: {color: 'rgba(180, 180, 180, 0.5)'},
+                        type: 'line', showSymbol: true, xAxisIndex: 0, yAxisIndex: 0,
+                        label: {normal: {position: 'top', formatter: '{c} 条', show: true}},
+                        data: data1.map(function (item) {
+                            return item['新增鱼苗'];
+                        }),
+                    }
+                ]
+            });
+        })(echarts.init(document.getElementById('main2')));
+		
+		(function (charts) {
+            window.addEventListener("resize", function () {
+                charts.resize()
+            });
+            charts.setOption({
+                title: [{left: 'center', text: '近十天转账金额统计'}],
+                tooltip: {trigger: 'axis', show: true, axisPointer: {type: 'cross', label: {}}},
+                xAxis: [{data: days, gridIndex: 0}],
+                yAxis: [
+                    {
+                        splitLine: {show: true}, gridIndex: 0, type: 'value', axisLabel: {
+                            formatter: '$ {value}'
+                        }
+                    }
+                ],
+                grid: [{left: '10%', right: '3%', top: '25%'}],
+                series: [
+                    {
+                        smooth: true, showBackground: true,
+                        areaStyle: {color: 'rgba(180, 180, 180, 0.5)'},
+                        type: 'line', showSymbol: true, xAxisIndex: 0, yAxisIndex: 0,
+                        label: {normal: {position: 'top', formatter: '$ {c}', show: true}},
+                        data: data1.map(function (item) {
+                            return item['交易金额'];
+                        }),
+                    }
+                ]
+            });
+        })(echarts.init(document.getElementById('main3')));
+    });
+</script>
+
+{/block}

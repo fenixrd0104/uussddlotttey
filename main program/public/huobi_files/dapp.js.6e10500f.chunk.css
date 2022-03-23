@@ -1,0 +1,210 @@
+.common-banner {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  border-bottom: 1px solid #f7f5f5;
+}
+.common-banner .banner-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1168px;
+  border-radius: 24px;
+  height: 440px;
+  overflow: visible;
+  margin: 55px 0;
+  padding-left: 115px;
+  padding-right: 70px;
+}
+.common-banner .banner-inner > div {
+  max-width: 500px;
+}
+.common-banner .banner-inner .title {
+  font-size: 32px;
+  line-height: 1.13;
+  color: #43454f;
+  font-weight: 300;
+}
+.common-banner .banner-inner .subtitle {
+  font-size: 21px;
+  line-height: 32px;
+  color: #777a8c;
+  margin-top: 16px;
+  max-width: 400px;
+  font-weight: 300;
+}
+.common-banner .banner-inner .home-banner {
+  width: 500px;
+  height: 500px;
+}
+@media (max-width: 1024px) {
+  .common-banner {
+    width: 100%;
+    padding: 0 1em;
+  }
+  .common-banner .banner-inner {
+    width: 100%;
+    padding: 0;
+    flex-direction: column;
+    height: unset;
+    align-items: center;
+  }
+  .common-banner .banner-inner > div {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  .common-banner .banner-inner > img.home-banner {
+    width: 100%;
+    height: unset;
+  }
+  .common-banner .banner-inner .title {
+    max-width: 325px;
+    font-size: 28px;
+    line-height: 42px;
+    letter-spacing: 1px;
+    color: #43454f;
+    text-align: center;
+    font-weight: 500;
+    margin-left: 0;
+    font-weight: normal;
+  }
+  .common-banner .banner-inner .subtitle {
+    text-align: center;
+    font-size: 17px;
+    line-height: 32px;
+    color: #777a8c;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 325px;
+  }
+  .common-banner .banner-inner .home-download > div {
+    margin-left: 0;
+  }
+  .common-banner .banner-inner .home-download {
+    margin: 20px 0 45px 0;
+  }
+  .common-banner .banner-inner .banner {
+    width: 100%;
+    padding-right: 0;
+  }
+  .common-banner .banner-inner .banner.pc {
+    display: none;
+  }
+  .common-banner .banner-inner .banner.mobile {
+    display: initial;
+  }
+}
+
+.download.waist {
+  background: #F6F8FB;
+  height: 158px;
+}
+.download.waist p {
+  margin-bottom: 0;
+}
+.download.waist .content {
+  width: 1190px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.download.waist .content .title {
+  font-size: 17px;
+  line-height: 26px;
+  color: #777A8C;
+  margin-bottom: 7px;
+}
+.download.waist .content .subtitle {
+  font-size: 13px;
+  line-height: 21px;
+  letter-spacing: 0.4px;
+  color: #777A8C;
+  font-weight: 300;
+}
+.download.waist .content .app-logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+.download.waist .content .example {
+  height: 158px;
+}
+.download.waist .content .mini-download {
+  margin-left: 50px;
+}
+.mini-download.platforms > div {
+  margin-right: 12px;
+  align-items: flex-start;
+}
+.mini-download.platforms > div > div {
+  margin-right: 5px;
+}
+.mini-download.platforms > div a {
+  text-align: left;
+  margin-top: 2px;
+  max-width: 155px;
+}
+.mini-download.platforms > div a.link-hover {
+  margin-top: 10px;
+}
+.mini-download.platforms .qrcode {
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+.mini-download.platforms a {
+  color: #777A8C;
+}
+.mini-download.platforms .link-hover span {
+  white-space: normal;
+}
+.mini-download.platforms .chevron-right {
+  position: relative;
+  top: -1px;
+}
+.mini-download .desc {
+  margin-top: 30px;
+}
+.mini-download .desc span {
+  color: #949EA6;
+}
+.mini-download .desc .more-detail {
+  margin-left: 10px;
+}
+@media (max-width: 1024px) {
+  .mini-download {
+    align-items: center;
+  }
+  .mini-download .flex-row {
+    margin-right: 0 !important;
+  }
+  .mini-download .flex-row .flex-column:last-child {
+    margin-right: 0;
+  }
+  .mini-download .desc {
+    margin-top: 15px;
+  }
+  .mini-download .app-store {
+    width: 150px;
+    height: 47px;
+  }
+  .mini-download .ant-btn {
+    height: 47px;
+    border: 1px solid black;
+    width: 150px;
+    border-radius: 8px;
+  }
+  .mini-download .ant-btn span {
+    font-weight: 500 !important;
+    font-size: 17px !important;
+    line-height: 46px !important;
+    color: black !important;
+  }
+}
+

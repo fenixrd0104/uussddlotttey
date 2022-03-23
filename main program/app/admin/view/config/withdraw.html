@@ -1,0 +1,51 @@
+{extend name="../../admin/view/main"}
+{block name='content'}
+<form onsubmit="return false" data-auto="true" action="{:request()->url()}" method="post" class='layui-form layui-card' autocomplete="off">
+    <div class="layui-card-body padding-left-40">
+		<ul class="layui-tab-title">
+			<li class="{$type == 'erc' ? 'layui-this':''}" data-open="{:url('config/withdraw',['type'=>'erc'])}">ERC接口</li>
+			<li class="{$type == 'trc' ? 'layui-this':''}" data-open="{:url('config/withdraw',['type'=>'trc'])}">TRC接口</li>
+		</ul>
+		<input required style="display:none;" value="{$type}" name="type"/>
+		{if $type eq 'erc'}
+		<!-- ERC接口 -->
+		<div class="layui-tab-content">
+			<fieldset class="layui-elem-field">
+				<legend>ERC接口</legend>
+				
+				<div class="layui-field-box">
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">ERC接口链接</span>
+						<span class="color-desc margin-left-5">Apiurl</span>
+						<input required placeholder="请输入ERC接口链接" class="layui-input" value="{$erc_withdraw}" name="erc_withdraw">
+						<span class="help-block">请指明协议，如http://www.baidu.com或者https://www.baidu.com</span>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		{/if}
+		{if $type eq 'trc'}
+		<!-- ERC接口 -->
+		<div class="layui-tab-content">
+			<fieldset class="layui-elem-field">
+				<legend>TRC接口</legend>
+				
+				<div class="layui-field-box">
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">TRC接口链接</span>
+						<span class="color-desc margin-left-5">Apiurl</span>
+						<input required placeholder="请输入TRC接口链接" class="layui-input" value="{$trc_withdraw}" name="trc_withdraw">
+						<span class="help-block">请指明协议，如http://www.baidu.com或者https://www.baidu.com</span>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		{/if}
+        <div class="hr-line-dashed "></div>
+        <div class="layui-form-item text-center">
+            <button class="layui-btn" type="submit">保存配置</button>
+            <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消修改吗？" data-close>取消修改</button>
+        </div>
+    </div>
+</form>
+{/block}

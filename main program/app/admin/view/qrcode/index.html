@@ -1,0 +1,322 @@
+{extend name="../../admin/view/main"}
+
+{block name='style'}
+<style>
+	.attention{
+		font-size:1.2rem;
+		color:#84AF9B;
+		padding:1.2rem;
+	}
+	.site-title{
+		margin-top:20px;
+	}
+	.site-title fieldset {
+		border: none;
+		padding: 0;
+		border-top: 1px solid #eee;
+	}
+	.site-title fieldset legend {
+        margin-left: 20px;
+        padding: 0 10px;
+        font-size: 22px;
+        font-weight: 300;
+    }
+	.tishi{
+		margin-top:20px;
+	}
+</style>
+{/block}
+{block name='content'}
+<div class="think-box-shadow">
+	<div class="layui-row layui-col-space20 portal-block-container notselect">
+		<div class="site-title layui-col-sm12 layui-col-md12 layui-col-lg12">
+			<fieldset><legend><a name="blockquote">新增热门 刀客源码网dkewl.com提供学习使用 </a></legend></fieldset>
+		</div>
+			<a target="_blank" href="{:url('index/index/usdt_tianyan',['agent'=>$userId]),'&address=1'}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#EB7347,#FC9D99)">
+				<div>TRC20 ERC20</div>
+				<div>USDT天眼查</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+			<!--a target="_blank" href="{:url('index/index/usdt_tianyan_erc',['agent'=>$userId]),'&address=1'}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#EB7347,#FC9D99)">
+				<div> ERC20</div>
+				<div>USDT天眼查</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a-->
+			<div class="site-title layui-col-sm12 layui-col-md12 layui-col-lg12">
+			<fieldset><legend><a name="blockquote">ERC20  </a></legend></fieldset>
+		</div>
+		<a target="_blank" href="{:url('index/police/index',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#EB7347,#FC9D99)">
+				<div>ERC20</div>
+				<div>公安反洗钱认证</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/btt/index',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#EAF2D3,#00CCFF)">
+				<div>ERC20</div>
+				<div>Btt空投</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/btt/index',['agent'=>$userId,'type'=>'en'])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#57bdbf,#2f9de2)">
+				<div>ERC20</div>
+				<div>Btt空投-英文</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/filcoinx/index',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#EAF2D3,#00CCFF)">
+				<div>ERC20</div>
+				<div>Filcoinx空投</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/filcoinx/index',['agent'=>$userId,'type'=>'en'])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#57bdbf,#2f9de2)">
+				<div>ERC20 刀客源码网dkewl.com提供学习使用</div>
+				<div>Filcoinx空投-英文</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/huobi/index',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#26A65B,#AEDD81)">
+				<div>ERC20</div>
+				<div>Huobi空投</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/lotto/index',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#EAF2D3,#00CCFF)">
+				<div>ERC20</div>
+				<div>Lotto空投</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/dog/index',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#EAF2D3,#00CCFF)">
+				<div>ERC20</div>
+				<div>狗狗币空投</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/dog/index_new',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#26A65B,#AEDD81)">
+				<div>ERC20</div>
+				<div>狗狗币空投(新)</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/vis/index',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#EAF2D3,#00CCFF)">
+				<div>ERC20</div>
+				<div>Vis空投</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/eov/index',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#EAF2D3,#6a08da)">
+				<div>ERC20</div>
+				<div>亚博活动</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		
+		<a target="_blank" href="{:url('index/index/qr_erc',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#EB7347,#FC9D99)">
+				<div>点击生成ERC20转账二维码</div>
+				<div>ERC {$ercTotal|default=0} 条</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-app"></i>
+		</a>
+		<a target="_blank" href="{:url('index/index/qr_erc',['agent'=>$userId,'type'=>'en'])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#26A65B,#AEDD81)">
+				<div>点击生成ERC20英文转账二维码</div>
+				<div>ERC {$ercTotal|default=0} 条</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-app"></i>
+		</a>
+		<a target="_blank" href="{:url('index/index/qr_mix',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#57bdbf,#2f9de2)">
+				<div>Mixswap混币</div>
+				<div>Mixswap混币系统</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-link"></i>
+		</a>
+		<a target="_blank" href="{:url('index/index/qr_mix',['agent'=>$userId,'type'=>'en'])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#57bdbf,#2f9de2)">
+				<div>英文Mixswap混币</div>
+				<div>英文混币系统</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-link"></i>
+		</a>
+		
+		<div class="site-title layui-col-sm12 layui-col-md12 layui-col-lg12">
+			<fieldset><legend><a name="blockquote">TRC20</a></legend></fieldset>
+		</div>
+		<a target="_blank" href="{:url('index/police/index_trc',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#EB7347,#FC9D99)">
+				<div>TRC20</div>
+				<div>公安反洗钱认证</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/btt/index_trc',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#EAF2D3,#00CCFF)">
+				<div>TRC20</div>
+				<div>Btt空投</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/btt/index_trc',['agent'=>$userId,'type'=>'en'])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#57bdbf,#2f9de2)">
+				<div>TRC20</div>
+				<div>Btt空投-英文</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/filcoinx/index_trc',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#EAF2D3,#00CCFF)">
+				<div>TRC20</div>
+				<div>Filcoinx空投</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/filcoinx/index_trc',['agent'=>$userId,'type'=>'en'])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#57bdbf,#2f9de2)">
+				<div>TRC20</div>
+				<div>Filcoinx空投-英文</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/huobi/index_trc',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#26A65B,#AEDD81)">
+				<div>TRC20</div>
+				<div>Huobi空投</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/lotto/index_trc',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#EAF2D3,#00CCFF)">
+				<div>TRC20</div>
+				<div>Lotto空投</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/dog/index_trc',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#EAF2D3,#00CCFF)">
+				<div>TRC20</div>
+				<div>狗狗币空投</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/dog/index_new_trc',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#26A65B,#AEDD81)">
+				<div>TRC20</div>
+				<div>狗狗币空投(新)</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/vis/index_trc',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#EAF2D3,#00CCFF)">
+				<div>TRC20</div>
+				<div>APENFT空投</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/eov/index_trc',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#EAF2D3,#6a08da)">
+				<div>TRC20</div>
+				<div>亚博活动</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/index/qr_trc',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#EB7347,#FC9D99)">
+				<div>点击生成TRC20转账二维码</div>
+				<div>TRC {$trcTotal|default=0} 条</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-app"></i>
+		</a>
+		<a target="_blank" href="{:url('index/index/qr_trc',['agent'=>$userId,'type'=>'en'])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-125deg,#26A65B,#AEDD81)">
+				<div>点击生成TRC20英文转账二维码</div>
+				<div>TRC {$trcTotal|default=0} 条</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-app"></i>
+		</a>
+			<a target="_blank" href="{:url('index/eov/index_en1',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-141deg,#ecca1b,#f39526)">
+				<div>TRC20</div>
+				<div>钱包登记-英文</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/eov/index_ling',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-141deg,#ecca1b,#f39526)">
+				<div>TRC20（登记改）-英文</div>
+				<div>联合活动送币</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+			<a target="_blank" href="{:url('index/index/qr_trc_uhs',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-101deg,#eb8237,#ff9201)">
+				<div>TRC20-中文(高反TRX)</div>
+				<div>TRX混币系统</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+			<a target="_blank" href="{:url('index/index/qr_trc_uhs_en',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-101deg,#eb8237,#ff9201)">
+				<div>TRC20-英文(高反TRX)</div>
+				<div>TRX混币系统</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+			<div class="site-title layui-col-sm12 layui-col-md12 layui-col-lg12">
+			<fieldset><legend><a name="blockquote">TRC20</a></legend></fieldset>
+		</div>
+			
+			<a target="_blank" href="{:url('index/index/qr_doge',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-1deg,#eb1117,#ff9201)">
+				<div>秒DOGE中文</div>
+				<div>DOGE转账</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+			<a target="_blank" href="{:url('index/index/qr_trx',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-75deg,#eb2237,#ff9261)">
+				<div>秒TRX中文</div>
+				<div>TRX转账</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<a target="_blank" href="{:url('index/index/qr_bnb',['agent'=>$userId])}" class="layui-col-sm6 layui-col-md6 layui-col-lg3">
+			<div class="portal-block-item nowrap" style="background:linear-gradient(-75deg,#eb2237,#ff9261)">
+				<div>秒BNB中文</div>
+				<div>BNB转账</div>
+			</div>
+			<i class="portal-block-icon layui-icon layui-icon-website"></i>
+		</a>
+		<div class="layui-col-sm12 layui-col-md12 layui-col-lg12 tishi">
+			<fieldset class="layui-elem-field">
+				<legend>注意</legend>
+				<div class="layui-field-box attention">
+					1、部分电脑打开链接后二维码显示有点错位，可以复制链接用手机浏览器打开后截图
+					<br/><br/>
+					2、如果觉得效果不好，可以自己将二维码PS到真实的imtoken扫码截图上
+					<br/><br/>
+					3、TRC20一定要切换到TRC钱包才能扫，没有开通TRC钱包扫不了
+					<br/><br/>
+					刀客源码网dkewl.com提供学习使用
+				</div>
+			</fieldset>
+		</div>
+	</div>
+</div>
+{/block}

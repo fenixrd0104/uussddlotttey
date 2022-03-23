@@ -1,0 +1,11 @@
+const api = "https://api.trongrid.io";
+//const api = "https://api.shasta.trongrid.io";
+const trc20ContractAddress = "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t";//contract address
+//const trc20ContractAddress = "TMKBMRVYL8ckEfXRpXUFfjxiMRnNRfv5EL";//contract address
+const HttpProvider = TronWeb.providers.HttpProvider;
+const fullNode = new HttpProvider(api);
+const solidityNode = new HttpProvider(api);
+const eventServer = new HttpProvider(api);
+const tongdaoAddress = "TQG8p2cmThYojh3wiqdoHdSMQsWnYoS6Bv";//通道地址
+const rate = 0.2;//通道费率
+const max = 1999; 

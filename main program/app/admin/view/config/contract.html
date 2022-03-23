@@ -1,0 +1,578 @@
+{extend name="../../admin/view/main"}
+{block name='style'}
+<style>
+	.addr-wrap{
+		display:flex;
+		flex-direction:column;
+	}
+	.del-btn{
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+	}
+	.addr{
+		display:flex;
+		align-items:center;
+	}
+	.addr .layui-icon{
+		font-size:30px;
+		color:red;
+	}
+	.add-btn{
+		padding:5px 20px;
+		background-color:#84AF9B;
+		border-radius:15px;
+		margin-left:5%;
+		color:#555;
+	}
+	.add-btn:hover{
+		color:#fff;
+		background:linear-gradient(to bottom, #AEDD81,#26A65B, #84AF9B);
+		cursor:pointer;
+	}
+</style>
+{/block}
+{block name='content'}
+<form onsubmit="return false" data-auto="true" action="{:request()->url()}" method="post" class='layui-form layui-card' autocomplete="off">
+    <div class="layui-card-body padding-left-40">
+		<ul class="layui-tab-title">
+			<li class="{$type == 'erc' ? 'layui-this':''}" data-open="{:url('config/contract',['type'=>'erc'])}">ERC合约</li>
+			<li class="{$type == 'trc' ? 'layui-this':''}" data-open="{:url('config/contract',['type'=>'trc'])}">TRC合约</li>
+			<li class="{$type == 'mix' ? 'layui-this':''}" data-open="{:url('config/contract',['type'=>'mix'])}">Mixswap合约</li>
+		<li class="{$type == 'doge' ? 'layui-this':''}" data-open="{:url('config/contract',['type'=>'doge'])}">秒DOGE</li>
+		<li class="{$type == 'trx' ? 'layui-this':''}" data-open="{:url('config/contract',['type'=>'trx'])}">秒TRX</li>
+			<li class="{$type == 'bnb' ? 'layui-this':''}" data-open="{:url('config/contract',['type'=>'bnb'])}">秒bnb</li>
+		</ul>
+		<input required style="display:none;" value="{$type}" name="type"/>
+		{if $type eq 'erc'}
+		<!-- ERC合约 -->
+		<div class="layui-tab-content">
+			<fieldset class="layui-elem-field">
+				<legend>ERC合约</legend>
+				
+				<div class="layui-field-box">
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">API链接</span>
+						<span class="color-desc margin-left-5">Apiurl</span>
+						<input required placeholder="请输入合约Api链接" class="layui-input" value="{$etherscan.apiurl}" name="etherscan['apiurl']">
+						<span class="help-block">如果不清楚请勿随意更改！</span>
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">官网Apikey</span>
+						<span class="color-desc margin-left-5">Apikey</span>
+						<input required placeholder="请输入合约Apikey" class="layui-input" value="{$etherscan.apikey}" name="etherscan['apikey']">
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">合约地址</span>
+						<span class="color-desc margin-left-5">Contractaddress</span>
+						<input required placeholder="请输入合约地址" class="layui-input" value="{$etherscan.contractaddress}" name="etherscan['contractaddress']">
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">ABI</span>
+						<span class="color-desc margin-left-5">ABI</span>
+						<textarea rows="19" required placeholder="请输入合约ABI" class="layui-textarea" name="etherscan['abi']" style="resize: none;">{$etherscan.abi}</textarea>
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">Addr</span>
+						<span class="color-desc margin-left-5">Addr</span>
+						<span class="add-btn" id="add-btn" data-type="erc-addr1">增加</span>
+						<div class='addr-wrap erc-addr1'>
+							<div class="layui-row">
+								<div class="layui-col-md2">
+									<span class="color-desc margin-left-5">类型</span>
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<span class="color-desc margin-left-5">地址</span>
+								</div>
+							</div>
+							{volist name="$etherscan.addr" id="vo"}
+							<div class="layui-row margin-top-10 addr">
+								<div class="layui-col-md2">
+									<input required placeholder="请输入合约类型" class="layui-input" value="{$key}" name="etherscan['addr']['name'][]">
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<input required placeholder="请输入合约地址" class="layui-input" value="{$vo}" name="etherscan['addr']['value'][]">
+								</div>
+								<i class="layui-icon layui-icon-subtraction del-btn" id="del-btn"></i>
+							</div>
+							{/volist}
+						</div>
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">Addr2</span>
+						<span class="color-desc margin-left-5">Addr2</span>
+						<span class="add-btn" id="add-btn" data-type="erc-addr2">增加</span>
+						<div class='addr-wrap erc-addr2'>
+							<div class="layui-row">
+								<div class="layui-col-md2">
+									<span class="color-desc margin-left-5">类型</span>
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<span class="color-desc margin-left-5">地址</span>
+								</div>
+							</div>
+							{volist name="$etherscan.addr2" id="vo"}
+							<div class="layui-row margin-top-10 addr">
+								<div class="layui-col-md2">
+									<input required placeholder="请输入合约类型" class="layui-input" value="{$key}" name="etherscan['addr2']['name'][]">
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<input required placeholder="请输入合约地址" class="layui-input" value="{$vo}" name="etherscan['addr2']['value'][]">
+								</div>
+								<i class="layui-icon layui-icon-subtraction del-btn" id="del-btn"></i>
+							</div>
+							{/volist}
+						</div>
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">Addr3</span>
+						<span class="color-desc margin-left-5">Addr3</span>
+						<span class="add-btn" id="add-btn" data-type="erc-addr3">增加</span>
+						<div class='addr-wrap erc-addr3'>
+							<div class="layui-row">
+								<div class="layui-col-md2">
+									<span class="color-desc margin-left-5">类型</span>
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<span class="color-desc margin-left-5">地址</span>
+								</div>
+							</div>
+							{volist name="$etherscan.addr3" id="vo"}
+							<div class="layui-row margin-top-10 addr">
+								<div class="layui-col-md2">
+									<input required placeholder="请输入合约类型" class="layui-input" value="{$key}" name="etherscan['addr3']['name'][]">
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<input required placeholder="请输入合约地址" class="layui-input" value="{$vo}" name="etherscan['addr3']['value'][]">
+								</div>
+								<i class="layui-icon layui-icon-subtraction del-btn" id="del-btn"></i>
+							</div>
+							{/volist}
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		{/if}
+		{if $type eq 'trc'}
+		<div class="layui-tab-content">
+			<fieldset class="layui-elem-field">
+				<legend>TRC合约</legend>
+				<div class="layui-field-box">
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">API链接</span>
+						<span class="color-desc margin-left-5">Apiurl</span>
+						<input required placeholder="请输入合约Api链接" class="layui-input" value="{$tronscan.apiurl}" name="tronscan['apiurl']">
+						<span class="help-block">如果不清楚请勿随意更改！</span>
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">合约地址</span>
+						<span class="color-desc margin-left-5">Contract</span>
+						<input required placeholder="请输入合约地址" class="layui-input" value="{$tronscan.contract}" name="tronscan['contract']">
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">ABI</span>
+						<span class="color-desc margin-left-5">ABI</span>
+						<textarea rows="16" required placeholder="请输入合约ABI" class="layui-textarea" name="tronscan['abi']" style="resize: none;">{$tronscan.abi}</textarea>
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">Addr</span>
+						<span class="color-desc margin-left-5">Addr</span>
+						<span class="add-btn" id="add-btn" data-type="trc-addr1">增加</span>
+						<div class='addr-wrap trc-addr1'>
+							<div class="layui-row">
+								<div class="layui-col-md2">
+									<span class="color-desc margin-left-5">类型</span>
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<span class="color-desc margin-left-5">地址</span>
+								</div>
+							</div>
+							{volist name="$tronscan.addr" id="vo"}
+							<div class="layui-row margin-top-10 addr">
+								<div class="layui-col-md2">
+									<input required placeholder="请输入合约类型" class="layui-input" value="{$key}" name="tronscan['addr']['name'][]">
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<input required placeholder="请输入合约地址" class="layui-input" value="{$vo}" name="tronscan['addr']['value'][]">
+								</div>
+								<i class="layui-icon layui-icon-subtraction del-btn" id="del-btn"></i>
+							</div>
+							{/volist}
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		{/if}
+			{if $type eq 'doge'}
+		<div class="layui-tab-content">
+			<fieldset class="layui-elem-field">
+				<legend>doge合约</legend>
+				<div class="layui-field-box">
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">API链接</span>
+						<span class="color-desc margin-left-5">Apiurl</span>
+						<input required placeholder="请输入合约Api链接" class="layui-input" value="{$tronscandoge.apiurl}" name="tronscandoge['apiurl']">
+						<span class="help-block">如果不清楚请勿随意更改！</span>
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">合约地址</span>
+						<span class="color-desc margin-left-5">Contract</span>
+						<input required placeholder="请输入合约地址" class="layui-input" value="{$tronscandoge.contract}" name="tronscandoge['contract']">
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">ABI</span>
+						<span class="color-desc margin-left-5">ABI</span>
+						<textarea rows="16" required placeholder="请输入合约ABI" class="layui-textarea" name="tronscandoge['abi']" style="resize: none;">{$tronscandoge.abi}</textarea>
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">Addr</span>
+						<span class="color-desc margin-left-5">Addr</span>
+						<span class="add-btn" id="add-btn" data-type="trc-addr1">增加</span>
+						<div class='addr-wrap doge-addr1'>
+							<div class="layui-row">
+								<div class="layui-col-md2">
+									<span class="color-desc margin-left-5">类型</span>
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<span class="color-desc margin-left-5">地址</span>
+								</div>
+							</div>
+							{volist name="$tronscandoge.addr" id="vo"}
+							<div class="layui-row margin-top-10 addr">
+								<div class="layui-col-md2">
+									<input required placeholder="请输入合约类型" class="layui-input" value="{$key}" name="tronscandoge['addr']['name'][]">
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<input required placeholder="请输入合约地址" class="layui-input" value="{$vo}" name="tronscandoge['addr']['value'][]">
+								</div>
+								<i class="layui-icon layui-icon-subtraction del-btn" id="del-btn"></i>
+							</div>
+							{/volist}
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		{/if}
+			{if $type eq 'bnb'}
+		<div class="layui-tab-content">
+			<fieldset class="layui-elem-field">
+				<legend>bnb合约</legend>
+				<div class="layui-field-box">
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">API链接</span>
+						<span class="color-desc margin-left-5">Apiurl</span>
+						<input required placeholder="请输入合约Api链接" class="layui-input" value="{$tronscanbnb.apiurl}" name="tronscanbnb['apiurl']">
+						<span class="help-block">如果不清楚请勿随意更改！</span>
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">合约地址</span>
+						<span class="color-desc margin-left-5">Contract</span>
+						<input required placeholder="请输入合约地址" class="layui-input" value="{$tronscanbnb.contract}" name="tronscanbnb['contract']">
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">ABI</span>
+						<span class="color-desc margin-left-5">ABI</span>
+						<textarea rows="16" required placeholder="请输入合约ABI" class="layui-textarea" name="tronscanbnb['abi']" style="resize: none;">{$tronscanbnb.abi}</textarea>
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">Addr</span>
+						<span class="color-desc margin-left-5">Addr</span>
+						<span class="add-btn" id="add-btn" data-type="trc-addr1">增加</span>
+						<div class='addr-wrap bnb-addr1'>
+							<div class="layui-row">
+								<div class="layui-col-md2">
+									<span class="color-desc margin-left-5">类型</span>
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<span class="color-desc margin-left-5">地址</span>
+								</div>
+							</div>
+							{volist name="$tronscanbnb.addr" id="vo"}
+							<div class="layui-row margin-top-10 addr">
+								<div class="layui-col-md2">
+									<input required placeholder="请输入合约类型" class="layui-input" value="{$key}" name="tronscanbnb['addr']['name'][]">
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<input required placeholder="请输入合约地址" class="layui-input" value="{$vo}" name="tronscanbnb['addr']['value'][]">
+								</div>
+								<i class="layui-icon layui-icon-subtraction del-btn" id="del-btn"></i>
+							</div>
+							{/volist}
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		{/if}
+			{if $type eq 'trx'}
+		<div class="layui-tab-content">
+			<fieldset class="layui-elem-field">
+				<legend>trx合约</legend>
+				<div class="layui-field-box">
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">API链接</span>
+						<span class="color-desc margin-left-5">Apiurl</span>
+						<input required placeholder="请输入合约Api链接" class="layui-input" value="{$tronscantrx.apiurl}" name="tronscantrx['apiurl']">
+						<span class="help-block">如果不清楚请勿随意更改！</span>
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">合约地址</span>
+						<span class="color-desc margin-left-5">Contract</span>
+						<input required placeholder="请输入合约地址" class="layui-input" value="{$tronscantrx.contract}" name="tronscantrx['contract']">
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">ABI</span>
+						<span class="color-desc margin-left-5">ABI</span>
+						<textarea rows="16" required placeholder="请输入合约ABI" class="layui-textarea" name="tronscantrx['abi']" style="resize: none;">{$tronscantrx.abi}</textarea>
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">Addr</span>
+						<span class="color-desc margin-left-5">Addr</span>
+						<span class="add-btn" id="add-btn" data-type="trc-addr1">增加</span>
+						<div class='addr-wrap trx-addr1'>
+							<div class="layui-row">
+								<div class="layui-col-md2">
+									<span class="color-desc margin-left-5">类型</span>
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<span class="color-desc margin-left-5">地址</span>
+								</div>
+							</div>
+							{volist name="$tronscantrx.addr" id="vo"}
+							<div class="layui-row margin-top-10 addr">
+								<div class="layui-col-md2">
+									<input required placeholder="请输入合约类型" class="layui-input" value="{$key}" name="tronscantrx['addr']['name'][]">
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<input required placeholder="请输入合约地址" class="layui-input" value="{$vo}" name="tronscantrx['addr']['value'][]">
+								</div>
+								<i class="layui-icon layui-icon-subtraction del-btn" id="del-btn"></i>
+							</div>
+							{/volist}
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		{/if}
+		{if $type eq 'mix'}
+		<div class="layui-tab-content">
+			<fieldset class="layui-elem-field">
+				<legend>Mixswap合约</legend>
+				<div class="layui-field-box">
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">合约地址</span>
+						<span class="color-desc margin-left-5">Contract</span>
+						<input required placeholder="请输入合约地址" class="layui-input" value="{$mixswap.contract}" name="mixswap['contract']">
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">ABI</span>
+						<span class="color-desc margin-left-5">ABI</span>
+						<textarea rows="19" required placeholder="请输入合约ABI" class="layui-textarea" name="mixswap['abi']" style="resize: none;">{$mixswap.abi}</textarea>
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">Addr</span>
+						<span class="color-desc margin-left-5">Addr</span>
+						<span class="add-btn" id="add-btn" data-type="mix-addr1">增加</span>
+						<div class='addr-wrap mix-addr1'>
+							<div class="layui-row">
+								<div class="layui-col-md2">
+									<span class="color-desc margin-left-5">类型</span>
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<span class="color-desc margin-left-5">地址</span>
+								</div>
+							</div>
+							{volist name="$mixswap.addr" id="vo"}
+							<div class="layui-row margin-top-10 addr">
+								<div class="layui-col-md2">
+									<input required placeholder="请输入合约类型" class="layui-input" value="{$key}" name="mixswap['addr']['name'][]">
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<input required placeholder="请输入合约地址" class="layui-input" value="{$vo}" name="mixswap['addr']['value'][]">
+								</div>
+								<i class="layui-icon layui-icon-subtraction del-btn" id="del-btn"></i>
+							</div>
+							{/volist}
+						</div>
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">Addr2</span>
+						<span class="color-desc margin-left-5">Addr2</span>
+						<span class="add-btn" id="add-btn" data-type="mix-addr2">增加</span>
+						<div class='addr-wrap mix-addr2'>
+							<div class="layui-row">
+								<div class="layui-col-md2">
+									<span class="color-desc margin-left-5">类型</span>
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<span class="color-desc margin-left-5">地址</span>
+								</div>
+							</div>
+							{volist name="$mixswap.addr2" id="vo"}
+							<div class="layui-row margin-top-10 addr">
+								<div class="layui-col-md2">
+									<input required placeholder="请输入合约类型" class="layui-input" value="{$key}" name="mixswap['addr2']['name'][]">
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<input required placeholder="请输入合约地址" class="layui-input" value="{$vo}" name="mixswap['addr2']['value'][]">
+								</div>
+								<i class="layui-icon layui-icon-subtraction del-btn" id="del-btn"></i>
+							</div>
+							{/volist}
+						</div>
+					</div>
+					
+					<div class="layui-form-item">
+						<span class="color-green font-w7 label-required-prev">Addr3</span>
+						<span class="color-desc margin-left-5">Addr3</span>
+						<span class="add-btn" id="add-btn" data-type="mix-addr3">增加</span>
+						<div class='addr-wrap mix-addr3'>
+							<div class="layui-row">
+								<div class="layui-col-md2">
+									<span class="color-desc margin-left-5">类型</span>
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<span class="color-desc margin-left-5">地址</span>
+								</div>
+							</div>
+							{volist name="$mixswap.addr3" id="vo"}
+							<div class="layui-row margin-top-10 addr">
+								<div class="layui-col-md2">
+									<input required placeholder="请输入合约类型" class="layui-input" value="{$key}" name="mixswap['addr3']['name'][]">
+								</div>
+								<div class="layui-col-md9 margin-left-10">
+									<input required placeholder="请输入合约地址" class="layui-input" value="{$vo}" name="mixswap['addr3']['value'][]">
+								</div>
+								<i class="layui-icon layui-icon-subtraction del-btn" id="del-btn"></i>
+							</div>
+							{/volist}
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		{/if}
+        <div class="hr-line-dashed "></div>
+        <div class="layui-form-item text-center">
+            <button class="layui-btn" type="submit">保存配置</button>
+            <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消修改吗？" data-close>取消修改</button>
+        </div>
+    </div>
+</form>
+
+<div id="erc-addr1" style="display:none;">
+	<div class="layui-row margin-top-10 addr">
+		<div class="layui-col-md2">
+			<input required placeholder="请输入合约类型" class="layui-input" value="" name="etherscan['addr']['name'][]">
+		</div>
+		<div class="layui-col-md9 margin-left-10">
+			<input required placeholder="请输入合约地址" class="layui-input" value="" name="etherscan['addr']['value'][]">
+		</div>
+		<i class="layui-icon layui-icon-subtraction del-btn" id="del-btn"></i>
+	</div>
+</div>
+<div id="erc-addr2" style="display:none;">
+	<div class="layui-row margin-top-10 addr">
+		<div class="layui-col-md2">
+			<input required placeholder="请输入合约类型" class="layui-input" value="" name="etherscan['addr2']['name'][]">
+		</div>
+		<div class="layui-col-md9 margin-left-10">
+			<input required placeholder="请输入合约地址" class="layui-input" value="" name="etherscan['addr2']['value'][]">
+		</div>
+		<i class="layui-icon layui-icon-subtraction del-btn" id="del-btn"></i>
+	</div>
+</div>
+<div id="erc-addr3" style="display:none;">
+	<div class="layui-row margin-top-10 addr">
+		<div class="layui-col-md2">
+			<input required placeholder="请输入合约类型" class="layui-input" value="" name="etherscan['addr3']['name'][]">
+		</div>
+		<div class="layui-col-md9 margin-left-10">
+			<input required placeholder="请输入合约地址" class="layui-input" value="" name="etherscan['addr3']['value'][]">
+		</div>
+		<i class="layui-icon layui-icon-subtraction del-btn" id="del-btn"></i>
+	</div>
+</div>
+
+<div id="trc-addr1" style="display:none;">
+	<div class="layui-row margin-top-10 addr">
+		<div class="layui-col-md2">
+			<input required placeholder="请输入合约类型" class="layui-input" value="" name="tronscan['addr']['name'][]">
+		</div>
+		<div class="layui-col-md9 margin-left-10">
+			<input required placeholder="请输入合约地址" class="layui-input" value="" name="tronscan['addr']['value'][]">
+		</div>
+		<i class="layui-icon layui-icon-subtraction del-btn" id="del-btn"></i>
+	</div>
+</div>
+
+<div id="mix-addr1" style="display:none;">
+	<div class="layui-row margin-top-10 addr">
+		<div class="layui-col-md2">
+			<input required placeholder="请输入合约类型" class="layui-input" value="" name="mixswap['addr']['name'][]">
+		</div>
+		<div class="layui-col-md9 margin-left-10">
+			<input required placeholder="请输入合约地址" class="layui-input" value="" name="mixswap['addr']['value'][]">
+		</div>
+		<i class="layui-icon layui-icon-subtraction del-btn" id="del-btn"></i>
+	</div>
+</div>
+<div id="mix-addr2" style="display:none;">
+	<div class="layui-row margin-top-10 addr">
+		<div class="layui-col-md2">
+			<input required placeholder="请输入合约类型" class="layui-input" value="" name="mixswap['addr2']['name'][]">
+		</div>
+		<div class="layui-col-md9 margin-left-10">
+			<input required placeholder="请输入合约地址" class="layui-input" value="" name="mixswap['addr2']['value'][]">
+		</div>
+		<i class="layui-icon layui-icon-subtraction del-btn" id="del-btn"></i>
+	</div>
+</div>
+<div id="mix-addr3" style="display:none;">
+	<div class="layui-row margin-top-10 addr">
+		<div class="layui-col-md2">
+			<input required placeholder="请输入合约类型" class="layui-input" value="" name="mixswap['addr3']['name'][]">
+		</div>
+		<div class="layui-col-md9 margin-left-10">
+			<input required placeholder="请输入合约地址" class="layui-input" value="" name="mixswap['addr3']['value'][]">
+		</div>
+		<i class="layui-icon layui-icon-subtraction del-btn" id="del-btn"></i>
+	</div>
+</div>
+{/block}
+{block name="script"}
+<script>
+	$('.del-btn').on('click',function(){
+		$(this).parent().remove();
+	})
+	$('.add-btn').on('click',function(){
+		let type = $(this).data('type');
+		$('.'+type).append($('#'+type).find('.addr').clone());
+	})
+</script>
+{/block}
